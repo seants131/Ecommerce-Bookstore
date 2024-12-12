@@ -1,7 +1,7 @@
 <?php
 
 // database/migrations/xxxx_xx_xx_xxxxxx_rename_categories_to_danhmuc.php
-
+//ghichu
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
