@@ -28,3 +28,4 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('danhmucs', DanhMucController::class);
     Route::resource('books', BookController::class);
 });*/
+//ghi chu
