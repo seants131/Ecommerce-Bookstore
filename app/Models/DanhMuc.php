@@ -26,5 +26,6 @@ class DanhMuc extends Model
     {
         return $this->hasMany(DanhMuc::class, 'parent_id');
     }
+    //ghi chúchú
 }
 
