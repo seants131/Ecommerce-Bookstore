@@ -1,8 +1,8 @@
 ## Web bán sách
-Mn có thể tạo nhánh fork, code và thực hiện pull request để gộp code của nhau lại
+Web bán sách dùng laravel của nhóm PHPCRAFT
 
 # Project Title
 
-Additional info...
-
-Contributed by: Quang Lam
+Contributed by: 
+    Quang Lam
+    Minh Quan
