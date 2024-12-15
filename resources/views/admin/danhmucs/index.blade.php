@@ -29,7 +29,7 @@
                     <td>{{ $danhmuc->name }}</td>
                     <td>
                         <a href="{{ route('admin.danhmucs.edit', $danhmuc->id) }}" class="btn btn-warning">Sửa</a>
-                        <form action="{{ route('admin.danhmucs.destroy', $danhmuc->id) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('admin.danhmucs.destroy', $danhmuc->id) }}" method="POST" style="display:inline;" class="delete-form">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Xóa</button>
@@ -42,7 +42,7 @@
                                     <li>
                                         {{ $child->name }}
                                         <a href="{{ route('admin.danhmucs.edit', $child->id) }}" class="btn btn-warning">Sửa</a>
-                                        <form action="{{ route('admin.danhmucs.destroy', $child->id) }}" method="POST" style="display:inline;">
+                                        <form action="{{ route('admin.danhmucs.destroy', $child->id) }}" method="POST" style="display:inline;" class="delete-form">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Xóa</button>
@@ -57,6 +57,17 @@
                 </tr>
             @endforeach
         </tbody>
+        <script>
+    document.querySelectorAll('.delete-form').forEach(form => {
+        form.addEventListener('submit', function (e) {
+            const confirmDelete = confirm('Bạn có chắc chắn muốn xóa danh mục này không?');
+            if (!confirmDelete) {
+                e.preventDefault(); // Ngăn form submit nếu người dùng chọn "Hủy"
+            }
+        });
+    });
+</script>
+
     </table>
     </div>
 @endsection
