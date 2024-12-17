@@ -27,8 +27,9 @@
                 <tr>
                     <td>{{ $book->MaSach }}</td>      <!-- Hiển thị mã sách -->
                     <td>{{ $book->TenSach }}</td>     <!-- Hiển thị tên sách -->
-                    <td>{{ $book->category->name ?? 'Không có' }}</td>
+                    <td>{{ $book->danhmuc->name ?? 'Không có' }}</td>
                     <td>{{ $book->GiaBan }}</td>      <!-- Hiển thị giá bán -->
+                    <td>{{ $book->SoLuong }}</td>  
                     <td>{{ $book->TrangThai == 1 ? 'Còn hàng' : 'Hết hàng' }}</td> <!-- Hiển thị trạng thái -->
                     <td>
                         <a href="{{ route('admin.books.edit', $book->MaSach) }}" class="btn btn-warning">Sửa</a>
