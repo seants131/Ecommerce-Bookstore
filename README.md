@@ -1,3 +1,9 @@
-## Web bán sách
-Web bán sách dùng laravel của nhóm PHPCRAFT
-Nhánh của Võ Minh QuânQuân
+# Web bán sách
+
+<p> Web bán sách dùng laravel của nhóm PHPCRAFT </p>
+
+## Thành Viên:
+
+<p> - Dương Quan Lãm <br>
+    - Võ Minh Quân 
+</p>
