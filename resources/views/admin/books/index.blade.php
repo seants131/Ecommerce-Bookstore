@@ -27,12 +27,13 @@
                 <tr>
                     <td>{{ $book->MaSach }}</td>      <!-- Hiển thị mã sách -->
                     <td>{{ $book->TenSach }}</td>     <!-- Hiển thị tên sách -->
-                    <td>{{ $book->category->name ?? 'Không có' }}</td>
+                    <td>{{ $book->danhmuc->name ?? 'Không có' }}</td>
                     <td>{{ $book->GiaBan }}</td>      <!-- Hiển thị giá bán -->
+                    <td>{{ $book->SoLuong }}</td>  
                     <td>{{ $book->TrangThai == 1 ? 'Còn hàng' : 'Hết hàng' }}</td> <!-- Hiển thị trạng thái -->
                     <td>
                         <a href="{{ route('admin.books.edit', $book->MaSach) }}" class="btn btn-warning">Sửa</a>
-                        <form action="{{ route('admin.books.destroy', $book->MaSach) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('admin.books.destroy', $book->MaSach) }}" method="POST" style="display:inline;" class="delete-form">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Xoá</button>
@@ -42,9 +43,27 @@
             @endforeach
         </tbody>
         <script>
-   
+    // Lắng nghe sự kiện "submit" của các form xóa
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteForms = document.querySelectorAll('.delete-form');
+
+        deleteForms.forEach(form => {
+            form.addEventListener('submit', function (e) {
+                // Hiển thị hộp thoại xác nhận
+                const confirmDelete = confirm('Bạn có chắc chắn muốn xóa sách này không?');
+
+                // Nếu người dùng chọn Cancel, ngăn form gửi đi
+                if (!confirmDelete) {
+                    e.preventDefault();
+                }
+            });
+        });
+    });
 </script>
+
 
     </table>
 </div>
 @endsection
+
+
