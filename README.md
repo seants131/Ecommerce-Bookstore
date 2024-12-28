@@ -5,5 +5,6 @@
 ## Thành Viên:
 
 <p> - Dương Quan Lãm <br>
-    - Võ Minh Quân 
+    - Võ Minh Quân <br>
+    - Võ Quang Bảo <br>
 </p>
