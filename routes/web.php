@@ -10,7 +10,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/admin', function () {
-    return view('admin.danhmucs.dashboard');
+    return view('admin.dashboard');
 });
 // Route cho trang dashboard của admin
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
