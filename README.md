@@ -7,5 +7,6 @@
 <p> - Dương Quan Lãm <br>
     - Võ Minh Quân <br>
     - Võ Quang Bảo <br>
-    -Võ Thành Đăng Khoa <br>
+    - Võ Thành Đăng Khoa <br>
+    - Đồng Anh Phú <br>
 </p>
