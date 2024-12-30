@@ -71,6 +71,7 @@
     </div>
 @endsection
 
+{{-- Trời ơi! Để đống css này nằm ở trong file css chung đi cho tiện, bên đây code cái search bar bên trang index không thấy phần này -> không ăn css nên lấy cdn của bootstrap qua  --}}
 @section('styles')
     <style>
        /* Container cho form */
