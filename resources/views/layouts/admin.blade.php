@@ -7,6 +7,7 @@
   <!-- Liên kết đến file CSS của Laravel -->
   <link href="{{ asset('css/admin.css') }}" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  @yield('styles')
 </head>
 <body>
   <div class="container">
