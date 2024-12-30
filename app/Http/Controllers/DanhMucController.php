@@ -70,4 +70,10 @@ class DanhMucController extends Controller
 
         return redirect()->route('admin.danhmucs.index')->with('success', 'Danh mục và danh mục con đã được xóa thành công.');
     }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $books = DanhMuc::where('TenSach', 'LIKE', "%{$query}%")->get();
+        return view('admin.books.index', compact('books'));
+    }
 }

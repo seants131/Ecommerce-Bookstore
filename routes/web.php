@@ -21,7 +21,10 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::resource('danhmucs', DanhMucController::class);
     Route::resource('books', BookController::class)->except(['show']);
     Route::post('books/search', [BookController::class, 'search'])->name('books.search'); // Tìm kiếm sách 
+    Route::post('danhmucs/search', [DanhMucController::class, 'search'])->name('books.search'); // Tìm kiếm danh mục  
 });
+
+
 // // Route cho trang danhmuc của admin
 // Route::prefix('admin')->name('admin.')->group(function() {
 //     Route::resource('danhmucs', DanhMucController::class);
