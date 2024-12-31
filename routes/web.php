@@ -7,8 +7,24 @@ use App\Http\Controllers\BookController;
 
 // Route cho trang chủ
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.user.index');
 });
+Route::get('/product', function () {
+    return view('layouts.user.product');
+});
+Route::get('/about', function () {
+    return view('layouts.user.about');
+});
+Route::get('/contact', function () {
+    return view('layouts.user.contact');
+});
+Route::get('/cart', function () {
+    return view('layouts.user.cart');
+});
+Route::get('/user', function () {
+    return view('layouts.user.user');
+});
+
 Route::get('/admin', function () {
     return view('admin.danhmucs.dashboard');
 });
@@ -21,8 +37,4 @@ Route::prefix('admin')->name('admin.')->group(function() {
 // Route cho trang sach của admin
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('books', BookController::class);
-});
-
-Route::get('/user', function () {
-    return view('layouts.user.index');
 });
