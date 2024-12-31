@@ -23,9 +23,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('books', BookController::class);
 });
 
-// Nhóm route cho admin
-/*Route::prefix('admin')->name('admin.')->group(function () {
-    Route::resource('danhmucs', DanhMucController::class);
-    Route::resource('books', BookController::class);
-});*/
-//ghi chu
+Route::get('/user', function () {
+    return view('layouts.user.index');
+});
