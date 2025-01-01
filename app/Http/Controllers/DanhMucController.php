@@ -73,7 +73,7 @@ class DanhMucController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-        $books = DanhMuc::where('name', 'LIKE', "%{$query}%")->get();
+        $danhmucs = DanhMuc::where('name', 'LIKE', "%{$query}%")->get();
         return view('admin.danhmucs.index', compact('danhmucs'));
     }
 }

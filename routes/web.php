@@ -44,14 +44,5 @@ Route::prefix('admin')->name('admin.')->group(function() {
 });
 
 
-// // Route cho trang danhmuc của admin
-// Route::prefix('admin')->name('admin.')->group(function() {
-//     Route::resource('danhmucs', DanhMucController::class);
-// });
-// // Route cho trang sach của admin
-// Route::prefix('admin')->name('admin.')->group(function () {
-//     Route::resource('books', BookController::class);
-// });
-
 
 
