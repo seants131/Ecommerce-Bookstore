@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Schema;
 
 class RenameCategoriesToDanhmuc extends Migration
 {
-    public function up()
-    {
-        Schema::rename('categories', 'danhmuc');
-    }
+    // public function up()
+    // {
+    //     Schema::rename('categories', 'danhmuc');
+    // }
 
-    public function down()
-    {
-        Schema::rename('danhmuc', 'categories');
-    }
+    // public function down()
+    // {
+    //     Schema::rename('danhmuc', 'categories');
+    // }
 }
