@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DanhMucController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\LienHeController;
 
 // Route cho trang chủ
 Route::get('/', function () {
@@ -15,19 +16,22 @@ Route::get('/product', function () {
 Route::get('/about', function () {
     return view('layouts.user.about');
 });
-Route::get('/contact', function () {
-    return view('layouts.user.contact');
+Route::get('/product', function () {
+    return view('layouts.user.product');
 });
-Route::get('/cart', function () {
-    return view('layouts.user.cart');
+Route::get('/about', function () {
+    return view('layouts.user.about');
 });
 Route::get('/user', function () {
     return view('layouts.user.user');
 });
-
-Route::get('/admin', function () {
-    return view('admin.danhmucs.dashboard');
+Route::get('/cart', function () {
+    return view('layouts.user.cart');
 });
+
+Route::get('/contact', [LienHeController::class, 'showView'])->name('contact.form');
+Route::post('/contact', [LienHeController::class, 'store'])->name('contact.store');
+
 // Route cho trang dashboard của admin
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 // Route cho trang danhmuc của admin
@@ -38,3 +42,4 @@ Route::prefix('admin')->name('admin.')->group(function() {
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('books', BookController::class);
 });
+

@@ -101,44 +101,70 @@
     <div id="footerSection">
         <div class="container">
             <div class="row">
-                <div class="span3">
-                    <h5>ACCOUNT</h5>
-                    <a href="login.html">YOUR ACCOUNT</a>
-                    <a href="login.html">PERSONAL INFORMATION</a>
-                    <a href="login.html">ADDRESSES</a>
-                    <a href="login.html">DISCOUNT</a>
-                    <a href="login.html">ORDER HISTORY</a>
-                </div>
-                <div class="span3">
-                    <h5>INFORMATION</h5>
-                    <a href="contact.html">CONTACT</a>
-                    <a href="register.html">REGISTRATION</a>
-                    <a href="legal_notice.html">LEGAL NOTICE</a>
-                    <a href="tac.html">TERMS AND CONDITIONS</a>
-                    <a href="faq.html">FAQ</a>
-                </div>
-                <div class="span3">
-                    <h5>OUR OFFERS</h5>
-                    <a href="#">NEW PRODUCTS</a>
-                    <a href="#">TOP SELLERS</a>
-                    <a href="special_offer.html">SPECIAL OFFERS</a>
-                    <a href="#">MANUFACTURERS</a>
-                    <a href="#">SUPPLIERS</a>
-                </div>
-                <div id="socialMedia" class="span3 pull-right">
-                    <h5>SOCIAL MEDIA </h5>
-                    <a href="#"><img width="60" height="60" src="themes/images/facebook.png"
-                            title="facebook" alt="facebook" /></a>
-                    <a href="#"><img width="60" height="60" src="themes/images/twitter.png"
-                            title="twitter" alt="twitter" /></a>
-                    <a href="#"><img width="60" height="60" src="themes/images/youtube.png"
-                            title="youtube" alt="youtube" /></a>
+                <!-- Logo của Website -->
+                <div class="span12 text-center">
+                    <img src="themes/images/logo.png" alt="Logo Website Bán Sách" style="width: 150px; height: auto; margin-bottom: 20px;">
                 </div>
             </div>
-            <p class="pull-right">&copy; Bootshop</p>
+            <div class="row">
+                <!-- Menu dọc -->
+                <div class="span3">
+                    <h5>MENU</h5>
+                    <div class="">
+                        <a href="#" class="active">Trang chủ</a>
+                        <a href="#">Sách mới</a>
+                        <a href="#">Thể loại</a>
+                        <a href="#">Khuyến mãi</a>
+                        <a href="#">Liên hệ</a>
+                    </div>
+                </div>
+                <!-- Thông tin về tài khoản -->
+                <div class="span3">
+                    <h5>QUẢN LÝ TÀI KHOẢN</h5>
+                    <a href="login.html">Tài khoản của bạn</a>
+                    <a href="login.html">Thông tin cá nhân</a>
+                    <a href="login.html">Địa chỉ</a>
+                    <a href="login.html">Ưu đãi</a>
+                    <a href="login.html">Lịch sử đơn hàng</a>
+                </div>
+                <!-- Thông tin chung -->
+                <div class="span3">
+                    <h5>THÔNG TIN</h5>
+                   <a href="{{ url('/contact') }}">Liên hệ</a>
+                    <a href="register.html">Đăng ký</a>
+                    <a href="legal_notice.html">Thông báo pháp lý</a>
+                    <a href="tac.html">Điều khoản sử dụng</a>
+                    <a href="faq.html">Câu hỏi thường gặp</a>
+                </div>
+                <!-- Các ưu đãi -->
+                <div class="span3">
+                    <h5>ƯU ĐÃI CỦA CHÚNG TÔI</h5>
+                    <a href="#">Sách mới</a>
+                    <a href="#">Sách bán chạy</a>
+                    <a href="special_offer.html">Ưu đãi đặc biệt</a>
+                    <a href="#">Nhà xuất bản</a>
+                    <a href="#">Nhà cung cấp</a>
+                </div>
+                <!-- Mạng xã hội -->
+                <div id="socialMedia" class="span3 pull-right">
+                    <h5>KẾT NỐI VỚI CHÚNG TÔI</h5>
+                    <a href="https://www.facebook.com/"><img width="40" height="40" src="themes/images/facebook.png" title="Facebook" alt="Facebook" /></a>
+                    <a href="https://www.facebook.com/"><img width="40" height="40" src="themes/images/twitter.png" title="Twitter" alt="Twitter" /></a>
+                    <a href="https://www.facebook.com/"><img width="40" height="40" src="themes/images/youtube.png" title="YouTube" alt="YouTube" /></a>
+                </div>
+            </div>
+            <!-- Thông tin địa chỉ và bản quyền -->
+            <div class="row">
+                <div class="span12 text-center">
+                    <p>
+                        <strong>Website Bán Sách - Địa chỉ: localhost</strong><br />
+                        Mang đến những cuốn sách tuyệt vời để nâng cao tri thức và giải trí.
+                    </p>
+                    <p class="pull-right">&copy; 2024 Website Bán Sách</p>
+                </div>
+            </div>
         </div><!-- Container End -->
     </div>
-
     <script src="themes/js/jquery.js" type="text/javascript"></script>
     <script src="themes/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="themes/js/google-code-prettify/prettify.js"></script>
