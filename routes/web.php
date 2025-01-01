@@ -4,11 +4,32 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DanhMucController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\LienHeController;
 
 // Route cho trang chủ
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/product', function () {
+    return view('layouts.user.product');
+});
+Route::get('/about', function () {
+    return view('layouts.user.about');
+});
+
+Route::get('/contact', [LienHeController::class, 'showView'])->name('contact.form');
+
+Route::post('/contact', [LienHeController::class, 'store'])->name('contact.store');
+
+Route::get('/cart', function () {
+    return view('layouts.user.cart');
+});
+Route::get('/user', function () {
+    return view('layouts.user.user');
+});
+
 Route::get('/admin', function () {
     return view('admin.danhmucs.dashboard');
 });
