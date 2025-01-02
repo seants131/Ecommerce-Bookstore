@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DanhMucController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LienHeController;
+use App\Http\Controllers\HoaDonController;
 
 // Route cho trang chủ
 Route::get('/', function () {
@@ -47,6 +48,11 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::post('books/search', [BookController::class, 'search'])->name('books.search'); // Tìm kiếm sách 
     Route::post('danhmucs/search', [DanhMucController::class, 'search'])->name('danhmucs.search'); // Tìm kiếm danh mục  
 });
+
+Route::get('/orders', [HoaDonController::class, 'index'])->name('orders.index');  // Danh sách đơn hàng
+Route::get('/orders/{id}/edit', [HoaDonController::class, 'edit'])->name('orders.edit');  // Form cập nhật đơn hàng
+Route::put('/orders/{id}', [HoaDonController::class, 'updateOrder'])->name('orders.update');  // Cập nhật đơn hàng
+Route::delete('/orders/{id}', [HoaDonController::class, 'deleteOrder'])->name('orders.destroy');  // Xoá đơn hàng
 
 
 
