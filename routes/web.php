@@ -10,6 +10,7 @@ use App\Http\Controllers\LienHeController;
 Route::get('/', function () {
     return view('layouts.user.index');
 });
+
 Route::get('/admin', function () {
     return view('admin.dashboard');
 });
@@ -31,6 +32,12 @@ Route::get('/contact', [LienHeController::class, 'showView'])->name('contact.for
 Route::post('/contact', [LienHeController::class, 'store'])->name('contact.store');
 
 // Route cho trang dashboard của admin
+
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+});
+// Route cho trang dashboard của admin
+
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
 // Nhóm route cho admin
