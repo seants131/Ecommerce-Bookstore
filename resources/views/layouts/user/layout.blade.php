@@ -27,6 +27,7 @@
         href="{{ asset('themes/images/ico/apple-touch-icon-57-precomposed.png') }}">
     <style type="text/css" id="enject"></style>
     <link href="{{ asset('themes/css/style.css') }}" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -103,7 +104,8 @@
             <div class="row">
                 <!-- Logo của Website -->
                 <div class="span12 text-center">
-                    <img src="themes/images/logo.png" alt="Logo Website Bán Sách" style="width: 150px; height: auto; margin-bottom: 20px;">
+                    <img src="{{ asset('themes/images/logo.png') }}" alt="Logo Website Bán Sách" style="width: 150px; height: auto; margin-bottom: 20px;">
+
                 </div>
             </div>
             <div class="row">
@@ -148,9 +150,10 @@
                 <!-- Mạng xã hội -->
                 <div id="socialMedia" class="span3 pull-right">
                     <h5>KẾT NỐI VỚI CHÚNG TÔI</h5>
-                    <a href="https://www.facebook.com/"><img width="40" height="40" src="themes/images/facebook.png" title="Facebook" alt="Facebook" /></a>
-                    <a href="https://www.facebook.com/"><img width="40" height="40" src="themes/images/twitter.png" title="Twitter" alt="Twitter" /></a>
-                    <a href="https://www.facebook.com/"><img width="40" height="40" src="themes/images/youtube.png" title="YouTube" alt="YouTube" /></a>
+                    <a href="https://www.facebook.com/"><img width="40" height="40" src="{{ asset('themes/images/facebook.png') }}" title="Facebook" alt="Facebook" /></a>
+                    <a href="https://www.twitter.com/"><img width="40" height="40" src="{{ asset('themes/images/twitter.png') }}" title="Twitter" alt="Twitter" /></a>
+                    <a href="https://www.youtube.com/"><img width="40" height="40" src="{{ asset('themes/images/youtube.png') }}" title="YouTube" alt="YouTube" /></a>
+
                 </div>
             </div>
             <!-- Thông tin địa chỉ và bản quyền -->
@@ -173,7 +176,6 @@
     <script src="themes/js/jquery.lightbox-0.5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <span id="themesBtn"></span>
 </body>
 
 </html>
