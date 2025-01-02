@@ -74,4 +74,10 @@ class BookController extends Controller
 
         return redirect()->route('admin.books.index')->with('success', 'Sách đã được xóa thành công.');
     }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $books = Sach::where('TenSach', 'LIKE', "%{$query}%")->get();
+        return view('admin.books.index', compact('books'));
+    }
 }
