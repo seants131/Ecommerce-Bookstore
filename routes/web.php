@@ -7,7 +7,19 @@ use App\Http\Controllers\BookController;
 
 // Route cho trang chủ
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.user.index');
+});
+Route::get('/contact', function () {
+    return view('layouts.user.contact');
+});
+Route::get('/delivery', function () {
+    return view('layouts.user.delivery');
+});
+Route::get('/special', function () {
+    return view('layouts.user.specials');
+});
+Route::get('/products', function () {
+    return view('layouts.user.products');
 });
 Route::get('/admin', function () {
     return view('admin.danhmucs.dashboard');
