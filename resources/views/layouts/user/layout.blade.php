@@ -10,23 +10,14 @@
 
     <link id="callCss" rel="stylesheet" href="{{ asset('themes/bootshop/bootstrap.min.css') }}" media="screen" />
     <link href="{{ asset('themes/css/base.css') }}" rel="stylesheet" media="screen" />
-    <!-- Bootstrap style responsive -->
     <link href="{{ asset('themes/css/bootstrap-responsive.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('themes/css/font-awesome.css') }}" rel="stylesheet" type="text/css">
-    <!-- Google-code-prettify -->
     <link href="{{ asset('themes/js/google-code-prettify/prettify.css') }}" rel="stylesheet" />
-    <!-- fav and touch icons -->
     <link rel="shortcut icon" href="{{ asset('themes/images/ico/favicon.ico') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144"
-        href="{{ asset('themes/images/ico/apple-touch-icon-144-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114"
-        href="{{ asset('themes/images/ico/apple-touch-icon-114-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"
-        href="{{ asset('themes/images/ico/apple-touch-icon-72-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed"
-        href="{{ asset('themes/images/ico/apple-touch-icon-57-precomposed.png') }}">
-    <style type="text/css" id="enject"></style>
     <link href="{{ asset('themes/css/style.css') }}" rel="stylesheet" />
+ 
+
+    
 </head>
 
 <body>
@@ -63,33 +54,67 @@
                         <li class="">
                             <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span
                                     class="btn btn-large btn-success">Login</span></a>
-                            <div id="login" class="modal hide fade in" tabindex="-1" role="dialog"
-                                aria-labelledby="login" aria-hidden="false">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"
-                                        aria-hidden="true">×</button>
-                                    <h3>Login Block</h3>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="form-horizontal loginFrm">
-                                        <div class="control-group">
-                                            <input type="text" id="inputEmail" placeholder="Email">
-                                        </div>
-                                        <div class="control-group">
-                                            <input type="password" id="inputPassword" placeholder="Password">
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="checkbox">
-                                                <input type="checkbox"> Remember me
-                                            </label>
-                                        </div>
-                                    </form>
-                                    <button type="submit" class="btn btn-success">Sign in</button>
-                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                                </div>
-                            </div>
-                        </li>
+                                    <div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#loginTab" data-toggle="tab">Đăng nhập</a></li>
+            <li><a href="#registerTab" data-toggle="tab">Đăng ký</a></li>
+        </ul>
+    </div>
+    <div class="modal-body">
+        <div class="tab-content">
+            <!-- Login Content -->
+            <div id="loginTab" class="tab-pane fade in active">
+    <h4>Đăng nhập</h4> <!-- Title for Login -->
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="loginEmail" >Số điện thoại/Email</label>
+            <input type="email" id="loginEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
+        </div>
+        <div class="form-group">
+        <label for="loginPassword" style="display:block;margin-top:8px;">Mật khẩu</label>
+            <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" class="form-control">
+        </div>
+        <div class="form-group">
+            <a href="{{ url('/forgot-password') }}" style="display:block; margin-top:8px; font-size:14px; color:#007bff; text-decoration:none;">Quên mật khẩu?</a>
+        </div>
+    </form>
+</div>
 
+            <!-- Register Content -->
+            <div id="registerTab" class="tab-pane fade">
+                <h4>Đăng ký</h4> <!-- Title for Register -->
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="registerEmail" style="display:block;margin-top:8px;">Số điện thoại/Email</label>
+                        <div class="col-sm-9">
+                            <input type="email" id="registerEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword" style="display:block;margin-top:8px;">Mã xác nhận OTP</label>
+                        <div class="col-sm-9">
+                            <input type="password" id="registerPassword" placeholder="6 ký tự" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword" style="display:block;margin-top:8px;">Mật khẩu</label>
+                        <div class="col-sm-9">
+                            <input type="password" id="confirmPassword" placeholder="Nhập mật khẩu" class="form-control">
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+</div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -101,13 +126,11 @@
     <div id="footerSection">
         <div class="container">
             <div class="row">
-                <!-- Logo của Website -->
                 <div class="span12 text-center">
                     <img src="themes/images/logo.png" alt="Logo Website Bán Sách" style="width: 150px; height: auto; margin-bottom: 20px;">
                 </div>
             </div>
             <div class="row">
-                <!-- Menu dọc -->
                 <div class="span3">
                     <h5>MENU</h5>
                     <div class="">
@@ -118,7 +141,6 @@
                         <a href="#">Liên hệ</a>
                     </div>
                 </div>
-                <!-- Thông tin về tài khoản -->
                 <div class="span3">
                     <h5>QUẢN LÝ TÀI KHOẢN</h5>
                     <a href="login.html">Tài khoản của bạn</a>
@@ -127,16 +149,14 @@
                     <a href="login.html">Ưu đãi</a>
                     <a href="login.html">Lịch sử đơn hàng</a>
                 </div>
-                <!-- Thông tin chung -->
                 <div class="span3">
                     <h5>THÔNG TIN</h5>
-                   <a href="{{ url('/contact') }}">Liên hệ</a>
+                    <a href="{{ url('/contact') }}">Liên hệ</a>
                     <a href="register.html">Đăng ký</a>
                     <a href="legal_notice.html">Thông báo pháp lý</a>
                     <a href="tac.html">Điều khoản sử dụng</a>
                     <a href="faq.html">Câu hỏi thường gặp</a>
                 </div>
-                <!-- Các ưu đãi -->
                 <div class="span3">
                     <h5>ƯU ĐÃI CỦA CHÚNG TÔI</h5>
                     <a href="#">Sách mới</a>
@@ -145,7 +165,6 @@
                     <a href="#">Nhà xuất bản</a>
                     <a href="#">Nhà cung cấp</a>
                 </div>
-                <!-- Mạng xã hội -->
                 <div id="socialMedia" class="span3 pull-right">
                     <h5>KẾT NỐI VỚI CHÚNG TÔI</h5>
                     <a href="https://www.facebook.com/"><img width="40" height="40" src="themes/images/facebook.png" title="Facebook" alt="Facebook" /></a>
@@ -153,7 +172,6 @@
                     <a href="https://www.facebook.com/"><img width="40" height="40" src="themes/images/youtube.png" title="YouTube" alt="YouTube" /></a>
                 </div>
             </div>
-            <!-- Thông tin địa chỉ và bản quyền -->
             <div class="row">
                 <div class="span12 text-center">
                     <p>
@@ -163,17 +181,31 @@
                     <p class="pull-right">&copy; 2024 Website Bán Sách</p>
                 </div>
             </div>
-        </div><!-- Container End -->
+        </div>
     </div>
+
+    <script>
+    function showForm(formId) {
+        const forms = document.querySelectorAll('.form-container');
+        const tabs = document.querySelectorAll('.tab button');
+        
+        forms.forEach(form => form.classList.remove('active'));
+        tabs.forEach(tab => tab.classList.remove('active'));
+        
+        document.getElementById(formId).classList.add('active');
+        if (formId === 'loginForm') {
+            document.getElementById('loginTab').classList.add('active');
+        } else {
+            document.getElementById('registerTab').classList.add('active');
+        }
+    }
+</script>
+
     <script src="themes/js/jquery.js" type="text/javascript"></script>
     <script src="themes/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="themes/js/google-code-prettify/prettify.js"></script>
-
     <script src="themes/js/bootshop.js"></script>
     <script src="themes/js/jquery.lightbox-0.5.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <span id="themesBtn"></span>
 </body>
 
 </html>

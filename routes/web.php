@@ -5,6 +5,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DanhMucController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LienHeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
+
 
 // Route cho trang chủ
 Route::get('/', function () {
@@ -29,8 +32,20 @@ Route::get('/cart', function () {
     return view('layouts.user.cart');
 });
 
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+
+// Routes dành cho người dùng đã đăng nhập
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard'); // Tạo view dashboard
+    })->name('dashboard');
+});
+
 Route::get('/contact', [LienHeController::class, 'showView'])->name('contact.form');
 Route::post('/contact', [LienHeController::class, 'store'])->name('contact.store');
+
 
 // Route cho trang dashboard của admin
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
