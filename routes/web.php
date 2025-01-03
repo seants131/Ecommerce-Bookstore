@@ -18,6 +18,12 @@ Route::get('/product', function () {
 Route::get('/product', function () {
     return view('layouts.user.product');
 });
+Route::get('/chitiet', function () {
+    return view('layouts.user.chitiet');
+});
+Route::get('/about', function () {
+    return view('layouts.user.about');
+});
 Route::get('/user', function () {
     return view('layouts.user.user');
 });
@@ -38,7 +44,6 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::resource('books', BookController::class)->except(['show']);
     Route::post('books/search', [BookController::class, 'search'])->name('books.search'); // Tìm kiếm sách 
     Route::post('danhmucs/search', [DanhMucController::class, 'search'])->name('danhmucs.search'); // Tìm kiếm danh mục  
-
 });
 
 
