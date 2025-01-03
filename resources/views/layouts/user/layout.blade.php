@@ -2,11 +2,15 @@
 <html lang="en">
 
 <head>
+
+
     <meta charset="utf-8">
     <title>Bootshop online Shopping cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" href="{{ asset('css/about.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/aboutcontent.css') }}">
 
     <link id="callCss" rel="stylesheet" href="{{ asset('themes/bootshop/bootstrap.min.css') }}" media="screen" />
     <link href="{{ asset('themes/css/base.css') }}" rel="stylesheet" media="screen" />

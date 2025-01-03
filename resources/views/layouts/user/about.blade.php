@@ -1,100 +1,101 @@
 @extends('layouts.user.layout')
 
 @section('content')
-<link href="css/media_query.css" rel="stylesheet" type="text/css"/>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link href="css/animate.css" rel="stylesheet" type="text/css"/>
-<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-<link href="css/owl.carousel.css" rel="stylesheet" type="text/css"/>
-<link href="css/owl.theme.default.css" rel="stylesheet" type="text/css"/>
-<!-- Bootstrap CSS -->
-<link href="css/style_1.css" rel="stylesheet" type="text/css"/>
-<!-- Modernizr JS -->
-<script src="js/modernizr-3.5.0.min.js"></script>
-<div class="container-fluid pb-4 pt-4 paddding">
-    <div class="container paddding">
-        <div class="row mx-0">
-            <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
-                <div>
-                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Tin tức sách</div>
+<div class="container py-4">
+    <div class="row">
+        <div class="intro-section mb-4">
+            <h2 class="text-center text-primary fw-bold">Chào mừng khách hàng đến với Website Bán Sách</h2>
+            <p class="text-center text-muted">Tại đây, chúng tôi cung cấp đa dạng các thể loại sách, từ sách văn học, khoa học, đến các sách học thuật. Khám phá ngay bộ sưu tập sách của chúng tôi để tìm kiếm những cuốn sách yêu thích hoặc những tựa sách mới nhất. Hãy tận hưởng mua sắm dễ dàng và tiện lợi cùng chúng tôi!</p>
+        </div>
+        <div class="col-md-8">
+            <h3 class="text-primary text-center fw-bold mb-4">GIỚI THIỆU BÀI VIẾT</h3>
+
+            <!-- Form tìm kiếm -->
+            <form method="GET" action="{{ route('baiviet.index') }}" class="mb-4">
+                <div class="input-group">
+                    <input type="text" name="search" value="{{ request('search') }}" class="form-control" placeholder="Tìm kiếm bài viết...">
+                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
                 </div>
-                <div class="row pb-4">
-                    <div class="col-md-5">
-                        <div class="fh5co_hover_news_img">
-                            <div class="fh5co_news_img"><img src="bookimage/book1.jpg" alt=""/></div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <div class="col-md-7 animate-box">
-                        @foreach ($baiviets as $baiviet)
-                        <a href="{{ route('baiviet.contentbaiviet', $baiviet->id) }}" class="list-group-item list-group-item-action">
-                            <img src="{{ asset('/' . $baiviet->anhbaiviet) }}" alt="Image" class="img-fluid" width="200" height="100">
+            </form>
 
-                            <h5 class="mb-1">{{ $baiviet->tieude }}</h5>
-                            <p class="mb-1">{{ Str::limit($baiviet->noidung, 150) }}</p>
-                        </a>
-                    @endforeach
-
-                    </div>
-
-                </div>
-
-                <div>
-                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Bài viết theo chủ đề</div>
-                </div>
-
-                @foreach ($chudetin as $chude => $baiviets)
-                    <div>
-                        <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Chủ đề: {{ $chude }}</div>
-                    </div>
-
-                    <div class="row pb-4">
-                        @foreach ($baiviets->take(3) as $baiviet)
-                            <div class="col-md-4">
-                                <a href="{{ route('baiviet.contentbaiviet', $baiviet->id) }}" class="list-group-item list-group-item-action">
-                                    <img src="{{ asset('/' . $baiviet->anhbaiviet) }}" alt="Image" class="img-fluid" width="200" height="100">
-
-                                    <h5 class="mb-1">{{ $baiviet->tieude }}</h5>
-                                    <p class="mb-1">{{ Str::limit($baiviet->noidung, 50) }}</p>
+            @if($baiviets->isEmpty())
+                <p class="text-center text-muted">Không tìm thấy bài viết nào phù hợp.</p>
+            @else
+                <div class="row g-4">
+                    @foreach ($baiviets as $baiviet)
+                        <div class="col-md-6">
+                            <div class="card h-100 shadow-sm">
+                                <a href="{{ route('baiviet.contentbaiviet', $baiviet->id) }}" class="text-decoration-none">
+                                    <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="Image" class="card-img-top" style="height: 200px; object-fit: cover;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-dark fw-bold">{{ $baiviet->tieude }}</h5>
+                                        <p class="card-text text-muted">{{ Str::limit($baiviet->noidung, 100) }}</p>
+                                    </div>
                                 </a>
                             </div>
-                        @endforeach
-                    </div>
-                @endforeach
-
-
-
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+            <div class="d-flex justify-content-center mt-4">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-lg">
+                        {{ $baiviets->appends(['search' => request('search')])->links() }}
+                    </ul>
+                </nav>
             </div>
 
-         
         </div>
-        <div class="row mx-0">
-            <div class="col-12 text-center pb-4 pt-4">
-                <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Trước</a>
-                <a href="#" class="btn_pagging">1</a>
-                <a href="#" class="btn_pagging">2</a>
-                <a href="#" class="btn_pagging">3</a>
-                <a href="#" class="btn_pagging">...</a>
-                <a href="#" class="btn_mange_pagging">Tiếp theo <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
-             </div>
-        </div>
-    </div>
 
+        <!-- Cột phải: Sách theo chủ đề -->
+        {{-- <div class="col-md-4">
+            <h4 class="text-primary fw-bold mb-4">SÁCH THEO CHỦ ĐỀ</h4>
+            <div>
+                @foreach ($chudetin as $chude => $baivietList)
+                <div class="mb-3">
+                    <h5 class="text-secondary">{{ $chude }}</h5>
+                    <ul class="list-unstyled">
+                        @foreach ($baivietList as $baiviet)
+                        <li class="mb-2">
+                            <a href="{{ route('baiviet.contentbaiviet', $baiviet->id) }}" class="d-flex align-items-start">
+                                <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="Image" class="rounded me-3" style="width: 70px; height: 70px; object-fit: cover;">
+                                <div>
+                                    <h6 class="mb-1 text-dark fw-bold">{{ $baiviet->tieude }}</h6>
+                                    <p class="mb-1 text-muted">{{ Str::limit($baiviet->noidung, 40) }}</p>
+                                </div>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endforeach
+            </div>
+        </div> --}}
+        <!-- Cột phải: Sách theo chủ đề -->
+<div class="col-md-4">
+    <h4 class="text-primary fw-bold mb-4">BÀI VIẾT THEO CHỦ ĐỀ</h4>
+    <div>
+        @foreach ($chudetin as $chude => $baivietList)
+        <div class="mb-3">
+            <h5 class="text-secondary">{{ $chude }}</h5>
+            <ul class="chude-container">
+                @foreach ($baivietList as $baiviet)
+                <li class="mb-2">
+                    <a href="{{ route('baiviet.contentbaiviet', $baiviet->id) }}" class="d-flex align-items-start">
+                        <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="Image" class="rounded me-3" style="width: 70px; height: 70px; object-fit: cover;">
+                        <div>
+                            <h6 class="mb-1 text-dark fw-bold">{{ $baiviet->tieude }}</h6>
+                            <p class="mb-1 text-muted">{{ Str::limit($baiviet->noidung, 40) }}</p>
+                        </div>
+                    </a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+        @endforeach
+    </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-            crossorigin="anonymous"></script>
-    <!-- Waypoints -->
-    <script src="js/jquery.waypoints.min.js"></script>
-    <!-- Main -->
-    <script src="js/main.js"></script>
-    <span id="themesBtn"></span>
+    </div>
+</div>
 @endsection
