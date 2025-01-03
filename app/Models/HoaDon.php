@@ -11,7 +11,10 @@ class HoaDon extends Model
 
     protected $table = 'hoadon';
     protected $primaryKey = 'MaHoaDon';
+    public $incrementing = false; // Khóa chính không tự tăng
+    protected $keyType = 'string'; 
     protected $fillable = [
+        'MaHoaDon',
         'MaKhachHang',
         'NgayLap',
         'PhanTramThue',
