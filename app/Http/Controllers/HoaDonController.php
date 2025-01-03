@@ -11,14 +11,14 @@ class HoaDonController extends Controller
     public function index()
     {
         $orders = HoaDon::all();  // Lấy tất cả đơn hàng
-        return view('orders.index', compact('orders'));
+        return view('admin.orders.index', compact('orders'));
     }
 
     // Hiển thị form cập nhật đơn hàng
     public function edit($id)
     {
         $order = HoaDon::findOrFail($id);  // Lấy đơn hàng theo ID
-        return view('orders.edit', compact('order'));
+        return view('admin.orders.edit', compact('order'));
     }
 
     // Cập nhật đơn hàng
@@ -37,7 +37,7 @@ class HoaDonController extends Controller
             'diachi' => $request->input('diachi'),
         ]);
 
-        return redirect()->route('orders.index')->with('success', 'Đơn hàng đã được cập nhật.');
+        return redirect()->route('admin.orders.index')->with('success', 'Đơn hàng đã được cập nhật.');
     }
 
     // Xoá đơn hàng
@@ -46,6 +46,6 @@ class HoaDonController extends Controller
         $order = HoaDon::findOrFail($id);  // Tìm đơn hàng theo ID
         $order->delete();  // Xoá đơn hàng
 
-        return redirect()->route('orders.index')->with('success', 'Đơn hàng đã được xoá.');
+        return redirect()->route('admin.orders.index')->with('success', 'Đơn hàng đã được xoá.');
     }
 }
