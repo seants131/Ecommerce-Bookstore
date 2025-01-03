@@ -1,0 +1,151 @@
+/* Bài viết chính */
+.main-post h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-post .intro, .main-post .details {
+    margin-bottom: 30px;
+}
+
+.main-post .intro h2, .main-post .details h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.main-post .intro p, .main-post .details p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.main-post .image img {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+}
+
+.main-post .post-info p {
+    font-size: 0.9rem;
+    color: #888;
+    text-align: center;
+}
+
+/* Bài viết tương tự */
+.similar-posts-section h3 {
+    font-size: 2rem;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.similar-posts {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.similar-posts .card {
+    flex: 0 0 auto;
+    width: 18rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.similar-posts .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.similar-posts .card img {
+    border-radius: 8px 8px 0 0;
+}
+
+.similar-posts .card-body {
+    padding: 15px;
+    background-color: #fff;
+}
+
+.similar-posts .card-title {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.similar-posts .card-text {
+    font-size: 1rem;
+    color: #777;
+    line-height: 1.4;
+}
+/* Bài viết tương tự */
+.similar-posts-section h3 {
+    font-size: 2rem;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.similar-posts {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.similar-posts::-webkit-scrollbar {
+    height: 8px;
+}
+
+.similar-posts::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 4px;
+}
+
+.similar-posts::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.similar-posts .card {
+    flex: 0 0 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.similar-posts .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.similar-posts .card img {
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.similar-posts .card-body {
+    padding: 15px;
+    background-color: #fff;
+}
+
+.similar-posts .card-title {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.similar-posts .card-text {
+    font-size: 1rem;
+    color: #777;
+    line-height: 1.4;
+}

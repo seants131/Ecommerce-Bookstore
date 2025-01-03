@@ -1,0 +1,383 @@
+/* CSS cho giao diện tìm kiếm và danh sách bài viết */
+/* Phần giới thiệu về website bán sách */
+.intro-section {
+    background-color: #f9f9f9; /* Màu nền nhẹ cho phần giới thiệu */
+    padding: 30px; /* Khoảng cách xung quanh nội dung */
+    border-radius: 8px; /* Bo góc cho phần giới thiệu */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ để tạo độ nổi */
+}
+
+/* Tiêu đề phần giới thiệu */
+.intro-section h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #007bff; /* Màu xanh chủ đạo */
+    margin-bottom: 15px;
+}
+
+/* Đoạn văn bản giới thiệu */
+.intro-section p {
+    font-size: 16px;
+    color: #6c757d; /* Màu chữ nhạt để không quá chói */
+    line-height: 1.6; /* Tăng khoảng cách dòng để văn bản dễ đọc */
+    text-align: center; /* Canh giữa nội dung */
+}
+
+/* Đảm bảo phần giới thiệu không chiếm quá nhiều không gian */
+.intro-section {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Hiệu ứng hover cho tiêu đề */
+.intro-section h2:hover {
+    color: #0056b3; /* Thay đổi màu khi di chuột */
+    transition: color 0.3s ease; /* Thêm hiệu ứng mượt mà khi đổi màu */
+}
+
+.container-fluid {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+}
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    overflow: hidden;
+    background: #fff;
+
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    border-bottom: 2px solid #ddd;
+    transition: all 0.3s ease;
+}
+/* Giảm kích thước bài viết trong phần Sách theo chủ đề */
+.list-group-item {
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Hình ảnh trong bài viết theo chủ đề */
+.list-group-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+/* Khoảng cách giữa các mục */
+.list-group-item + .list-group-item {
+    margin-top: 10px;
+}
+
+.card:hover .card-img-top {
+    filter: brightness(90%);
+}
+/* Phần bên phải */
+.col-md-4 h5 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border-left: 4px solid #007bff;
+    padding-left: 10px;
+}
+
+.col-md-4 .d-flex img {
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.col-md-4 .d-flex h6 {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.col-md-4 .d-flex p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.col-md-4 .d-flex a {
+    font-size: 0.85rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.col-md-4 .d-flex a:hover {
+    text-decoration: underline;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.container.paddding {
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Form tìm kiếm */
+form .input-group {
+    margin-bottom: 20px;
+}
+
+form .form-control {
+    border-radius: 0;
+    border: 1px solid #ced4da;
+}
+
+form .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 0;
+}
+
+/* Tiêu đề và danh sách bài viết */
+.fh5co_heading {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.row.pb-4 .col-md-4 {
+    margin-bottom: 20px;
+}
+
+.row.pb-4 a.list-group-item {
+    display: block;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    padding: 15px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.row.pb-4 a.list-group-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+/* Hình ảnh bài viết */
+/* Tăng cường hiển thị bài viết */
+.row .col-md-4 a.list-group-item {
+    display: block;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.row .col-md-4 a.list-group-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hình ảnh bài viết */
+.row .col-md-4 img {
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Tiêu đề và nội dung */
+.row .col-md-4 h5 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+.row .col-md-4 p {
+    font-size: 14px;
+    color: #666;
+}
+
+.row.pb-4 img {
+    border-radius: 4px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Tiêu đề bài viết */
+.row.pb-4 h5 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Nội dung bài viết */
+.row.pb-4 p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Phân trang */
+.d-flex.justify-content-center .pagination {
+    margin-top: 20px;
+}
+
+.pagination .page-item .page-link {
+    color: #007bff;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+/* Loại bỏ dấu chấm trước ảnh trong danh sách bài viết theo chủ đề */
+.list-unstyled li {
+    list-style-type: none;
+}
+
+/* Tùy chỉnh nút phân trang */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.pagination .active {
+    background-color: #0056b3;
+    color: white;
+    pointer-events: none;
+}
+
+.pagination .disabled {
+    background-color: #cccccc;
+    color: #666666;
+    pointer-events: none;
+}
+/* Sách theo chủ đề - Cột phải */
+.col-md-4 {
+    background-color: #f9f9f9; /* Màu nền nhẹ cho cột sách */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng bóng nhẹ */
+}
+
+.col-md-4 h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff; /* Màu sắc tiêu đề */
+    border-bottom: 2px solid #007bff; /* Gạch chân tiêu đề */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.col-md-4 h5 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #6c757d; /* Màu sắc tiêu đề chủ đề */
+}
+
+/* Định dạng cho phần sách theo chủ đề */
+.col-md-4 .chude-container {
+    display: grid; /* Sử dụng grid để tạo các cột */
+    grid-template-columns: repeat(3, 1fr); /* Tạo 3 cột */
+    gap: 20px; /* Khoảng cách giữa các phần tử */
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.col-md-4 .chude-container li {
+    list-style: none;
+    display: flex;
+    align-items: start;
+}
+
+.col-md-4 .chude-container a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.col-md-4 .chude-container img {
+    border-radius: 8px;
+    margin-right: 10px;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+.col-md-4 .chude-container h6 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #343a40; /* Màu sắc tiêu đề bài viết */
+}
+
+.col-md-4 .chude-container p {
+    font-size: 12px;
+    color: #6c757d; /* Màu sắc mô tả bài viết */
+    margin-bottom: 0;
+}
+
+/* Hiệu ứng hover cho mỗi bài viết */
+.col-md-4 .chude-container li a:hover {
+    background-color: #e9ecef; /* Màu nền khi hover */
+}
+
+/* Responsive cho các màn hình nhỏ */
+@media (max-width: 768px) {
+    .col-md-4 .chude-container {
+        grid-template-columns: 1fr 1fr; /* Chuyển thành 2 cột trên màn hình nhỏ */
+    }
+
+    .col-md-4 .chude-container li {
+        flex-direction: column;
+    }
+
+    .col-md-4 .chude-container img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .col-md-4 .chude-container h6 {
+        font-size: 12px;
+    }
+}
