@@ -80,6 +80,7 @@ CREATE TABLE HoaDon (
 	TongTienSauthue decimal(15,2) as (TongTien*(PhanTramThue/100) + TongTien),
     TrangThai VARCHAR(50), -- Duyệt/Chuẩn bị hàng/giao hàng/đã giao hàng
     PT_ThanhToan  VARCHAR(255),
+    diachi text,
     FOREIGN KEY (MaKhachHang) REFERENCES KhachHang(MaKhachHang),
     FOREIGN KEY (PT_ThanhToan) REFERENCES PhuongThucThanhToan(MaPhuongThuc)
 );
