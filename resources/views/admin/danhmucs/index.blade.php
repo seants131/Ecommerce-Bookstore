@@ -13,6 +13,14 @@
     @endif
 
     <h1>Danh sách danh mục</h1>
+    <!-- Search Bar -->
+    <form action="{{ route('admin.danhmucs.search') }}" method="POST" class="form-group">
+        @csrf
+        <input type="search" name="query" placeholder="Tìm kiếm danh mục" aria-label="Search" class="form-control">
+        <button class="btn btn-primary" type="submit" style="max-width: 15%; margin-top: 1px">Tìm kiếm</button>
+    </form>
+    <br>
+    {{-- end search --}}
     <a href="{{ route('admin.danhmucs.create') }}" class="btn btn-success" style="color: white;">Thêm danh mục</a>
     <div class="order-info">
     <table>
