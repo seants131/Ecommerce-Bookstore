@@ -36,8 +36,9 @@ Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.d
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::resource('danhmucs', DanhMucController::class);
     Route::resource('books', BookController::class)->except(['show']);
-    Route::post('books/search', [BookController::class, 'search'])->name('books.search'); // Tìm kiếm sách
-    Route::post('danhmucs/search', [DanhMucController::class, 'search'])->name('danhmucs.search'); // Tìm kiếm danh mục
+    Route::post('books/search', [BookController::class, 'search'])->name('books.search'); // Tìm kiếm sách 
+    Route::post('danhmucs/search', [DanhMucController::class, 'search'])->name('danhmucs.search'); // Tìm kiếm danh mục  
+
 });
 
 
