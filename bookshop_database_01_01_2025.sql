@@ -351,9 +351,16 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Indexes for dumped tables
---
+CREATE TABLE `khuyenmai` (
+  `MaKhuyenMai` varchar(255) NOT NULL,
+  `TenKhuyenMai` varchar(255) NOT NULL,
+  `MoTa` text DEFAULT NULL,
+  `NgayBatDau` datetime NOT NULL,
+  `NgayKetThuc` datetime NOT NULL,
+  `PhanTramGiamGia` int(11) NOT NULL,
+  `TrangThai` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`MaKhuyenMai`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Indexes for table `cache`
