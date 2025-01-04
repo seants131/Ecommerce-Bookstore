@@ -1,31 +1,10 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Jan 01, 2025 at 04:11 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- đã sửa lại các mã từ VARCHAR (255) sang BIGHT(2020)
+-- đã thêm bảng bài viết vào db
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+drop DATABASE bookshop;
+CREATE DATABASE bookshop;
+USE BOOKSHOP;
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `bookshop`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cache`
---
 
 CREATE TABLE `cache` (
   `key` varchar(255) NOT NULL,
@@ -33,44 +12,64 @@ CREATE TABLE `cache` (
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `cache_locks`
---
-
 CREATE TABLE `cache_locks` (
   `key` varchar(255) NOT NULL,
   `owner` varchar(255) NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `chitietgiohang`
---
-
+ 
 CREATE TABLE `chitietgiohang` (
-  `MaGioHang` varchar(255) NOT NULL,
+  `MaGioHang` bigint(20) NOT NULL,
   `MaKhachHang` varchar(255) NOT NULL,
-  `MaSach` varchar(255) DEFAULT NULL,
+  `MaSach` bigint(20) DEFAULT NULL,
   `TrangThai` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
 
 --
--- Table structure for table `chitiethoadon`
+-- Cấu trúc bảng cho bảng `baiviet`
 --
+
+CREATE TABLE `baiviet` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tieude` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `noidung` varchar(255) NOT NULL,
+  `anhbaiviet` varchar(255) NOT NULL,
+  `trangthai` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `chude` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `baiviet`
+--
+
+INSERT INTO `baiviet` (`id`, `tieude`, `slug`, `noidung`, `anhbaiviet`, `trangthai`, `created_at`, `updated_at`, `chude`) VALUES
+(1, 'Sách Hè 2025: Những Cuốn Sách Đáng Đọc', 'sach-he-2025-nhung-cuon-sach-dang-doc', 'Sách hè 2025 là thời điểm lý tưởng để bạn đọc những cuốn sách đầy bổ ích.', 'bookimage1.jpg', 1, '2025-01-03 09:51:38', '2025-01-03 09:51:38', 'Văn học'),
+(2, 'Khám Phá Những Tác Phẩm Kinh Điển', 'kham-pha-nhung-tac-pham-kinh-dien', 'Các tác phẩm kinh điển không chỉ có giá trị về mặt lịch sử mà còn chứa đựng những thông điệp sâu sắc...', 'bookimage2.jpg', 1, '2025-01-03 09:51:38', '2025-01-03 09:51:38', 'Văn học cổ điển'),
+(3, 'Văn Học Hiện Đại: Những Cuốn Sách Phải Đọc', 'van-hoc-hien-dai-nhung-cuon-sach-phai-doc', 'Văn học hiện đại mang đến những trải nghiệm mới mẻ và là nguồn cảm hứng cho nhiều người.', 'bookimage3.jpg', 1, '2025-01-03 09:51:38', '2025-01-03 09:51:38', 'Văn học hiện đại'),
+(4, 'Sách Thiếu Nhi: Những Cuốn Sách Hấp Dẫn', 'sach-thieu-nhi-nhung-cuon-sach-hap-dan', 'Những cuốn sách thiếu nhi không chỉ giúp các em phát triển tư duy mà còn tạo ra những bài học cuộc sống.', 'bookimage4.jpg', 1, '2025-01-03 09:51:38', '2025-01-03 09:51:38', 'Sách thiếu nhi'),
+(5, 'Sách Hè 2025: Những Cuốn Sách Đáng Đọc', 'sach-he-2025-nhung-cuon-sach-dang-doc', 'Sách hè 2025 là thời điểm lý tưởng để bạn đọc những cuốn sách đầy bổ ích.', 'bookimage1.jpg', 1, '2025-01-03 09:51:51', '2025-01-03 09:51:51', 'Văn học'),
+(6, 'Khám Phá Những Tác Phẩm Kinh Điển', 'kham-pha-nhung-tac-pham-kinh-dien', 'Các tác phẩm kinh điển không chỉ có giá trị về mặt lịch sử mà còn chứa đựng những thông điệp sâu sắc...', 'bookimage2.jpg', 1, '2025-01-03 09:51:51', '2025-01-03 09:51:51', 'Văn học cổ điển'),
+(7, 'Văn Học Hiện Đại: Những Cuốn Sách Phải Đọc', 'van-hoc-hien-dai-nhung-cuon-sach-phai-doc', 'Văn học hiện đại mang đến những trải nghiệm mới mẻ và là nguồn cảm hứng cho nhiều người.', 'bookimage3.jpg', 1, '2025-01-03 09:51:51', '2025-01-03 09:51:51', 'Văn học hiện đại'),
+(8, 'Sách Thiếu Nhi: Những Cuốn Sách Hấp Dẫn', 'sach-thieu-nhi-nhung-cuon-sach-hap-dan', 'Những cuốn sách thiếu nhi không chỉ giúp các em phát triển tư duy mà còn tạo ra những bài học cuộc sống.', 'bookimage4.jpg', 1, '2025-01-03 09:51:51', '2025-01-03 09:51:51', 'Sách thiếu nhi'),
+(9, 'Sách Hè 2025: Những Cuốn Sách Đáng Đọc', 'sach-he-2025-nhung-cuon-sach-dang-doc', 'Sách hè 2025 là thời điểm lý tưởng để bạn đọc những cuốn sách đầy bổ ích.', 'bookimage1.jpg', 1, '2025-01-03 09:51:56', '2025-01-03 09:51:56', 'Văn học'),
+(10, 'Khám Phá Những Tác Phẩm Kinh Điển', 'kham-pha-nhung-tac-pham-kinh-dien', 'Các tác phẩm kinh điển không chỉ có giá trị về mặt lịch sử mà còn chứa đựng những thông điệp sâu sắc...', 'bookimage2.jpg', 1, '2025-01-03 09:51:56', '2025-01-03 09:51:56', 'Văn học cổ điển'),
+(11, 'Văn Học Hiện Đại: Những Cuốn Sách Phải Đọc', 'van-hoc-hien-dai-nhung-cuon-sach-phai-doc', 'Văn học hiện đại mang đến những trải nghiệm mới mẻ và là nguồn cảm hứng cho nhiều người.', 'bookimage3.jpg', 1, '2025-01-03 09:51:56', '2025-01-03 09:51:56', 'Văn học hiện đại'),
+(12, 'Sách Thiếu Nhi: Những Cuốn Sách Hấp Dẫn', 'sach-thieu-nhi-nhung-cuon-sach-hap-dan', 'Những cuốn sách thiếu nhi không chỉ giúp các em phát triển tư duy mà còn tạo ra những bài học cuộc sống.', 'bookimage4.jpg', 1, '2025-01-03 09:51:56', '2025-01-03 09:51:56', 'Sách thiếu nhi');
+
 
 CREATE TABLE `chitiethoadon` (
-  `MaChiTietHoaDon` varchar(255) NOT NULL,
-  `MaHoaDon` varchar(255) DEFAULT NULL,
-  `MaSach` varchar(255) DEFAULT NULL,
+  `MaChiTietHoaDon` bigint(20) NOT NULL AUTO_INCREMENT,
+  `MaHoaDon` bigint(20) DEFAULT NULL,
+  `MaSach` bigint(20) DEFAULT NULL,
   `SoLuong` int(11) DEFAULT NULL,
   `DonGia` decimal(15,2) DEFAULT NULL,
-  `TongTien` decimal(15,2) GENERATED ALWAYS AS (`SoLuong` * `DonGia`) VIRTUAL
+  `TongTien` decimal(15,2) GENERATED ALWAYS AS (`SoLuong` * `DonGia`) VIRTUAL,
+    PRIMARY KEY (`MaChiTietHoaDon`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -80,13 +79,14 @@ CREATE TABLE `chitiethoadon` (
 --
 
 CREATE TABLE `danhgiasanpham` (
-  `MaDanhGia` varchar(255) NOT NULL,
-  `MaHoaDon` varchar(255) NOT NULL,
-  `MaKhachHang` varchar(255) NOT NULL,
-  `MaSach` varchar(255) NOT NULL,
+  `MaDanhGia` bigint(20) UNSIGNED NOT NULL,
+  `MaHoaDon` bigint(20) NOT NULL,
+  `MaKhachHang` bigint(20) NOT NULL,
+  `MaSach` bigint(20) NOT NULL,
   `NoiDung` text DEFAULT NULL,
   `NgayDanhGia` datetime DEFAULT NULL,
-  `TrangThai` tinyint(4) DEFAULT NULL
+  `TrangThai` tinyint(4) DEFAULT NULL,
+    PRIMARY KEY (`MaDanhGia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -117,8 +117,8 @@ INSERT INTO `danhmuc` (`id`, `name`, `parent_id`, `created_at`, `updated_at`) VA
 --
 
 CREATE TABLE `danhsachyeuthich` (
-  `MaKH` varchar(255) DEFAULT NULL,
-  `MaSP` varchar(255) DEFAULT NULL,
+  `MaKH` bigint(20) DEFAULT NULL,
+  `MaSP` bigint(20) DEFAULT NULL,
   `TrangThai` binary(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -145,9 +145,10 @@ CREATE TABLE `failed_jobs` (
 --
 
 CREATE TABLE `giohang` (
-  `MaGioHang` varchar(255) NOT NULL,
-  `MaKhachHang` varchar(255) DEFAULT NULL,
-  `TongTien` decimal(15,2) DEFAULT NULL
+  `MaGioHang` bigint(20) NOT NULL AUTO_INCREMENT,
+  `MaKhachHang` bigint(20) DEFAULT NULL,
+  `TongTien` decimal(15,2) DEFAULT NULL,
+   PRIMARY KEY (`MaGioHang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -157,14 +158,15 @@ CREATE TABLE `giohang` (
 --
 
 CREATE TABLE `hoadon` (
-  `MaHoaDon` varchar(255) NOT NULL,
-  `MaKhachHang` varchar(255) DEFAULT NULL,
+  `MaHoaDon` bigint(20) NOT NULL AUTO_INCREMENT,
+  `MaKhachHang` bigint(20) DEFAULT NULL,
   `NgayLap` datetime DEFAULT NULL,
-  `PhanTramThue` decimal(5,2) DEFAULT 10.00,
   `TongTien` decimal(15,2) DEFAULT NULL,
-  `TongTienSauthue` decimal(15,2) GENERATED ALWAYS AS (`TongTien` * (`PhanTramThue` / 100) + `TongTien`) VIRTUAL,
   `TrangThai` varchar(50) DEFAULT NULL,
-  `PT_ThanhToan` varchar(255) DEFAULT NULL
+  `PT_ThanhToan` bigint(20) DEFAULT NULL,
+  `DiaChi` varchar(255) DEFAULT NULL,
+    PRIMARY KEY (`MaHoaDon`)
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -209,7 +211,7 @@ CREATE TABLE `job_batches` (
 --
 
 CREATE TABLE `khachhang` (
-  `MaKhachHang` varchar(255) NOT NULL,
+  `MaKhachHang` bigint(20) NOT NULL AUTO_INCREMENT,
   `HoTen` varchar(255) DEFAULT NULL,
   `GioiTinh` varchar(10) DEFAULT NULL,
   `Email` varchar(255) DEFAULT NULL,
@@ -217,7 +219,8 @@ CREATE TABLE `khachhang` (
   `DiaChi` varchar(255) DEFAULT NULL,
   `TrangThai` tinyint(4) DEFAULT 1,
   `TenDangNhap` varchar(255) DEFAULT NULL,
-  `MatKhau` varchar(255) DEFAULT NULL
+  `MatKhau` varchar(255) DEFAULT NULL,
+    PRIMARY KEY (`MaKhachHang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -227,13 +230,14 @@ CREATE TABLE `khachhang` (
 --
 
 CREATE TABLE `lien_he` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `ho_ten` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `chu_de` varchar(255) NOT NULL,
   `noi_dung` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -278,11 +282,12 @@ CREATE TABLE `password_reset_tokens` (
 --
 
 CREATE TABLE `phuongthucthanhtoan` (
-  `MaPhuongThuc` varchar(255) NOT NULL,
+  `MaPhuongThuc` bigint(20) NOT NULL AUTO_INCREMENT,
   `TenPhuongThuc` varchar(255) DEFAULT NULL,
   `MoTa` text DEFAULT NULL,
-  `TrangThai` tinyint(4) DEFAULT NULL,
-  `PhiGiaoDich` decimal(15,2) DEFAULT NULL
+  `TrangThai` binary(1) DEFAULT NULL,
+  `PhiGiaoDich` decimal(15,2) DEFAULT NULL,
+    primary key (`MaPhuongThuc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -292,7 +297,7 @@ CREATE TABLE `phuongthucthanhtoan` (
 --
 
 CREATE TABLE `sach` (
-  `MaSach` varchar(255) NOT NULL,
+  `MaSach` bigint(20) NOT NULL auto_increment,
   `TenSach` varchar(255) DEFAULT NULL,
   `category_id` bigint(20) UNSIGNED DEFAULT NULL,
   `GiaNhap` decimal(15,2) DEFAULT NULL,
@@ -301,15 +306,14 @@ CREATE TABLE `sach` (
   `NamXuatBan` int(11) DEFAULT NULL,
   `MoTa` text DEFAULT NULL,
   `TrangThai` tinyint(4) DEFAULT NULL,
-  `MaNXB` varchar(255) DEFAULT NULL
+  `MaNXB` varchar(255) DEFAULT NULL,
+    `HinhAnh` text DEFAULT NULL,
+    `created_at` timestamp NULL DEFAULT NULL,
+    `updated_at` timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (`MaSach`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `sach`
---
 
-INSERT INTO `sach` (`MaSach`, `TenSach`, `category_id`, `GiaNhap`, `GiaBan`, `SoLuong`, `NamXuatBan`, `MoTa`, `TrangThai`, `MaNXB`) VALUES
-('123', 'addsda', 1, 123.00, 123.00, 1, 2024, 'sdada', 1, '11');
 
 -- --------------------------------------------------------
 
@@ -352,7 +356,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `khuyenmai` (
-  `MaKhuyenMai` varchar(255) NOT NULL,
+  `MaKhuyenMai` bigint(20) NOT NULL AUTO_INCREMENT,
   `TenKhuyenMai` varchar(255) NOT NULL,
   `MoTa` text DEFAULT NULL,
   `NgayBatDau` datetime NOT NULL,
@@ -361,6 +365,12 @@ CREATE TABLE `khuyenmai` (
   `TrangThai` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`MaKhuyenMai`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Chỉ mục cho bảng `baiviet`
+--
+ALTER TABLE `baiviet`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `cache`
@@ -385,7 +395,6 @@ ALTER TABLE `chitietgiohang`
 -- Indexes for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  ADD PRIMARY KEY (`MaChiTietHoaDon`),
   ADD KEY `MaHoaDon` (`MaHoaDon`),
   ADD KEY `MaSach` (`MaSach`);
 
@@ -393,7 +402,6 @@ ALTER TABLE `chitiethoadon`
 -- Indexes for table `danhgiasanpham`
 --
 ALTER TABLE `danhgiasanpham`
-  ADD PRIMARY KEY (`MaDanhGia`),
   ADD KEY `MaHoaDon` (`MaHoaDon`),
   ADD KEY `MaKhachHang` (`MaKhachHang`),
   ADD KEY `MaSach` (`MaSach`);
@@ -422,14 +430,12 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `giohang`
 --
 ALTER TABLE `giohang`
-  ADD PRIMARY KEY (`MaGioHang`),
   ADD KEY `MaKhachHang` (`MaKhachHang`);
 
 --
 -- Indexes for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  ADD PRIMARY KEY (`MaHoaDon`),
   ADD KEY `MaKhachHang` (`MaKhachHang`),
   ADD KEY `PT_ThanhToan` (`PT_ThanhToan`);
 
@@ -450,14 +456,11 @@ ALTER TABLE `job_batches`
 -- Indexes for table `khachhang`
 --
 ALTER TABLE `khachhang`
-  ADD PRIMARY KEY (`MaKhachHang`),
   ADD UNIQUE KEY `TenDangNhap` (`TenDangNhap`);
 
 --
 -- Indexes for table `lien_he`
 --
-ALTER TABLE `lien_he`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -474,14 +477,11 @@ ALTER TABLE `password_reset_tokens`
 --
 -- Indexes for table `phuongthucthanhtoan`
 --
-ALTER TABLE `phuongthucthanhtoan`
-  ADD PRIMARY KEY (`MaPhuongThuc`);
 
 --
 -- Indexes for table `sach`
 --
 ALTER TABLE `sach`
-  ADD PRIMARY KEY (`MaSach`),
   ADD KEY `category_id` (`category_id`);
 
 --
@@ -502,12 +502,17 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+--
+-- AUTO_INCREMENT cho bảng `baiviet`
+--
+ALTER TABLE `baiviet`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -591,7 +596,3 @@ ALTER TABLE `hoadon`
 ALTER TABLE `sach`
   ADD CONSTRAINT `sach_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `danhmuc` (`id`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
