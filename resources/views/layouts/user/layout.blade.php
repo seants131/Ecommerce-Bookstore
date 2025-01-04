@@ -19,6 +19,8 @@
     <link href="{{ asset('themes/js/google-code-prettify/prettify.css') }}" rel="stylesheet" />
     <link rel="shortcut icon" href="{{ asset('themes/images/ico/favicon.ico') }}">
     <link href="{{ asset('themes/css/style.css') }}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -54,97 +56,143 @@
                         <li class=""><a href="{{ url('/user') }}">Người dùng</a></li>
 
                         <li class="">
-                            <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span
-<<<<<<< HEAD
-                                    class="btn btn-large btn-success">Đăng nhập</span></a>
+                            {{-- <a href="#login" role="button" data-toggle="modal" style="padding-right:0">
+                                <span class="btn btn-large btn-success">Login</span>
+                            </a>
                             <div id="login" class="modal hide fade in" tabindex="-1" role="dialog"
                                 aria-labelledby="login" aria-hidden="false">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
-                                        aria-hidden="true">×</button>
-                                    <h3>Login Block</h3>
+                                        aria-hidden="true">x</button>
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#loginTab" data-toggle="tab">Đăng nhập</a></li>
+                                        <li><a href="#registerTab" data-toggle="tab">Đăng ký</a></li>
+                                    </ul>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="form-horizontal loginFrm">
-                                        <div class="control-group">
-                                            <input type="text" id="inputEmail" placeholder="Email">
+                                    <div class="tab-content">
+                                        <!-- Login Content -->
+                                        <div id="loginTab" class="tab-pane fade in active">
+                                            <h4>Đăng nhập</h4> <!-- Title for Login -->
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="loginEmail">Số điện thoại/Email</label>
+                                                    <input type="email" id="loginEmail"
+                                                        placeholder="Nhập số điện thoại hoặc email"
+                                                        class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="loginPassword"
+                                                        style="display:block;margin-top:8px;">Mật khẩu</label>
+                                                    <input type="password" id="loginPassword"
+                                                        placeholder="Nhập mật khẩu" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <a href="{{ url('/forgot-password') }}"
+                                                        style="display:block; margin-top:8px; font-size:14px; color:#007bff; text-decoration:none;">Quên
+                                                        mật khẩu?</a>
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="control-group">
-                                            <input type="password" id="inputPassword" placeholder="Password">
+                                        <div id="registerTab" class="tab-pane fade">
+                                            <h4>Đăng ký</h4> <!-- Title for Register -->
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="registerEmail"
+                                                        style="display:block;margin-top:8px;">Số điện
+                                                        thoại/Email</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="email" id="registerEmail"
+                                                            placeholder="Nhập số điện thoại hoặc email"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="registerPassword"
+                                                        style="display:block;margin-top:8px;">Mã xác nhận OTP</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="password" id="registerPassword"
+                                                            placeholder="6 ký tự" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="confirmPassword"
+                                                        style="display:block;margin-top:8px;">Mật khẩu</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="password" id="confirmPassword"
+                                                            placeholder="Nhập mật khẩu" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="control-group">
-                                            <label class="checkbox">
-                                                <input type="checkbox"> Remember me
-                                            </label>
-                                        </div>
-                                    </form>
-                                    <button type="submit" class="btn btn-success">Sign in</button>
-                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                    </div>
                                 </div>
-                            </div>
-=======
-                                    class="btn btn-large btn-success">Login</span></a>
-                                    <div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#loginTab" data-toggle="tab">Đăng nhập</a></li>
-            <li><a href="#registerTab" data-toggle="tab">Đăng ký</a></li>
-        </ul>
-    </div>
-    <div class="modal-body">
-        <div class="tab-content">
-            <!-- Login Content -->
-            <div id="loginTab" class="tab-pane fade in active">
-    <h4>Đăng nhập</h4> <!-- Title for Login -->
-    <form class="form-horizontal">
-        <div class="form-group">
-            <label for="loginEmail" >Số điện thoại/Email</label>
-            <input type="email" id="loginEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
-        </div>
-        <div class="form-group">
-        <label for="loginPassword" style="display:block;margin-top:8px;">Mật khẩu</label>
-            <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" class="form-control">
-        </div>
-        <div class="form-group">
-            <a href="{{ url('/forgot-password') }}" style="display:block; margin-top:8px; font-size:14px; color:#007bff; text-decoration:none;">Quên mật khẩu?</a>
-        </div>
-    </form>
-</div>
-
-            <!-- Register Content -->
-            <div id="registerTab" class="tab-pane fade">
-                <h4>Đăng ký</h4> <!-- Title for Register -->
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="registerEmail" style="display:block;margin-top:8px;">Số điện thoại/Email</label>
-                        <div class="col-sm-9">
-                            <input type="email" id="registerEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="registerPassword" style="display:block;margin-top:8px;">Mã xác nhận OTP</label>
-                        <div class="col-sm-9">
-                            <input type="password" id="registerPassword" placeholder="6 ký tự" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="confirmPassword" style="display:block;margin-top:8px;">Mật khẩu</label>
-                        <div class="col-sm-9">
-                            <input type="password" id="confirmPassword" placeholder="Nhập mật khẩu" class="form-control">
-                        </div>
-                    </div>
-                    
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-success">Submit</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    </div>
-</div>
->>>>>>> 00e1e6efabf4588a72fb2c2ad1d2362d1ae8c664
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success">Submit</button>
+                                    <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">Close</button>
+                                </div>
+                            </div>  --}}
+                            <a href="#" role="button" data-bs-toggle="modal" data-bs-target="#loginModal" style="padding-right:0">
+                                <span class="btn btn-large btn-success">Login</span>
+                            </a>
+                            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <ul class="nav nav-tabs" role="tablist">
+                                                <li class="nav-item">
+                                                    <button class="nav-link active" id="loginTab" data-bs-toggle="tab" data-bs-target="#loginContent" type="button" role="tab">Đăng nhập</button>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <button class="nav-link" id="registerTab" data-bs-toggle="tab" data-bs-target="#registerContent" type="button" role="tab">Đăng ký</button>
+                                                </li>
+                                            </ul>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="tab-content">
+                                                <!-- Login Form -->
+                                                <div class="tab-pane fade show active" id="loginContent" role="tabpanel">
+                                                    <h4>Đăng nhập</h4>
+                                                    <form class="form">
+                                                        <div class="mb-3">
+                                                            <label for="loginEmail" class="form-label">Số điện thoại/Email</label>
+                                                            <input type="email" id="loginEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="loginPassword" class="form-label">Mật khẩu</label>
+                                                            <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" class="form-control">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <a href="{{ url('/forgot-password') }}" class="text-decoration-none">Quên mật khẩu?</a>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-success">Đăng nhập</button>
+                                                    </form>
+                                                </div>
+                        
+                                                <!-- Register Form -->
+                                                <div class="tab-pane fade" id="registerContent" role="tabpanel">
+                                                    <h4>Đăng ký</h4>
+                                                    <form class="form">
+                                                        <div class="mb-3">
+                                                            <label for="registerEmail" class="form-label">Số điện thoại/Email</label>
+                                                            <input type="email" id="registerEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
+                                                            <div class="mb-3">
+                                                                <label for="registerPassword" class="form-label">Mật khẩu</label>
+                                                                <input type="password" id="registerPassword" placeholder="Nhập mật khẩu" class="form-control">
+                                                            </div>
+                                                            <button type="submit" class="btn btn-success">Đăng ký</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
                         </li>
                     </ul>
                 </div>
@@ -236,10 +284,10 @@
         <div class="container">
             <div class="row">
                 @if (
-                    !Request::routeIs('contact.form') && 
-                    !Request::routeIs('contact.store') &&
-                    !Request::routeIs('baiviet.index') && 
-                    !Request::routeIs('baiviet.contentbaiviet'))
+                    !Request::routeIs('contact.form') &&
+                        !Request::routeIs('contact.store') &&
+                        !Request::routeIs('baiviet.index') &&
+                        !Request::routeIs('baiviet.contentbaiviet'))
                     <div id="sidebar" class="span3">
                         <div class="well well-small"><a id="myCart" href="product_summary.html"><img
                                     src="themes/images/ico-cart.png" alt="cart">3 Items in your cart <span
@@ -412,21 +460,21 @@
     </div>
 
     <script>
-    function showForm(formId) {
-        const forms = document.querySelectorAll('.form-container');
-        const tabs = document.querySelectorAll('.tab button');
-        
-        forms.forEach(form => form.classList.remove('active'));
-        tabs.forEach(tab => tab.classList.remove('active'));
-        
-        document.getElementById(formId).classList.add('active');
-        if (formId === 'loginForm') {
-            document.getElementById('loginTab').classList.add('active');
-        } else {
-            document.getElementById('registerTab').classList.add('active');
+        function showForm(formId) {
+            const forms = document.querySelectorAll('.form-container');
+            const tabs = document.querySelectorAll('.tab button');
+
+            forms.forEach(form => form.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            document.getElementById(formId).classList.add('active');
+            if (formId === 'loginForm') {
+                document.getElementById('loginTab').classList.add('active');
+            } else {
+                document.getElementById('registerTab').classList.add('active');
+            }
         }
-    }
-</script>
+    </script>
 
     <script src="themes/js/jquery.js" type="text/javascript"></script>
     <script src="themes/js/bootstrap.min.js" type="text/javascript"></script>
@@ -434,7 +482,6 @@
     <script src="themes/js/bootshop.js"></script>
     <script src="themes/js/jquery.lightbox-0.5.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
