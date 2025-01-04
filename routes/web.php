@@ -6,14 +6,12 @@ use App\Http\Controllers\DanhMucController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LienHeController;
 use App\Http\Controllers\BaiVietController;
+use App\Http\Controllers\CartController;
 
 
 // Route cho trang chủ
 Route::get('/', function () {
     return view('layouts.user.index');
-});
-Route::get('/product', function () {
-    return view('layouts.user.product');
 });
 Route::get('/product', function () {
     return view('layouts.user.product');
@@ -27,9 +25,9 @@ Route::get('/about', function () {
 Route::get('/user', function () {
     return view('layouts.user.user');
 });
-Route::get('/cart', function () {
-    return view('layouts.user.cart');
-});
+Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+
 Route::get('/about', [BaiVietController::class, 'index'])->name('baiviet.index');
 Route::get('/about/{id}', [BaiVietController::class, 'show'])->name('baiviet.contentbaiviet');
 Route::get('/contact', [LienHeController::class, 'showView'])->name('contact.form');
