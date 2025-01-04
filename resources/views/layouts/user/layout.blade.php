@@ -2,11 +2,15 @@
 <html lang="en">
 
 <head>
+
+
     <meta charset="utf-8">
     <title>Bootshop online Shopping cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" href="{{ asset('css/about.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/aboutcontent.css') }}">
 
     <link id="callCss" rel="stylesheet" href="{{ asset('themes/bootshop/bootstrap.min.css') }}" media="screen" />
     <link href="{{ asset('themes/css/base.css') }}" rel="stylesheet" media="screen" />
@@ -15,9 +19,6 @@
     <link href="{{ asset('themes/js/google-code-prettify/prettify.css') }}" rel="stylesheet" />
     <link rel="shortcut icon" href="{{ asset('themes/images/ico/favicon.ico') }}">
     <link href="{{ asset('themes/css/style.css') }}" rel="stylesheet" />
- 
-
-    
 </head>
 
 <body>
@@ -127,7 +128,8 @@
         <div class="container">
             <div class="row">
                 <div class="span12 text-center">
-                    <img src="themes/images/logo.png" alt="Logo Website Bán Sách" style="width: 150px; height: auto; margin-bottom: 20px;">
+                    <img src="{{ asset('themes/images/logo.png') }}" alt="Logo Website Bán Sách" style="width: 150px; height: auto; margin-bottom: 20px;">
+
                 </div>
             </div>
             <div class="row">
@@ -167,9 +169,10 @@
                 </div>
                 <div id="socialMedia" class="span3 pull-right">
                     <h5>KẾT NỐI VỚI CHÚNG TÔI</h5>
-                    <a href="https://www.facebook.com/"><img width="40" height="40" src="themes/images/facebook.png" title="Facebook" alt="Facebook" /></a>
-                    <a href="https://www.facebook.com/"><img width="40" height="40" src="themes/images/twitter.png" title="Twitter" alt="Twitter" /></a>
-                    <a href="https://www.facebook.com/"><img width="40" height="40" src="themes/images/youtube.png" title="YouTube" alt="YouTube" /></a>
+                    <a href="https://www.facebook.com/"><img width="40" height="40" src="{{ asset('themes/images/facebook.png') }}" title="Facebook" alt="Facebook" /></a>
+                    <a href="https://www.twitter.com/"><img width="40" height="40" src="{{ asset('themes/images/twitter.png') }}" title="Twitter" alt="Twitter" /></a>
+                    <a href="https://www.youtube.com/"><img width="40" height="40" src="{{ asset('themes/images/youtube.png') }}" title="YouTube" alt="YouTube" /></a>
+
                 </div>
             </div>
             <div class="row">
@@ -206,6 +209,8 @@
     <script src="themes/js/google-code-prettify/prettify.js"></script>
     <script src="themes/js/bootshop.js"></script>
     <script src="themes/js/jquery.lightbox-0.5.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
