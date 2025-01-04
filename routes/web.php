@@ -27,10 +27,6 @@ Route::get('/about', function () {
 Route::get('/user', function () {
     return view('layouts.user.user');
 });
-<<<<<<< HEAD
-Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
-Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
-=======
 Route::get('/cart', function () {
     return view('layouts.user.cart');
 });
@@ -44,7 +40,6 @@ Route::middleware('auth')->group(function () {
         return view('dashboard'); // Tạo view dashboard
     })->name('dashboard');
 });
->>>>>>> 00e1e6efabf4588a72fb2c2ad1d2362d1ae8c664
 
 Route::get('/about', [BaiVietController::class, 'index'])->name('baiviet.index');
 Route::get('/about/{id}', [BaiVietController::class, 'show'])->name('baiviet.contentbaiviet');
