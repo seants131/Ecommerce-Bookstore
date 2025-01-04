@@ -17,7 +17,7 @@
     <br>
     {{-- end search --}}
     <a href="{{ route('admin.books.create') }}" class="btn btn-success" style="color: white;">Thêm Sách Mới</a>
-    <div class="order-info">
+    
         <div class="order-info">
             @if ($books->isEmpty())
                 <p>Không có sách nào.</p>
@@ -77,5 +77,5 @@
 
 
         </table>
-    </div>
+    
 @endsection
