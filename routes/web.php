@@ -10,7 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BaiVietController;
 use App\Http\Controllers\CartController;
-
+use App\Http\Controllers\UserOrderController;
 // Route cho trang chủ
 Route::get('/', function () {
     return view('layouts.user.index');
@@ -68,5 +68,8 @@ Route::put('orders/{id}', [HoaDonController::class, 'updateOrder'])->name('order
 Route::delete('orders/{id}', [HoaDonController::class, 'deleteOrder'])->name('orders.destroy');  // Xoá đơn hàng
 });
 
-
+Route::prefix('user')->group(function () {
+    Route::get('orders', [UserOrderController::class, 'index'])->name('user.orders.index');
+    Route::get('orders/{id}', [UserOrderController::class, 'show'])->name('user.orders.show');
+});
 
