@@ -33,13 +33,12 @@ Route::get('/contact', [LienHeController::class, 'showView'])->name('contact.for
 Route::post('/contact', [LienHeController::class, 'store'])->name('contact.store');
 
 // Route cho trang dashboard của admin
+Route::get('/admin', [HoaDonController::class, 'index'])->name('admin.dashboard');
 
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
 // Route cho trang dashboard của admin
 
-Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [HoaDonController::class, 'index'])->name('admin.dashboard');
+
 
 // Nhóm route cho admin
 Route::prefix('admin')->name('admin.')->group(function() {
