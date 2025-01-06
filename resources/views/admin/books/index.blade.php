@@ -44,7 +44,7 @@
                                 <td>
                                     <a href="{{ route('admin.books.edit', $book->MaSach) }}" class="btn btn-warning">Sửa</a>
                                     <form action="{{ route('admin.books.destroy', $book->MaSach) }}" method="POST"
-                                        style="display:inline;">
+                                        style="display:inline;" class="delete-form">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Xóa</button>
