@@ -25,14 +25,9 @@
     <div id="header">
         <div class="container-fluid">
             <div id="logoArea" class="navbar">
-                <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
                 <div class="navbar-inner d-flex justify-content-center align-items-center">
-                    <a class="brand" href="{{ url('/') }}"><img src="https://placehold.co/80x80"
-                            alt="Bootsshop" /></a>
+                    <a class="brand" href="{{ url('/') }}"><img src="{{ asset('img/logo.jpg') }}" alt="Bootsshop"
+                            style="width: 150px; height: 80px; object-fit: cover;" /></a>
                     <form class="form-inline navbar-search" method="post" action="">
                         <input id="srchFld" class="srchTxt" type="text" />
                         <select class="srchTxt">
@@ -45,6 +40,11 @@
                         </select>
                         <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
                     </form>
+                    <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
                     <ul id="topMenu" class="nav pull-right">
                         <li class=""><a href="{{ url('/') }}">Trang chủ</a></li>
                         <li class=""><a href="{{ url('/product') }}">Sản phẩm</a></li>
@@ -116,9 +116,12 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
     </div>
 </div>
+
                         </li>
                     </ul>
+
                 </div>
+
             </div>
         </div>
     </div>
@@ -207,10 +210,10 @@
         <div class="container">
             <div class="row">
                 @if (
-                    !Request::routeIs('contact.form') && 
-                    !Request::routeIs('contact.store') &&
-                    !Request::routeIs('baiviet.index') && 
-                    !Request::routeIs('baiviet.contentbaiviet'))
+                    !Request::routeIs('contact.form') &&
+                        !Request::routeIs('contact.store') &&
+                        !Request::routeIs('baiviet.index') &&
+                        !Request::routeIs('baiviet.contentbaiviet'))
                     <div id="sidebar" class="span3">
                         <div class="well well-small"><a id="myCart" href="product_summary.html"><img
                                     src="themes/images/ico-cart.png" alt="cart">3 Items in your cart <span
@@ -319,9 +322,8 @@
         <div class="container">
             <div class="row">
                 <div class="span12 text-center">
-                    <img src="{{ asset('themes/images/logo.png') }}" alt="Logo Website Bán Sách"
-                        style="width: 150px; height: auto; margin-bottom: 20px;">
-
+                    <img src="{{ asset('img/logo.jpg') }}" alt="Logo Website Bán Sách"
+                        style="width: 150px; height: 80px; object-fit: cover;">
                 </div>
             </div>
             <div class="row">
@@ -383,29 +385,31 @@
     </div>
 
     <script>
-    function showForm(formId) {
-        const forms = document.querySelectorAll('.form-container');
-        const tabs = document.querySelectorAll('.tab button');
-        
-        forms.forEach(form => form.classList.remove('active'));
-        tabs.forEach(tab => tab.classList.remove('active'));
-        
-        document.getElementById(formId).classList.add('active');
-        if (formId === 'loginForm') {
-            document.getElementById('loginTab').classList.add('active');
-        } else {
-            document.getElementById('registerTab').classList.add('active');
+        function showForm(formId) {
+            const forms = document.querySelectorAll('.form-container');
+            const tabs = document.querySelectorAll('.tab button');
+
+            forms.forEach(form => form.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            document.getElementById(formId).classList.add('active');
+            if (formId === 'loginForm') {
+                document.getElementById('loginTab').classList.add('active');
+            } else {
+                document.getElementById('registerTab').classList.add('active');
+            }
         }
-    }
-</script>
+    </script>
 
     <script src="themes/js/jquery.js" type="text/javascript"></script>
     <script src="themes/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="themes/js/google-code-prettify/prettify.js"></script>
     <script src="themes/js/bootshop.js"></script>
     <script src="themes/js/jquery.lightbox-0.5.js"></script>
+    <script src="js/scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
