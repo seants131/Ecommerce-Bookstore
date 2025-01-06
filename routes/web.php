@@ -32,9 +32,6 @@ Route::get('/cart', function () {
     return view('layouts.user.cart');
 });
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
-
 // Routes dành cho người dùng đã đăng nhập
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
