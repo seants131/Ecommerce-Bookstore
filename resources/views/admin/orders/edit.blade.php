@@ -17,10 +17,10 @@
             <input type="datetime-local" name="NgayLap" class="form-control" value="{{ $order->NgayLap }}" required>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="PhanTramThue">Phần Trăm Thuế:</label>
             <input type="number" name="PhanTramThue" class="form-control" value="{{ $order->PhanTramThue }}" required>
-        </div>
+        </div> -->
 
         <div class="form-group">
             <label for="TongTien">Tổng Tiền:</label>
@@ -38,8 +38,8 @@
         </div>
 
         <div class="form-group">
-            <label for="diachi">Địa Chỉ:</label>
-            <textarea name="diachi" class="form-control">{{ $order->diachi }}</textarea>
+            <label for="DiaChi">Địa Chỉ:</label>
+            <textarea name="DiaChi" class="form-control">{{ $order->DiaChi }}</textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Cập Nhật</button>
