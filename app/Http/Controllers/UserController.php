@@ -14,7 +14,6 @@ class UserController extends Controller
     public function show()
     {
         $nguoiDung = NguoiDung::first() ?? NguoiDung::find(1); // Hiện khoa chưa làm xong hệ thống đăng nhập nên, tôi lấy mặc định người dùng có mã là 1 
-
         return view('layouts.user.user', compact('nguoiDung'));
     }
 
