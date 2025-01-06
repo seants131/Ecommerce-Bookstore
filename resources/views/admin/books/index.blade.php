@@ -26,6 +26,7 @@
                     <thead>
                         <tr>
                             <th>Mã sách</th>
+                            <th>Hình ảnh</th> 
                             <th>Tên sách</th>
                             <th>Danh mục</th>
                             <th>Giá bán</th>
@@ -37,6 +38,13 @@
                         @foreach ($books as $book)
                             <tr>
                                 <td>{{ $book->MaSach }}</td> <!-- Hiển thị mã sách -->
+                                <td>
+                                    @if ($book->HinhAnh)
+                                        <img src="{{ asset('uploads/books/' . $book->HinhAnh) }}" alt="Hình ảnh" width="100">
+                                    @else
+                                        <span>Không có</span>
+                                    @endif
+                                </td>
                                 <td>{{ $book->TenSach }}</td> <!-- Hiển thị tên sách -->
                                 <td>{{ $book->danhmuc->name ?? 'Không có' }}</td>
                                 <td>{{ $book->GiaBan }}</td> <!-- Hiển thị giá bán -->
