@@ -19,22 +19,15 @@
     <link href="{{ asset('themes/js/google-code-prettify/prettify.css') }}" rel="stylesheet" />
     <link rel="shortcut icon" href="{{ asset('themes/images/ico/favicon.ico') }}">
     <link href="{{ asset('themes/css/style.css') }}" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
 </head>
 
 <body>
     <div id="header">
         <div class="container-fluid">
             <div id="logoArea" class="navbar">
-                <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
                 <div class="navbar-inner d-flex justify-content-center align-items-center">
-                    <a class="brand" href="{{ url('/') }}"><img src="https://placehold.co/80x80"
-                            alt="Bootsshop" /></a>
+                    <a class="brand" href="{{ url('/') }}"><img src="{{ asset('img/logo.jpg') }}" alt="Bootsshop"
+                            style="width: 150px; height: 80px; object-fit: cover;" /></a>
                     <form class="form-inline navbar-search" method="post" action="">
                         <input id="srchFld" class="srchTxt" type="text" />
                         <select class="srchTxt">
@@ -47,6 +40,11 @@
                         </select>
                         <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
                     </form>
+                    <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
                     <ul id="topMenu" class="nav pull-right">
                         <li class=""><a href="{{ url('/') }}">Trang chủ</a></li>
                         <li class=""><a href="{{ url('/product') }}">Sản phẩm</a></li>
@@ -56,7 +54,7 @@
                         <li class=""><a href="{{ url('/user') }}">Người dùng</a></li>
 
                         <li class="">
-                            {{-- <a href="#login" role="button" data-toggle="modal" style="padding-right:0">
+                            <a href="#login" role="button" data-toggle="modal" style="padding-right:0">
                                 <span class="btn btn-large btn-success">Login</span>
                             </a>
                             <div id="login" class="modal hide fade in" tabindex="-1" role="dialog"
@@ -132,70 +130,12 @@
                                     <button type="button" class="btn btn-default"
                                         data-dismiss="modal">Close</button>
                                 </div>
-                            </div>  --}}
-                            <a href="#" role="button" data-bs-toggle="modal" data-bs-target="#loginModal" style="padding-right:0">
-                                <span class="btn btn-large btn-success">Login</span>
-                            </a>
-                            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <ul class="nav nav-tabs" role="tablist">
-                                                <li class="nav-item">
-                                                    <button class="nav-link active" id="loginTab" data-bs-toggle="tab" data-bs-target="#loginContent" type="button" role="tab">Đăng nhập</button>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <button class="nav-link" id="registerTab" data-bs-toggle="tab" data-bs-target="#registerContent" type="button" role="tab">Đăng ký</button>
-                                                </li>
-                                            </ul>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="tab-content">
-                                                <!-- Login Form -->
-                                                <div class="tab-pane fade show active" id="loginContent" role="tabpanel">
-                                                    <h4>Đăng nhập</h4>
-                                                    <form class="form">
-                                                        <div class="mb-3">
-                                                            <label for="loginEmail" class="form-label">Số điện thoại/Email</label>
-                                                            <input type="email" id="loginEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="loginPassword" class="form-label">Mật khẩu</label>
-                                                            <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" class="form-control">
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <a href="{{ url('/forgot-password') }}" class="text-decoration-none">Quên mật khẩu?</a>
-                                                        </div>
-                                                        <button type="submit" class="btn btn-success">Đăng nhập</button>
-                                                    </form>
-                                                </div>
-                        
-                                                <!-- Register Form -->
-                                                <div class="tab-pane fade" id="registerContent" role="tabpanel">
-                                                    <h4>Đăng ký</h4>
-                                                    <form class="form">
-                                                        <div class="mb-3">
-                                                            <label for="registerEmail" class="form-label">Số điện thoại/Email</label>
-                                                            <input type="email" id="registerEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
-                                                            <div class="mb-3">
-                                                                <label for="registerPassword" class="form-label">Mật khẩu</label>
-                                                                <input type="password" id="registerPassword" placeholder="Nhập mật khẩu" class="form-control">
-                                                            </div>
-                                                            <button type="submit" class="btn btn-success">Đăng ký</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
+                            </div>
                         </li>
                     </ul>
+
                 </div>
+
             </div>
         </div>
     </div>
@@ -396,9 +336,8 @@
         <div class="container">
             <div class="row">
                 <div class="span12 text-center">
-                    <img src="{{ asset('themes/images/logo.png') }}" alt="Logo Website Bán Sách"
-                        style="width: 150px; height: auto; margin-bottom: 20px;">
-
+                    <img src="{{ asset('img/logo.jpg') }}" alt="Logo Website Bán Sách"
+                        style="width: 150px; height: 80px; object-fit: cover;">
                 </div>
             </div>
             <div class="row">
@@ -481,7 +420,7 @@
     <script src="themes/js/google-code-prettify/prettify.js"></script>
     <script src="themes/js/bootshop.js"></script>
     <script src="themes/js/jquery.lightbox-0.5.js"></script>
-
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>
