@@ -68,7 +68,7 @@
         <div class="tab-content">
             <!-- Login Content -->
             <div id="loginTab" class="tab-pane fade in active">
-    <h4>Đăng nhập</h4> <!-- Title for Login -->
+                <h4>Đăng nhập</h4> <!-- Title for Login -->
     <form class="form-horizontal">
         <div class="form-group">
             <label for="loginEmail" >Số điện thoại/Email</label>
@@ -404,7 +404,7 @@
     <script src="themes/js/google-code-prettify/prettify.js"></script>
     <script src="themes/js/bootshop.js"></script>
     <script src="themes/js/jquery.lightbox-0.5.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
