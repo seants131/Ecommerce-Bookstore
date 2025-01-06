@@ -1,0 +1,4 @@
+.label {
+    display: inline-block;
+    width: 150px; /* Đặt chiều rộng cố định cho các nhãn */
+}

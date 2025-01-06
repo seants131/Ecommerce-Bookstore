@@ -24,9 +24,10 @@ Route::get('/chitiet', function () {
 Route::get('/about', function () {
     return view('layouts.user.about');
 });
-Route::get('/user', function () {
-    return view('layouts.user.user');
-});
+
+Route::get('/user', [UserController::class, 'show'])->name('user.show');
+Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
+
 Route::get('/cart', function () {
     return view('layouts.user.cart');
 });
