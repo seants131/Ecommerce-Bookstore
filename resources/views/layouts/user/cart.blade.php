@@ -9,40 +9,6 @@
         <h3> SHOPPING CART [ <small>3 Item(s) </small>]<a href="products.html" class="btn btn-large pull-right"><i
                     class="icon-arrow-left"></i> Continue Shopping </a></h3>
         <hr class="soft" />
-        <table class="table table-bordered">
-            <tr>
-                <th> I AM ALREADY REGISTERED </th>
-            </tr>
-            <tr>
-                <td>
-                    <form class="form-horizontal">
-                        <div class="control-group">
-                            <label class="control-label" for="inputUsername">Username</label>
-                            <div class="controls">
-                                <input type="text" id="inputUsername" placeholder="Username">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="inputPassword1">Password</label>
-                            <div class="controls">
-                                <input type="password" id="inputPassword1" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <button type="submit" class="btn">Sign in</button> OR <a href="register.html"
-                                    class="btn">Register Now!</a>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <a href="forgetpass.html" style="text-decoration:underline">Forgot password ?</a>
-                            </div>
-                        </div>
-                    </form>
-                </td>
-            </tr>
-        </table>
 
         <table class="table table-bordered">
             <thead>
@@ -131,8 +97,8 @@
                             <div class="control-group">
                                 <label class="control-label"><strong> VOUCHERS CODE: </strong> </label>
                                 <div class="controls">
-                                    <input type="text" class="input-medium" placeholder="CODE">
-                                    <button type="submit" class="btn"> ADD </button>
+                                    <input type="text" class="input-medium" placeholder="CODE" style="width: 300px">
+                                    <button type="submit" class="btn"> OK </button>
                                 </div>
                             </div>
                         </form>
@@ -144,26 +110,63 @@
 
         <table class="table table-bordered">
             <tr>
-                <th>ESTIMATE YOUR SHIPPING </th>
+                <th>SHIPPING ADDRESS </th>
             </tr>
             <tr>
                 <td>
                     <form class="form-horizontal">
-                        <div class="control-group">
-                            <label class="control-label" for="inputCountry">Country </label>
-                            <div class="controls">
-                                <input type="text" id="inputCountry" placeholder="Country">
+                        <div>
+                            <div style="display: flex">
+                                <div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="inputCountry">Họ tên</label>
+                                        <div class="controls">
+                                            <input type="text" id="inputCountry" placeholder="Họ tên">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="inputPost">Email </label>
+                                        <div class="controls">
+                                            <input type="text" id="inputPost" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="inputCountry">Quận/Huyện </label>
+                                        <div class="controls">
+                                            <input type="text" id="inputCountry" placeholder="Quận/Huyện">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="inputPost">Tỉnh/Thành phố </label>
+                                        <div class="controls">
+                                            <select type="text" id="inputPost" placeholder="Tỉnh/Thành phố"></select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="inputCountry">Phường/Xã</label>
+                                        <div class="controls">
+                                            <select type="text" id="inputCountry" placeholder="Phường/Xã"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="inputCountry">Số nhà/Tên đường </label>
+                                <div class="controls">
+                                    <input type="text" id="inputCountry" placeholder="Số nhà/Tên đường"
+                                        style="width: 608px">
+                                </div>
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputPost">Post Code/ Zipcode </label>
                             <div class="controls">
-                                <input type="text" id="inputPost" placeholder="Postcode">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <button type="submit" class="btn">ESTIMATE </button>
+                                <button type="submit" class="btn btn-large">OK </button>
                             </div>
                         </div>
                     </form>

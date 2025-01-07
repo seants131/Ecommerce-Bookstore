@@ -21,6 +21,9 @@ Route::get('/product', function () {
 Route::get('/chitiet', function () {
     return view('layouts.user.chitiet');
 });
+Route::get('/chitiet/{id}', [ProductController::class, 'show'])->name('product.detail');
+Route::get('/chitiet/{id}', [ProductController::class, 'show'])->name('product.detail');
+
 Route::get('/about', function () {
     return view('layouts.user.about');
 });
@@ -31,6 +34,7 @@ Route::post('/user/update', [UserController::class, 'update'])->name('user.updat
 Route::get('/cart', function () {
     return view('layouts.user.cart');
 });
+
 
 // Routes dành cho người dùng đã đăng nhập
 Route::middleware('auth')->group(function () {
