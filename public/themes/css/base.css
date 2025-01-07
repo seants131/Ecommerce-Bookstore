@@ -356,6 +356,12 @@
     #topMenu {
         display: none; /* Ẩn menu */
     }
+    #topMenu.show {
+        display: flex; /* Hiển thị menu khi có lớp 'show' */
+        flex-direction: column; /* Thay đổi layout nếu cần */
+        background-color: #f8f9fa; /* Thêm kiểu dáng menu */
+        padding: 10px;
+    }
 }
 
 /* Media query: >= 1350px */
