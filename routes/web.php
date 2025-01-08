@@ -9,6 +9,7 @@ use App\Http\Controllers\HoaDonController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BaiVietController;
+use App\Http\Controllers\CartController;
 
 // Route cho trang chủ
 Route::get('/', function () {
@@ -17,15 +18,23 @@ Route::get('/', function () {
 Route::get('/product', function () {
     return view('layouts.user.product');
 });
-Route::get('/user', function () {
-    return view('layouts.user.user');
+Route::get('/chitiet', function () {
+    return view('layouts.user.chitiet');
 });
+Route::get('/chitiet/{id}', [ProductController::class, 'show'])->name('product.detail');
+
+
+Route::get('/about', function () {
+    return view('layouts.user.about');
+});
+
+Route::get('/user', [UserController::class, 'show'])->name('user.show');
+Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
+
 Route::get('/cart', function () {
     return view('layouts.user.cart');
 });
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 
 // Routes dành cho người dùng đã đăng nhập
 Route::middleware('auth')->group(function () {
@@ -54,7 +63,6 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::resource('books', BookController::class)->except(['show']);
     Route::post('books/search', [BookController::class, 'search'])->name('books.search'); // Tìm kiếm sách 
     Route::post('danhmucs/search', [DanhMucController::class, 'search'])->name('danhmucs.search'); // Tìm kiếm danh mục  
-
 });
 Route::prefix('admin')->name('admin.')->group(function() {
 Route::get('orders', [HoaDonController::class, 'index'])->name('orders.index');  // Danh sách đơn hàng
