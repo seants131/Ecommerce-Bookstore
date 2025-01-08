@@ -49,7 +49,7 @@
                 <h3>Fujifilm FinePix S2950 Digital Camera </h3>
                 <small>- (14MP, 18x Optical Zoom) 3-inch LCD</small>
                 <hr class="soft" />
-                <form class="form-horizontal qtyFrm" action="{{ route('cart.add') }}" method="POST">
+                <form class="form-horizontal qtyFrm" action="" method="POST">
                     @csrf
                     <input type="hidden" name="product_id" value="1"> <!-- ID sản phẩm -->
                     <input type="hidden" name="price" value="222.00"> <!-- Giá sản phẩm -->
