@@ -41,6 +41,8 @@
                                 <td>
                                     @if ($book->HinhAnh)
                                         <img src="{{ asset('uploads/books/' . $book->HinhAnh) }}" alt="Hình ảnh" width="100">
+                                        {{-- cái ở dưới để dùng link trang khác --}}
+                                        {{-- <img src="{{ asset($book->HinhAnh) }}" alt="Hình ảnh" width="100">   --}} 
                                     @else
                                         <span>Không có</span>
                                     @endif
