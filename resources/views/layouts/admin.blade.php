@@ -35,7 +35,7 @@
             <a href="#">
                 <i class="fas fa-user"></i> Người dùng
             </a>
-            <a href="#">
+            <a href="{{ route('admin.orders.index') }}">
                 <i class="fa fa-check"></i> Đơn hàng
             </a>
             <a href="#">

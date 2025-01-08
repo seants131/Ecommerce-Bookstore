@@ -11,7 +11,7 @@ class HoaDonController extends Controller
     public function index()
     {
         $orders = HoaDon::all();  // Lấy tất cả đơn hàng
-        return view('admin.dashboard', compact('orders'));
+        return view('admin.orders.index', compact('orders'));
     }
 
     // Hiển thị form cập nhật đơn hàng
