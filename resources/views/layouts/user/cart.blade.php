@@ -25,7 +25,8 @@
             <tbody>
                 <tr>
                     <td> <img width="60" src="themes/images/products/4.jpg" alt="" /></td>
-                    <td>Giáo Dục Giới Tính Cho Con Trai<br />Nhà cung cấp:Minh Long <br/>Nhà xuất bản:Phụ Nữ Việt Nam</td>
+                    <td>Sách 1<br />Color : black, Material : metal</td>
+
                     <td>
                         <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1"
                                 id="appendedInputButtons" size="16" type="text"><button class="btn"

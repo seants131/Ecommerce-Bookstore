@@ -23,7 +23,6 @@ Route::get('/chitiet', function () {
 });
 Route::get('/chitiet/{id}', [ProductController::class, 'show'])->name('product.detail');
 
-
 Route::get('/about', function () {
     return view('layouts.user.about');
 });
