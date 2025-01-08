@@ -10,7 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BaiVietController;
 use App\Http\Controllers\CartController;
-
+use App\Http\Controllers\UserOrderController;
 // Route cho trang chủ
 Route::get('/', function () {
     return view('layouts.user.index');
@@ -26,10 +26,6 @@ Route::get('/chitiet/{id}', [ProductController::class, 'show'])->name('product.d
 Route::get('/about', function () {
     return view('layouts.user.about');
 });
-
-Route::get('/user', [UserController::class, 'show'])->name('user.show');
-Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
-
 Route::get('/cart', function () {
     return view('layouts.user.cart');
 });
@@ -63,12 +59,19 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::post('books/search', [BookController::class, 'search'])->name('books.search'); // Tìm kiếm sách 
     Route::post('danhmucs/search', [DanhMucController::class, 'search'])->name('danhmucs.search'); // Tìm kiếm danh mục  
 });
+//Route cho đơn hàng admin
 Route::prefix('admin')->name('admin.')->group(function() {
 Route::get('orders', [HoaDonController::class, 'index'])->name('orders.index');  // Danh sách đơn hàng
 Route::get('orders/{id}/edit', [HoaDonController::class, 'edit'])->name('orders.edit');  // Form cập nhật đơn hàng
 Route::put('orders/{id}', [HoaDonController::class, 'updateOrder'])->name('orders.update');  // Cập nhật đơn hàng
 Route::delete('orders/{id}', [HoaDonController::class, 'deleteOrder'])->name('orders.destroy');  // Xoá đơn hàng
 });
-
-
-
+//cái này cho đơn hàng user
+Route::prefix('user')->group(function () {
+    Route::get('orders', [UserOrderController::class, 'index'])->name('user.orders.index');
+    Route::get('orders/{id}', [UserOrderController::class, 'show'])->name('user.orders.show');
+    Route::post('orders/{id}/cancel', [UserOrderController::class, 'huyDonHang'])->name('user.orders.cancel');
+});
+// Route cho trang thông tin đăng ký user
+Route::get('/user', [UserController::class, 'show'])->name('user.show');
+Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
