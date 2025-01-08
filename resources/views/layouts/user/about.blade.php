@@ -1,101 +1,280 @@
 @extends('layouts.user.layout')
 
 @section('content')
-<div class="container py-4">
-    <div class="row">
-        <div class="intro-section mb-4">
-            <h2 class="text-center text-primary fw-bold">Chào mừng khách hàng đến với Website Bán Sách</h2>
-            <p class="text-center text-muted">Tại đây, chúng tôi cung cấp đa dạng các thể loại sách, từ sách văn học, khoa học, đến các sách học thuật. Khám phá ngay bộ sưu tập sách của chúng tôi để tìm kiếm những cuốn sách yêu thích hoặc những tựa sách mới nhất. Hãy tận hưởng mua sắm dễ dàng và tiện lợi cùng chúng tôi!</p>
-        </div>
-        <div class="col-md-8">
-            <h3 class="text-primary text-center fw-bold mb-4">GIỚI THIỆU BÀI VIẾT</h3>
+<div class="section">
 
-            <!-- Form tìm kiếm -->
-            <form method="GET" action="{{ route('baiviet.index') }}" class="mb-4">
-                <div class="input-group">
-                    <input type="text" name="search" value="{{ request('search') }}" class="form-control" placeholder="Tìm kiếm bài viết...">
-                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
-                </div>
-            </form>
+        <h2 class="section-title">BÀI VIẾT VỀ THÔNG TIN NHÓM</h2>
+        <div class="featured-article">
 
-            @if($baiviets->isEmpty())
-                <p class="text-center text-muted">Không tìm thấy bài viết nào phù hợp.</p>
-            @else
-                <div class="row g-4">
-                    @foreach ($baiviets as $baiviet)
-                        <div class="col-md-6">
-                            <div class="card h-100 shadow-sm">
-                                <a href="{{ route('baiviet.contentbaiviet', $baiviet->id) }}" class="text-decoration-none">
-                                    <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="Image" class="card-img-top" style="height: 200px; object-fit: cover;">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-dark fw-bold">{{ $baiviet->tieude }}</h5>
-                                        <p class="card-text text-muted">{{ Str::limit($baiviet->noidung, 100) }}</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
-            <div class="d-flex justify-content-center mt-4">
-                <nav aria-label="Page navigation">
-                    <ul class="pagination pagination-lg">
-                        {{ $baiviets->appends(['search' => request('search')])->links() }}
-                    </ul>
-                </nav>
-            </div>
+            <div class="featured-content">
+                {{-- Hiển thị hình ảnh --}}
+                @foreach ($baivietnhom as $baiviet)
+                <a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">
+                    <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="{{ $baiviet->tieude }}" class="featured-image">
+                </a>
 
-        </div>
+                {{-- Hiển thị tiêu đề --}}
+                <h2><a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">{{ $baiviet->tieude }}</a></h2>
 
-        <!-- Cột phải: Sách theo chủ đề -->
-        {{-- <div class="col-md-4">
-            <h4 class="text-primary fw-bold mb-4">SÁCH THEO CHỦ ĐỀ</h4>
-            <div>
-                @foreach ($chudetin as $chude => $baivietList)
-                <div class="mb-3">
-                    <h5 class="text-secondary">{{ $chude }}</h5>
-                    <ul class="list-unstyled">
-                        @foreach ($baivietList as $baiviet)
-                        <li class="mb-2">
-                            <a href="{{ route('baiviet.contentbaiviet', $baiviet->id) }}" class="d-flex align-items-start">
-                                <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="Image" class="rounded me-3" style="width: 70px; height: 70px; object-fit: cover;">
-                                <div>
-                                    <h6 class="mb-1 text-dark fw-bold">{{ $baiviet->tieude }}</h6>
-                                    <p class="mb-1 text-muted">{{ Str::limit($baiviet->noidung, 40) }}</p>
-                                </div>
-                            </a>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
+                {{-- Hiển thị nội dung --}}
+                <p class="article-summary">{!! nl2br(e(Str::limit($baiviet->noidung, 100))) !!}</p>
+
+
+                {{-- Hiển thị chủ đề và ngày tạo --}}
+                <p class="article-meta">
+                  {{ $baiviet->created_at->format('d/m/Y') }}
+                </p>
                 @endforeach
             </div>
-        </div> --}}
-        <!-- Cột phải: Sách theo chủ đề -->
-<div class="col-md-4">
-    <h4 class="text-primary fw-bold mb-4">BÀI VIẾT THEO CHỦ ĐỀ</h4>
-    <div>
-        @foreach ($chudetin as $chude => $baivietList)
-        <div class="mb-3">
-            <h5 class="text-secondary">{{ $chude }}</h5>
-            <ul class="chude-container">
-                @foreach ($baivietList as $baiviet)
-                <li class="mb-2">
-                    <a href="{{ route('baiviet.contentbaiviet', $baiviet->id) }}" class="d-flex align-items-start">
-                        <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="Image" class="rounded me-3" style="width: 70px; height: 70px; object-fit: cover;">
-                        <div>
-                            <h6 class="mb-1 text-dark fw-bold">{{ $baiviet->tieude }}</h6>
-                            <p class="mb-1 text-muted">{{ Str::limit($baiviet->noidung, 40) }}</p>
-                        </div>
-                    </a>
+  
+    </div>
+    <h2 class="section-title">BÀI VIẾT CHỦ ĐỀ VĂN HỌC</h2>
+    <div class="main-content">
+        <div class="featured-article">
+
+            <div class="featured-content">
+                {{-- Hiển thị hình ảnh --}}
+
+                @foreach ($baiviets as $baiviet)
+
+                <a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">
+                    <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="{{ $baiviet->tieude }}" class="featured-image">
+                </a>
+
+
+                {{-- Hiển thị tiêu đề --}}
+                <h2><a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">{{ $baiviet->tieude }}</a></h2>
+
+
+                {{-- Hiển thị nội dung --}}
+                <p class="article-summary">{!! nl2br(e($baiviet->noidung)) !!}</p>
+
+                {{-- Hiển thị chủ đề và ngày tạo --}}
+                <p class="article-meta">
+                    Chủ đề: {{ $baiviet->chude }} - {{ $baiviet->created_at->format('d/m/Y') }}
+                </p>
+                @endforeach
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="side-content">
+        <ul class="related-articles">
+            <li>
+                 {{-- Hiển thị hình ảnh --}}
+                 @foreach ($baiviets as $baiviet)
+                 <a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">
+                    <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="{{ $baiviet->tieude }}" class="featured-image">
+                </a>
+
+                 {{-- Hiển thị tiêu đề --}}
+                 <h2 ><a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">{{ $baiviet->tieude }}</a></h2>
+
+                 {{-- Hiển thị nội dung --}}
+                 <p class="">{!! nl2br(e($baiviet->noidung)) !!}</p>
+
+                 {{-- Hiển thị chủ đề và ngày tạo --}}
+                 <p class="">
+                     Chủ đề: {{ $baiviet->chude }} - {{ $baiviet->created_at->format('d/m/Y') }}
+                 </p>
+                 @endforeach
+            </li>
+            <li>
+                         {{-- Hiển thị hình ảnh --}}
+                 @foreach ($baiviets as $baiviet)
+                 <a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">
+                    <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="{{ $baiviet->tieude }}" class="featured-image">
+                </a>
+
+                 {{-- Hiển thị tiêu đề --}}
+                 <h2><a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">{{ $baiviet->tieude }}</a></h2>
+
+                 {{-- Hiển thị nội dung --}}
+                 <p class="">{!! nl2br(e($baiviet->noidung)) !!}</p>
+
+                 {{-- Hiển thị chủ đề và ngày tạo --}}
+                 <p class="">
+                     Chủ đề: {{ $baiviet->chude }} - {{ $baiviet->created_at->format('d/m/Y') }}
+                 </p>
+                 @endforeach
+            </li>
+            <li>
+                         {{-- Hiển thị hình ảnh --}}
+                 @foreach ($baiviets as $baiviet)
+                 <a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">
+                    <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="{{ $baiviet->tieude }}" class="featured-image">
+                </a>
+
+                 {{-- Hiển thị tiêu đề --}}
+                 <h2><a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">{{ $baiviet->tieude }}</a></h2>
+
+                 {{-- Hiển thị nội dung --}}
+                 <p class="">{!! nl2br(e($baiviet->noidung)) !!}</p>
+
+                 {{-- Hiển thị chủ đề và ngày tạo --}}
+                 <p class="">
+                     Chủ đề: {{ $baiviet->chude }} - {{ $baiviet->created_at->format('d/m/Y') }}
+                 </p>
+                 @endforeach
+            </li>
+        </ul>
+    </div>
+</div>
+<div>
+<h2 class="section-title">BÀI VIẾT</h2>
+<div class="custom-side-content">
+    <ul class="custom-related-articles">
+        <li>
+             {{-- Hiển thị hình ảnh --}}
+             @foreach ($baiviets as $baiviet)
+             <a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">
+                <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="{{ $baiviet->tieude }}" class="custom-featured-image">
+            </a>
+
+             {{-- Hiển thị tiêu đề --}}
+             <h2><a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">{{ $baiviet->tieude }}</a></h2>
+
+             {{-- Hiển thị nội dung --}}
+             <p class="custom-article-summary">{!! nl2br(e($baiviet->noidung)) !!}</p>
+
+             {{-- Hiển thị chủ đề và ngày tạo --}}
+             <p class="custom-meta-info">
+                 Chủ đề: {{ $baiviet->chude }} - {{ $baiviet->created_at->format('d/m/Y') }}
+             </p>
+             @endforeach
+        </li>
+        <li>
+             {{-- Hiển thị hình ảnh --}}
+             @foreach ($baiviets as $baiviet)
+             <a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">
+                <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="{{ $baiviet->tieude }}" class="custom-featured-image">
+            </a>
+
+             {{-- Hiển thị tiêu đề --}}
+             <h2><a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">{{ $baiviet->tieude }}</a></h2>
+
+             {{-- Hiển thị nội dung --}}
+             <p class="custom-article-summary">{!! nl2br(e($baiviet->noidung)) !!}</p>
+
+             {{-- Hiển thị chủ đề và ngày tạo --}}
+             <p class="custom-meta-info">
+                 Chủ đề: {{ $baiviet->chude }} - {{ $baiviet->created_at->format('d/m/Y') }}
+             </p>
+             @endforeach
+        </li>
+
+        <li>
+            {{-- Hiển thị hình ảnh --}}
+            @foreach ($baiviets as $baiviet)
+            <a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">
+               <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="{{ $baiviet->tieude }}" class="custom-featured-image">
+           </a>
+
+            {{-- Hiển thị tiêu đề --}}
+            <h2><a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">{{ $baiviet->tieude }}</a></h2>
+
+            {{-- Hiển thị nội dung --}}
+            <p class="custom-article-summary">{!! nl2br(e($baiviet->noidung)) !!}</p>
+
+            {{-- Hiển thị chủ đề và ngày tạo --}}
+            <p class="custom-meta-info">
+                Chủ đề: {{ $baiviet->chude }} - {{ $baiviet->created_at->format('d/m/Y') }}
+            </p>
+            @endforeach
+       </li>
+    </ul>
+</div>
+</div>
+<div class="categories">
+
+    <div class="category">
+        <h2 class="category-title manga">SÁCH THIẾU NHI</h2>
+        <div class="featured-article">
+            <div class="featured-content">
+                <a href="{{ route('baiviet.noidungbaiviet', $chudenthieunhi->first()->slug) }}">
+                    <img src="{{ asset('bookimage/' . $chudenthieunhi->first()->anhbaiviet) }}" alt="{{ $chudenthieunhi->first()->tieude }}" class="featured-image">
+                </a>
+
+                <h2><a href="{{ route('baiviet.noidungbaiviet', $chudenthieunhi->first()->slug) }}">{{ $chudenthieunhi->first()->tieude }}</a></h2>
+
+                <p class="article-summary">{!! nl2br(e($chudenthieunhi->first()->noidung)) !!}</p>
+
+                <p class="article-meta">
+                    Chủ đề: {{ $chudenthieunhi->first()->chude }} - {{ $chudenthieunhi->first()->created_at->format('d/m/Y') }}
+                </p>
+            </div>
+        </div>
+
+        <ul class="related-articles">
+            @foreach($chudenthieunhi->slice(1, 2) as $baiviet)
+                <li>
+                    <h2><a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">{{ $baiviet->tieude }} - {{ $baiviet->created_at->format('d/m/Y') }}</a></h2>
                 </li>
-                @endforeach
-            </ul>
-        </div>
-        @endforeach
+            @endforeach
+        </ul>
     </div>
+
+    <!-- Chủ đề: VĂN HỌC CỔ ĐIỂN -->
+    <div class="category">
+        <h2 class="category-title manga">VĂN HỌC CỔ ĐIỂN</h2>
+        <div class="featured-article">
+            <div class="featured-content">
+                <a href="{{ route('baiviet.noidungbaiviet', $chudenvanhoccodien->first()->slug) }}">
+                    <img src="{{ asset('bookimage/' . $chudenvanhoccodien->first()->anhbaiviet) }}" alt="{{ $chudenvanhoccodien->first()->tieude }}" class="featured-image">
+                </a>
+
+                <h2><a href="{{ route('baiviet.noidungbaiviet', $chudenvanhoccodien->first()->slug) }}">{{ $chudenvanhoccodien->first()->tieude }}</a></h2>
+
+                <p class="article-summary">{!! nl2br(e($chudenvanhoccodien->first()->noidung)) !!}</p>
+
+
+                <<p class="article-meta">
+                    Chủ đề: {{ $chudenvanhoccodien->first()->chude }} -
+                    {{ $chudenvanhoccodien->first()->created_at ? $chudenvanhoccodien->first()->created_at->format('d/m/Y') : 'N/A' }}
+                </p>
+            </div>
+        </div>
+
+        <ul class="related-articles">
+            @foreach($chudenvanhoccodien->slice(1, 2) as $baiviet)
+                <li>
+                    <h2><a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">{{ $baiviet->tieude }} - {{ $baiviet->created_at->format('d/m/Y') }}</a></h2>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+
+    <!-- Chủ đề: VĂN HỌC HIỆN ĐẠI -->
+    <div class="category">
+        <h2 class="category-title manga">VĂN HỌC HIỆN ĐẠI</h2>
+        <div class="featured-article">
+            <div class="featured-content">
+                <a href="{{ route('baiviet.noidungbaiviet', $chudevanhochiendai->first()->slug) }}">
+                    <img src="{{ asset('bookimage/' . $chudevanhochiendai->first()->anhbaiviet) }}" alt="{{ $chudevanhochiendai->first()->tieude }}" class="featured-image">
+                </a>
+
+                <h2><a href="{{ route('baiviet.noidungbaiviet', $chudevanhochiendai->first()->slug) }}">{{ $chudevanhochiendai->first()->tieude }}</a></h2>
+
+                <p class="article-summary">{!! nl2br(e($chudevanhochiendai->first()->noidung)) !!}</p>
+
+                <p class="article-meta">
+                    Chủ đề: {{ $chudevanhochiendai->first()->chude }} - {{ $chudevanhochiendai->first()->created_at->format('d/m/Y') }}
+                </p>
+            </div>
+        </div>
+
+        <ul class="related-articles">
+            @foreach($chudevanhochiendai->slice(1, 2) as $baiviet)
+                <li>
+                    <h2><a href="{{ route('baiviet.noidungbaiviet', $baiviet->slug) }}">{{ $baiviet->tieude }} - {{ $baiviet->created_at->format('d/m/Y') }}</a></h2>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+
 </div>
 
-    </div>
-</div>
+
 @endsection

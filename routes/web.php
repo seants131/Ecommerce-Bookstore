@@ -40,9 +40,19 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/about', [BaiVietController::class, 'index'])->name('baiviet.index');
-Route::get('/about/{id}', [BaiVietController::class, 'show'])->name('baiviet.contentbaiviet');
+Route::get('/about/{baiviet}', [BaiVietController::class, 'show'])->name('baiviet.noidungbaiviet');
 Route::get('/contact', [LienHeController::class, 'showView'])->name('contact.form');
 Route::post('/contact', [LienHeController::class, 'store'])->name('contact.store');
+Route::get('/chinh-sach-bao-mat', function () {
+    return view('layouts.user.chinhsach');
+})->name('about.chinhsach');
+Route::get('/chinh-sach-thanh-toan', function () {
+    return view('layouts.user.chinhsachthanhtoan');
+})->name('about.chinhsach');
+Route::get('/chinh-sach-bao-hanh', function () {
+    return view('layouts.user.chinhsachbaohanh');
+})->name('about.chinhsach');
+
 
 
 // Route cho trang dashboard của admin
@@ -58,8 +68,8 @@ Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.d
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::resource('danhmucs', DanhMucController::class);
     Route::resource('books', BookController::class)->except(['show']);
-    Route::post('books/search', [BookController::class, 'search'])->name('books.search'); // Tìm kiếm sách 
-    Route::post('danhmucs/search', [DanhMucController::class, 'search'])->name('danhmucs.search'); // Tìm kiếm danh mục  
+    Route::post('books/search', [BookController::class, 'search'])->name('books.search'); // Tìm kiếm sách
+    Route::post('danhmucs/search', [DanhMucController::class, 'search'])->name('danhmucs.search'); // Tìm kiếm danh mục
 });
 Route::prefix('admin')->name('admin.')->group(function() {
 Route::get('orders', [HoaDonController::class, 'index'])->name('orders.index');  // Danh sách đơn hàng

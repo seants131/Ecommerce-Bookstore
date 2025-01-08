@@ -10,25 +10,42 @@ class BaiVietController extends Controller
     //ham hien thi danh sach bai viet 3 bai viet ngau nhien moi nghi nhan f5
     public function index(Request $request)
     {
-        $search = $request->input('search', '');
+
         $baiviets = BaiViet::where('trangthai', 1)
-            ->where('tieude', 'like', '%' . $search . '%')
-            ->orWhere('noidung', 'like', '%' . $search . '%')
-            ->paginate(3);
-        $chudetin = BaiViet::where('trangthai', 1)->inRandomOrder()->get()->groupBy('chude')->take(3);
-
-        return view('layouts.user.about', compact('baiviets', 'chudetin'));
+                            ->where('chude', 'Văn học')
+                            ->paginate(1);
+        $chudenthieunhi = BaiViet::where('trangthai', 1)
+                                  ->where('chude', 'Sách thiếu nhi')
+                                  ->inRandomOrder()
+                                  ->take(3)
+                                  ->get();
+                                  $baivietnhom = BaiViet::where('trangthai', 1)
+                                  ->where('chude', 'Thông tin nhóm')
+                                  ->take(1)
+                                  ->get();
+        $chudevanhochiendai = BaiViet::where('trangthai', 1)
+                                  ->where('chude', 'Văn học hiện đại')
+                                  ->inRandomOrder()
+                                  ->take(3)
+                                  ->get();
+                                  $chudenvanhoccodien = BaiViet::where('trangthai', 1)
+                                  ->where('chude', 'Văn học cổ điển')
+                                  ->inRandomOrder()
+                                  ->take(3)
+                                  ->get();
+        return view('layouts.user.about', compact('baiviets', 'chudenthieunhi','chudevanhochiendai','chudenvanhoccodien','baivietnhom'));
     }
 
-
-    public function show($id)
+    //tim bai viet theo slug
+    public function show(BaiViet $baiviet)
     {
-        $baiviet = BaiViet::findOrFail($id);
         $baiviettt = BaiViet::where('chude', $baiviet->chude)
-                                ->where('id', '!=', $baiviet->id)  // de k thay bai viet hien tai xuat ra nua
-                                ->limit(5)
-                                ->get();
+                            ->where('id', '!=', $baiviet->id)
+                            ->limit(5)
+                            ->get();
 
-        return view('layouts.user.contentbaiviet', compact('baiviet', 'baiviettt'));
+        return view('layouts.user.noidungbaiviet', compact('baiviet', 'baiviettt'));
     }
+
+
 }
