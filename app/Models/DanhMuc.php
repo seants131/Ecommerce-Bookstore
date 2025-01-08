@@ -2,7 +2,7 @@
 
 // app/Models/DanhMuc.php
 namespace App\Models;
-
+use App\Models\Sach;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,6 +26,10 @@ class DanhMuc extends Model
     {
         return $this->hasMany(DanhMuc::class, 'parent_id');
     }
-    
+    public function books()
+    {
+        return $this->hasMany(Sach::class, 'category_id', 'id');
+    }
+
 }
 

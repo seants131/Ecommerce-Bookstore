@@ -4,3 +4,8 @@
     align-items: center;
     justify-content: space-evenly;
 }
+.thumbnaili img {
+    width: 260px; /* Đặt chiều rộng cố định */
+    height: 260px; /* Đặt chiều cao cố định */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}

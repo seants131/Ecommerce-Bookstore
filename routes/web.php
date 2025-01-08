@@ -9,21 +9,18 @@ use App\Http\Controllers\HoaDonController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BaiVietController;
+use App\Models\DanhMuc;
 use App\Http\Controllers\CartController;
 
 // Route cho trang chủ
-Route::get('/', function () {
-    return view('layouts.user.index');
-});
-Route::get('/product', function () {
-    return view('layouts.user.product');
-});
+
+Route::get('/', [DanhMucController::class, 'getbook']);
+Route::get('/product', [DanhMucController::class, 'getproduct']);
+
 Route::get('/chitiet', function () {
     return view('layouts.user.chitiet');
 });
-Route::get('/about', function () {
-    return view('layouts.user.about');
-});
+
 
 Route::get('/user', [UserController::class, 'show'])->name('user.show');
 Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
