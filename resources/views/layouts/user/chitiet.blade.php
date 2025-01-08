@@ -9,8 +9,8 @@
         </ul>
         <div class="row">
             <div id="gallery" class="span3">
-                <a href="themes/images/products/large/f1.jpg" title="Fujifilm FinePix S2950 Digital Camera">
-                    <img src="themes/images/products/large/3.jpg" style="width:100%"
+                <a href="themes/images/products/1.jpg" title="Con đường chẳng mấy ai đi">
+                    <img src="{{asset('themes/images/products/1.jpg')}}" style="width:100%"
                         alt="Fujifilm FinePix S2950 Digital Camera" />
                 </a>
                 <div id="differentview" class="moreOptopm carousel slide">
