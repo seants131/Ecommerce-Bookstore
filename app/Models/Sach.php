@@ -17,7 +17,7 @@ class Sach extends Model
     protected $keyType = 'string'; 
     // Các trường có thể được gán giá trị đại diện cho cột trong bảng
     protected $fillable = [
-        'MaSach', 'TenSach', 'category_id', 'GiaNhap', 'GiaBan', 'SoLuong', 'NamXuatBan', 'MoTa', 'TrangThai', 'MaNXB'
+        'MaSach', 'TenSach', 'category_id', 'GiaNhap', 'GiaBan', 'SoLuong', 'NamXuatBan', 'MoTa', 'TrangThai', 'MaNXB','HinhAnh'
     ];
 
     // Nếu bảng có timestamp (created_at, updated_at), thì Laravel sẽ tự động quản lý

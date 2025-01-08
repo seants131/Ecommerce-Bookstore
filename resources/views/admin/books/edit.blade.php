@@ -3,13 +3,16 @@
 @section('content')
 <h1>Sửa sách</h1>
 
-    <form method="POST" action="{{ route('admin.books.update', $book->MaSach) }}">
+    <form method="POST" action="{{ route('admin.books.update', $book->MaSach) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
         <label for="MaSach">Mã sách:</label>
         <input type="text" name="MaSach" id="MaSach" value="{{ old('MaSach', $book->MaSach) }}" required readonly>
 
+        <label for="HinhAnh">Hình ảnh:</label>
+        <input type="file" name="HinhAnh" id="HinhAnh" accept="image/*">
+        
         <label for="TenSach">Tên sách:</label>
         <input type="text" name="TenSach" id="TenSach" value="{{ old('TenSach', $book->TenSach) }}" required>
 

@@ -33,9 +33,19 @@ class BookController extends Controller
             'MoTa' => 'nullable|string',
             'TrangThai' => 'required|boolean',
             'MaNXB' => 'nullable|string',
+            'HinhAnh' => 'nullable|image|max:2048', // Hình ảnh không bắt buộc
         ]);
 
-        Sach::create($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('HinhAnh')) {
+            $file = $request->file('HinhAnh');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/books'), $fileName);
+            $data['HinhAnh'] = $fileName;
+        }
+    
+        Sach::create($data);
 
         return redirect()->route('admin.books.index')->with('success', 'Sách đã được thêm thành công.');
     }
@@ -59,11 +69,25 @@ class BookController extends Controller
             'MoTa' => 'nullable|string',
             'TrangThai' => 'required|boolean',
             'MaNXB' => 'nullable|string',
+            'HinhAnh' => 'nullable|image|max:2048',
         ]);
 
         $book = Sach::findOrFail($id);
-        $book->update($request->all());
+        $data = $request->all();
 
+    if ($request->hasFile('HinhAnh')) {
+        // Xóa hình ảnh cũ nếu có
+        if ($book->HinhAnh && file_exists(public_path('uploads/books/' . $book->HinhAnh))) {
+            unlink(public_path('uploads/books/' . $book->HinhAnh));
+        }
+
+        $file = $request->file('HinhAnh');
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('uploads/books'), $fileName);
+        $data['HinhAnh'] = $fileName;
+    }
+
+    $book->update($data);
         return redirect()->route('admin.books.index')->with('success', 'Sách đã được cập nhật thành công.');
     }
 
