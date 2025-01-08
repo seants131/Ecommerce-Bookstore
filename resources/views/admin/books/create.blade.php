@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="form-container">
-        <form method="POST" action="{{ route('admin.books.store') }}">
+        <form method="POST" action="{{ route('admin.books.store') }}" enctype="multipart/form-data">
             @csrf
             <h1 class="form-title">Thêm Sách Mới</h1>
 
@@ -11,6 +11,11 @@
                 <input type="text" name="MaSach" id="MaSach" required>
             </div>
 
+            <div class="form-group">
+                <label for="HinhAnh">Hình ảnh:</label>
+                <input type="file" name="HinhAnh" id="HinhAnh" accept="image/*">
+            </div>
+            
             <div class="form-group">
                 <label for="TenSach">Tên sách:</label>
                 <input type="text" name="TenSach" id="TenSach" required>

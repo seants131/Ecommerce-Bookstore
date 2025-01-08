@@ -11,7 +11,7 @@ class HoaDonController extends Controller
     public function index()
     {
         $orders = HoaDon::all();  // Lấy tất cả đơn hàng
-        return view('admin.orders.index', compact('orders'));
+        return view('admin.dashboard', compact('orders'));
     }
 
     // Hiển thị form cập nhật đơn hàng
@@ -30,7 +30,7 @@ class HoaDonController extends Controller
         $order->update([
             'MaKhachHang' => $request->input('MaKhachHang'),
             'NgayLap' => $request->input('NgayLap'),
-            'PhanTramThue' => $request->input('PhanTramThue'),
+            // 'PhanTramThue' => $request->input('PhanTramThue'),
             'TongTien' => $request->input('TongTien'),
             'TrangThai' => $request->input('TrangThai'),
             'PT_ThanhToan' => $request->input('PT_ThanhToan'),
@@ -46,6 +46,6 @@ class HoaDonController extends Controller
         $order = HoaDon::findOrFail($id);  // Tìm đơn hàng theo ID
         $order->delete();  // Xoá đơn hàng
 
-        return redirect()->route('admin.orders.index')->with('success', 'Đơn hàng đã được xoá.');
+        return redirect()->route('admin.dashboard')->with('success', 'Đơn hàng đã được xoá.');
     }
 }
