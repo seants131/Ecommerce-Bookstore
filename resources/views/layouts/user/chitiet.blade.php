@@ -10,26 +10,14 @@
         <div class="row">
             <div id="gallery" class="span3">
                 <a href="themes/images/products/1.jpg" title="Con đường chẳng mấy ai đi">
-                    <img src="{{asset('themes/images/products/1.jpg')}}" style="width:100%"
+                    <img src="{{ asset('themes/images/products/1.jpg') }}" style="width:100%"
                         alt="Fujifilm FinePix S2950 Digital Camera" />
                 </a>
                 <div id="differentview" class="moreOptopm carousel slide">
                     <div class="carousel-inner">
                         <div class="item active">
-                            <a href="themes/images/products/large/f1.jpg"> <img style="width:29%"
-                                    src="themes/images/products/large/f1.jpg" alt="" /></a>
-                            <a href="themes/images/products/large/f2.jpg"> <img style="width:29%"
-                                    src="themes/images/products/large/f2.jpg" alt="" /></a>
-                            <a href="themes/images/products/large/f3.jpg"> <img style="width:29%"
-                                    src="themes/images/products/large/f3.jpg" alt="" /></a>
                         </div>
                         <div class="item">
-                            <a href="themes/images/products/large/f3.jpg"> <img style="width:29%"
-                                    src="themes/images/products/large/f3.jpg" alt="" /></a>
-                            <a href="themes/images/products/large/f1.jpg"> <img style="width:29%"
-                                    src="themes/images/products/large/f1.jpg" alt="" /></a>
-                            <a href="themes/images/products/large/f2.jpg"> <img style="width:29%"
-                                    src="themes/images/products/large/f2.jpg" alt="" /></a>
                         </div>
                     </div>
                 </div>
@@ -46,50 +34,50 @@
                 </div>
             </div>
             <div class="span6">
-                <h3>Fujifilm FinePix S2950 Digital Camera </h3>
-                <small>- (14MP, 18x Optical Zoom) 3-inch LCD</small>
+                <h3>Con đường chẳng mấy ai đi </h3>
+                <small>M. Scott Peck</small>
                 <hr class="soft" />
                 <form class="form-horizontal qtyFrm" action="" method="POST">
                     @csrf
                     <input type="hidden" name="product_id" value="1"> <!-- ID sản phẩm -->
                     <input type="hidden" name="price" value="222.00"> <!-- Giá sản phẩm -->
                     <div class="control-group">
-                        <label class="control-label"><span>$222.00</span></label>
+                        <label class="control-label"><span>100.000 VND</span></label>
                         <div class="controls">
-                            <input type="number" class="span1" name="quantity" placeholder="Qty." value="1" min="1" />
-                            <button type="submit" class="btn btn-large btn-primary pull-right">Add to cart <i class="icon-shopping-cart"></i></button>
+                            <div style="display: flex; align-items: center; justify-content: space-between; width: 150px">
+                                <b>Số lượng</b>
+                                <input type="number" class="span1" name="quantity" placeholder="Qty." value="1"
+                                    min="1" />
+                            </div>
+
+                            <button type="submit" class="btn btn-large btn-primary pull-right">Thêm vào giỏ hàng <i
+                                    class="icon-shopping-cart"></i></button>
                         </div>
                     </div>
                 </form>
-                
+
 
                 <hr class="soft" />
-                <h4>100 items in stock</h4>
-                <form class="form-horizontal qtyFrm pull-right">
-                    <div class="control-group">
-                        <label class="control-label"><span>Color</span></label>
-                        <div class="controls">
-                            <select class="span2">
-                                <option>Black</option>
-                                <option>Red</option>
-                                <option>Blue</option>
-                                <option>Brown</option>
-                            </select>
-                        </div>
-                    </div>
-                </form>
+                <h4>Kho: 100</h4>
                 <hr class="soft clr" />
                 <p>
-                    14 Megapixels. 18.0 x Optical Zoom. 3.0-inch LCD Screen. Full HD photos and 1280 x 720p
-                    HD movie capture. ISO sensitivity ISO6400 at reduced resolution.
-                    Tracking Auto Focus. Motion Panorama Mode. Face Detection technology with Blink
-                    detection and Smile and shoot mode. 4 x AA batteries not included. WxDxH 110.2
-                    ×81.4x73.4mm.
-                    Weight 0.341kg (excluding battery and memory card). Weight 0.437kg (including battery
-                    and memory card).
-
+                    Có lẽ không quyển sách nào trong thế kỷ này có tác động sâu sắc đến đời sống trí tuệ và tinh thần của
+                    chúng ta hơn Con Đường Chẳng Mấy Ai Đi. Với doanh số trên 10 triệu bản in trên toàn thế giới và được
+                    dịch sang hơn 25 ngôn ngữ, đây là một hiện tượng trong ngành xuất bản, với hơn mười năm nằm trong danh
+                    sách Best-sellers của New York Times.
                 </p>
-                <a class="btn btn-small pull-right" href="#detail">More Details</a>
+                <p>
+                    Với cách hành văn kinh điển và thông điệp đầy thấu hiểu, quyển sách Con Đường Chẳng Mấy Ai Đi giúp chúng
+                    ta khám phá bản chất của các mối quan hệ và của một tinh thần trưởng thành. Quyển sách giúp chúng ta học
+                    cách phân biệt sự lệ thuộc với tình yêu; làm thế nào để trở thành những bậc phụ huynh tinh tế và nhạy
+                    cảm; và cuối cùng là làm thế nào để sống chân thật với chính mình.
+                </p>
+                <p>
+                    Với dòng mở đầu bất hủ của quyển sách, "Cuộc đời này rất khó sống", thể hiện quan điểm hành trình phát
+                    triển tinh thần là một chặng đường dài và gian nan, Tiến sĩ Peck thể hiện sự đồng cảm, nhẹ nhàng dẫn dắt
+                    độc giả vượt qua quá trình khó khăn đó, để thay đổi hướng tới tầm mức thấu hiểu bản thân sâu sắc hơn.
+                </p>
+                <a class="btn btn-small pull-right" href="#detail">Thông tin chi tiết</a>
                 <br class="clr" />
                 <a href="#" name="detail"></a>
                 <hr class="soft" />
@@ -97,87 +85,52 @@
 
             <div class="span9">
                 <ul id="productDetail" class="nav nav-tabs">
-                    <li class="active"><a href="#home" data-toggle="tab">Product Details</a></li>
-                    <li><a href="#profile" data-toggle="tab">Related Products</a></li>
+                    <li class="active"><a href="#home" data-toggle="tab">Thông tin chi tiết</a></li>
+                    <li><a href="#profile" data-toggle="tab">Sản phẩm liên quan</a></li>
                 </ul>
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade active in" id="home">
-                        <h4>Product Information</h4>
                         <table class="table table-bordered">
                             <tbody>
                                 <tr class="techSpecRow">
-                                    <th colspan="2">Product Details</th>
+                                    <td class="techSpecTD1">Mã hàng </td>
+                                    <td class="techSpecTD2">9786044009674</td>
                                 </tr>
                                 <tr class="techSpecRow">
-                                    <td class="techSpecTD1">Brand: </td>
-                                    <td class="techSpecTD2">Fujifilm</td>
+                                    <td class="techSpecTD1">Tên Nhà Cung Cấp</td>
+                                    <td class="techSpecTD2">CÔNG TY CỔ PHẦN VĂN HOÁ & CÔNG NGHỆ TUỆ TRI</td>
                                 </tr>
                                 <tr class="techSpecRow">
-                                    <td class="techSpecTD1">Model:</td>
-                                    <td class="techSpecTD2">FinePix S2950HD</td>
+                                    <td class="techSpecTD1">Tác giả</td>
+                                    <td class="techSpecTD2"> M. Scott Peck</td>
                                 </tr>
                                 <tr class="techSpecRow">
-                                    <td class="techSpecTD1">Released on:</td>
-                                    <td class="techSpecTD2"> 2011-01-28</td>
+                                    <td class="techSpecTD1">Nguòi dịch</td>
+                                    <td class="techSpecTD2">Lê Đặng Cam Thảo
+                                    </td>
                                 </tr>
                                 <tr class="techSpecRow">
-                                    <td class="techSpecTD1">Dimensions:</td>
-                                    <td class="techSpecTD2"> 5.50" h x 5.50" w x 2.00" l, .75 pounds</td>
+                                    <td class="techSpecTD1">Nhà xuất bản</td>
+                                    <td class="techSpecTD2">Dân Trí
+                                    </td>
                                 </tr>
                                 <tr class="techSpecRow">
-                                    <td class="techSpecTD1">Display size:</td>
-                                    <td class="techSpecTD2">3</td>
+                                    <td class="techSpecTD1">Năm xuất bản</td>
+                                    <td class="techSpecTD2">2024</td>
+                                </tr>
+                                <tr class="techSpecRow">
+                                    <td class="techSpecTD1">Kích Thước</td>
+                                    <td class="techSpecTD2">21 x 14.5 x 1.7 cm
+                                    </td>
+                                </tr>
+                                <tr class="techSpecRow">
+                                    <td class="techSpecTD1">Số trang</td>
+                                    <td class="techSpecTD2">344</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <h5>Features</h5>
-                        <p>
-                            14 Megapixels. 18.0 x Optical Zoom. 3.0-inch LCD Screen. Full HD photos and 1280
-                            x 720p HD movie capture. ISO sensitivity ISO6400 at reduced resolution. Tracking
-                            Auto Focus. Motion Panorama Mode. Face Detection technology with Blink detection
-                            and Smile and shoot mode. 4 x AA batteries not included. WxDxH 110.2
-                            ×81.4x73.4mm. Weight 0.341kg (excluding battery and memory card). Weight 0.437kg
-                            (including battery and memory card).<br />
-                            OND363338
-                        </p>
 
-                        <h4>Editorial Reviews</h4>
-                        <h5>Manufacturer's Description </h5>
-                        <p>
-                            With a generous 18x Fujinon optical zoom lens, the S2950 really packs a punch,
-                            especially when matched with its 14 megapixel sensor, large 3.0" LCD screen and
-                            720p HD (30fps) movie capture.
-                        </p>
-
-                        <h5>Electric powered Fujinon 18x zoom lens</h5>
-                        <p>
-                            The S2950 sports an impressive 28mm – 504mm* high precision Fujinon optical zoom
-                            lens. Simple to operate with an electric powered zoom lever, the huge zoom range
-                            means that you can capture all the detail, even when you're at a considerable
-                            distance away. You can even operate the zoom during video shooting. Unlike a
-                            bulky D-SLR, bridge cameras allow you great versatility of zoom, without the
-                            hassle of carrying a bag of lenses.
-                        </p>
-                        <h5>Impressive panoramas</h5>
-                        <p>
-                            With its easy to use Panoramic shooting mode you can get creative on the S2950,
-                            however basic your skills, and rest assured that you will not risk shooting
-                            uneven landscapes or shaky horizons. The camera enables you to take three
-                            successive shots with a helpful tool which automatically releases the shutter
-                            once the images are fully aligned to seamlessly stitch the shots together
-                            in-camera. It's so easy and the results are impressive.
-                        </p>
-
-                        <h5>Sharp, clear shots</h5>
-                        <p>
-                            Even at the longest zoom settings or in the most challenging of lighting
-                            conditions, the S2950 is able to produce crisp, clean results. With its
-                            mechanically stabilised 1/2 3", 14 megapixel CCD sensor, and high ISO
-                            sensitivity settings, Fujifilm's Dual Image Stabilisation technology combines to
-                            reduce the blurring effects of both hand-shake and subject movement to provide
-                            superb pictures.
-                        </p>
                     </div>
                     <div class="tab-pane fade" id="profile">
                         <div id="myTab" class="pull-right">
