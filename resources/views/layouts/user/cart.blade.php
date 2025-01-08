@@ -25,7 +25,7 @@
             <tbody>
                 <tr>
                     <td> <img width="60" src="themes/images/products/4.jpg" alt="" /></td>
-                    <td>MASSA AST<br />Color : black, Material : metal</td>
+                    <td>Sách 1<br />Color : black, Material : metal</td>
                     <td>
                         <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1"
                                 id="appendedInputButtons" size="16" type="text"><button class="btn"
