@@ -61,76 +61,97 @@
                             <div id="login" class="modal hide fade in" tabindex="-1" role="dialog"
                                 aria-labelledby="login" aria-hidden="false">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"
-                                        aria-hidden="true">x</button>
-                                    <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#loginTab" data-toggle="tab">Đăng nhập</a></li>
-                                        <li><a href="#registerTab" data-toggle="tab">Đăng ký</a></li>
-                                    </ul>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="tab-content">
-                                        <!-- Login Content -->
-                                        <div id="loginTab" class="tab-pane fade in active">
-                                            <h4>Đăng nhập</h4> <!-- Title for Login -->
-                                            <form class="form-horizontal">
-                                                <div class="form-group">
-                                                    <label for="loginEmail">Số điện thoại/Email</label>
-                                                    <input type="email" id="loginEmail"
-                                                        placeholder="Nhập số điện thoại hoặc email"
-                                                        class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="loginPassword"
-                                                        style="display:block;margin-top:8px;">Mật khẩu</label>
-                                                    <input type="password" id="loginPassword"
-                                                        placeholder="Nhập mật khẩu" class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <a href="{{ url('/forgot-password') }}"
-                                                        style="display:block; margin-top:8px; font-size:14px; color:#007bff; text-decoration:none;">Quên
-                                                        mật khẩu?</a>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div id="registerTab" class="tab-pane fade">
-                                            <h4>Đăng ký</h4> <!-- Title for Register -->
-                                            <form class="form-horizontal">
-                                                <div class="form-group">
-                                                    <label for="registerEmail"
-                                                        style="display:block;margin-top:8px;">Số điện
-                                                        thoại/Email</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="email" id="registerEmail"
-                                                            placeholder="Nhập số điện thoại hoặc email"
-                                                            class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="registerPassword"
-                                                        style="display:block;margin-top:8px;">Mã xác nhận OTP</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="password" id="registerPassword"
-                                                            placeholder="6 ký tự" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="confirmPassword"
-                                                        style="display:block;margin-top:8px;">Mật khẩu</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="password" id="confirmPassword"
-                                                            placeholder="Nhập mật khẩu" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">Submit</button>
-                                    <button type="button" class="btn btn-default"
-                                        data-dismiss="modal">Close</button>
-                                </div>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#loginTab" data-toggle="tab">Đăng nhập</a></li>
+        <li><a href="#registerTab" data-toggle="tab">Đăng ký</a></li>
+    </ul>
+</div>
+<div class="modal-body">
+    <div class="tab-content">
+        <!-- Login Content -->
+        <div id="loginTab" class="tab-pane fade in active">
+            <h4>Đăng nhập</h4>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="loginEmail">Số điện thoại/Email</label>
+                    <input type="email" id="loginEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword" style="display:block;margin-top:8px;">Mật khẩu</label>
+                    <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" class="form-control">
+                </div>
+                <div class="form-group">
+                    <a href="{{ url('/forgot-password') }}" style="display:block; margin-top:8px; font-size:14px; color:#007bff; text-decoration:none;">Quên mật khẩu?</a>
+                </div>
+            </form>
+        </div>
+        <!-- Register Content -->
+        <div id="registerTab" class="tab-pane fade">
+            <h4>Đăng ký</h4>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="registerEmail" style="display:block;margin-top:8px;">Số điện thoại/Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" id="registerEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="button" id="sendOtpButton" class="btn btn-secondary">Gửi mã OTP</button>
+                    </div>
+                    <p id="otpMessage" class="text-success mt-2" style="display: none;">Mã OTP đã được gửi!</p>
+                </div>
+                <div class="form-group">
+                    <label for="otpCode" style="display:block;margin-top:8px;">Mã xác nhận OTP</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="otpCode" placeholder="6 ký tự" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword" style="display:block;margin-top:8px;">Mật khẩu</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="registerPassword" placeholder="Nhập mật khẩu" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword" style="display:block;margin-top:8px;">Xác nhận mật khẩu</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" class="form-control">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-success">Submit</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    // Xử lý sự kiện gửi mã OTP
+    document.getElementById('sendOtpButton').addEventListener('click', function () {
+        const email = document.getElementById('registerEmail').value;
+
+        if (!email) {
+            alert('Vui lòng nhập số điện thoại hoặc email trước khi gửi mã OTP!');
+            return;
+        }
+
+        // Gửi yêu cầu gửi mã OTP qua API
+        axios.post('/send-otp', { email: email })
+            .then(response => {
+                if (response.data.success) {
+                    document.getElementById('otpMessage').style.display = 'block';
+                } else {
+                    alert(response.data.message || 'Có lỗi xảy ra, vui lòng thử lại!');
+                }
+            })
+            .catch(error => {
+                alert('Có lỗi xảy ra, vui lòng kiểm tra lại email hoặc thử lại sau!');
+            });
+    });
+</script>
                             </div>
                         </li>
                     </ul>

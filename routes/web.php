@@ -35,6 +35,9 @@ Route::get('/cart', function () {
     return view('layouts.user.cart');
 });
 
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/verify-otp', [AuthController::class, 'verifyOtp']);
+
 
 // Routes dành cho người dùng đã đăng nhập
 Route::middleware('auth')->group(function () {

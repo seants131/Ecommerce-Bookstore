@@ -373,3 +373,24 @@
         display: flex; /* Hiển thị menu */
     }
 }
+.sp .thumbnail {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.sp .thumbnail img {
+    height: 270px;
+    width: 250px;
+    background-size: cover;
+    background-position: center; 
+}
+.thumbnail {
+    margin-bottom: 20px;
+}
+.caption h5 {
+    height: 40px;
+}
+.pagination a {
+    color: black;
+}
