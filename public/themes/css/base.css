@@ -332,6 +332,12 @@
 .navbar-search {
     margin-top: 8px;
 }
+.feature-product {
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 /* Responsive--------------------- */
 /* Large desktop */
 @media (max-width: 1349px) {
