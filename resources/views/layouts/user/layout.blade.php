@@ -11,7 +11,6 @@
     <meta name="author" content="">
     <link rel="stylesheet" href="{{ asset('css/about.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aboutcontent.css') }}">
-
     <link id="callCss" rel="stylesheet" href="{{ asset('themes/bootshop/bootstrap.min.css') }}" media="screen" />
     <link href="{{ asset('themes/css/base.css') }}" rel="stylesheet" media="screen" />
     <link href="{{ asset('themes/css/bootstrap-responsive.min.css') }}" rel="stylesheet" />
@@ -228,7 +227,8 @@
                     !Request::routeIs('contact.form') &&
                         !Request::routeIs('contact.store') &&
                         !Request::routeIs('baiviet.index') &&
-                        !Request::routeIs('baiviet.contentbaiviet'))
+                        !Request::routeIs('about.chinhsach') &&
+                        !Request::routeIs('baiviet.noidungbaiviet'))
                     <div id="sidebar" class="span3">
                         <div class="well well-small"><a id="myCart" href="product_summary.html"><img
                                     src="themes/images/ico-cart.png" alt="cart">3 Items in your cart <span
@@ -354,25 +354,25 @@
                 </div>
                 <div class="span3">
                     <h5>QUẢN LÝ TÀI KHOẢN</h5>
-                    <a href="login.html">Tài khoản của bạn</a>
-                    <a href="login.html">Thông tin cá nhân</a>
-                    <a href="login.html">Địa chỉ</a>
-                    <a href="login.html">Ưu đãi</a>
-                    <a href="login.html">Lịch sử đơn hàng</a>
+                    <a href="{{ url('/user') }}" >Tài khoản của bạn</a>
+                    <a href="{{ url('/user') }}">Thông tin cá nhân</a>
+                    <a href="{{ url('/user') }}">Địa chỉ</a>
+                    <a href="{{ url('/user') }}">Ưu đãi</a>
+                    <a href="{{ url('/user') }}">Lịch sử đơn hàng</a>
                 </div>
                 <div class="span3">
                     <h5>THÔNG TIN</h5>
                     <a href="{{ url('/contact') }}">Liên hệ</a>
-                    <a href="register.html">Đăng ký</a>
-                    <a href="legal_notice.html">Thông báo pháp lý</a>
-                    <a href="tac.html">Điều khoản sử dụng</a>
-                    <a href="faq.html">Câu hỏi thường gặp</a>
+                    <a href="{{ url('/chinh-sach-bao-mat') }}">Chính sách bảo mật thông tin cá nhân</a>
+                    <a href="{{url('/chinh-sach-thanh-toan')}}">Chính sách bảo mật thanh toán</a>
+                    <a href="{{url('/chinh-sach-bao-hanh')}}">Chính sách bảo hành</a>
+                    <a href="{{ url('/about/thong-tin-nhom-phpcraft') }}">Về chúng tôi</a>
                 </div>
                 <div class="span3">
                     <h5>ƯU ĐÃI CỦA CHÚNG TÔI</h5>
                     <a href="#">Sách mới</a>
                     <a href="#">Sách bán chạy</a>
-                    <a href="special_offer.html">Ưu đãi đặc biệt</a>
+                    <a href="#">Ưu đãi đặc biệt</a>
                     <a href="#">Nhà xuất bản</a>
                     <a href="#">Nhà cung cấp</a>
                 </div>
