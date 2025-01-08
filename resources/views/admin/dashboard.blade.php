@@ -34,6 +34,7 @@
                 </div>
             </div>
 
+
             <!-- Featured Products Card -->
             <div class="card">
                 <h3>Sản phẩm nổi bật</h3>
