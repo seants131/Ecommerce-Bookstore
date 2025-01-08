@@ -11,6 +11,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BaiVietController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserOrderController;
+
 // Route cho trang chủ
 Route::get('/', function () {
     return view('layouts.user.index');
@@ -21,7 +22,7 @@ Route::get('/product', function () {
 Route::get('/chitiet', function () {
     return view('layouts.user.chitiet');
 });
-Route::get('/chitiet/{id}', [ProductController::class, 'show'])->name('product.detail');
+// Route::get('/chitiet/{id}', [ProductController::class, 'show'])->name('product.detail');
 
 Route::get('/about', function () {
     return view('layouts.user.about');
@@ -76,6 +77,19 @@ Route::get('orders/{id}/edit', [HoaDonController::class, 'edit'])->name('orders.
 Route::put('orders/{id}', [HoaDonController::class, 'updateOrder'])->name('orders.update');  // Cập nhật đơn hàng
 Route::delete('orders/{id}', [HoaDonController::class, 'deleteOrder'])->name('orders.destroy');  // Xoá đơn hàng
 });
+Route::prefix('admin')->name('admin.')->group(function () {
+    // hiển thị danh sách liên hệ
+    Route::get('lien-he', [LienHeController::class, 'index'])->name('lienhe.index');
+    // tạo liên hệ
+    Route::get('lien-he/create', [LienHeController::class, 'create'])->name('lienhe.create');
+    Route::post('lien-he', [LienHeController::class, 'store'])->name('lienhe.store');
+    // sửa liên hệ
+    Route::get('lien-he/{id}/edit', [LienHeController::class, 'edit'])->name('lienhe.edit');
+    Route::put('lien-he/{id}', [LienHeController::class, 'update'])->name('lienhe.update');
+    // xóa liên hệ
+    Route::delete('lien-he/{id}', [LienHeController::class, 'destroy'])->name('lienhe.destroy');
+});
+
 //cái này cho đơn hàng user
 Route::prefix('user')->group(function () {
     Route::get('orders', [UserOrderController::class, 'index'])->name('user.orders.index');
