@@ -13,7 +13,6 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserOrderController;
 
 // Route cho trang chủ
-
 Route::get('/', [DanhMucController::class, 'getbook']);
 Route::get('/product', [DanhMucController::class, 'getproduct']);
 Route::get('/cart', [DanhMucController::class, 'getcart']);
@@ -22,10 +21,8 @@ Route::get('/chitiet', [DanhMucController::class, 'getchitiet']);
 
 
 // Route::get('/chitiet/{id}', [ProductController::class, 'show'])->name('product.detail');
-
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/verify-otp', [AuthController::class, 'verifyOtp']);
-
 
 // Routes dành cho người dùng đã đăng nhập
 Route::middleware('auth')->group(function () {
@@ -48,15 +45,11 @@ Route::get('/chinh-sach-bao-hanh', function () {
     return view('layouts.user.chinhsachbaohanh');
 })->name('about.chinhsach');
 
-
+// Route cho trang dashboard của admin
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
 
 // Route cho trang dashboard của admin
-Route::get('/admin', [HoaDonController::class, 'index'])->name('admin.dashboard');
-
-// Route cho trang dashboard của admin
-
-Route::get('/admin/dashboard', [HoaDonController::class, 'index'])->name('admin.dashboard');
-
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
 // Nhóm route cho admin
 Route::prefix('admin')->name('admin.')->group(function() {
