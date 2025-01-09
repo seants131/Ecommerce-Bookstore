@@ -83,10 +83,6 @@
         options: {
             legend: {
                 display: false
-            },
-            title: {
-                display: true,
-                text: "World Wine Production 2018"
             }
         }
     });
