@@ -89,5 +89,17 @@ class DanhMucController extends Controller
         $books = Sach::inRandomOrder()->limit(2)->get();
         return view('layouts.user.product', compact('danhmucs', 'books'));
     }
+    public function getcart()
+    {
+        $danhmucs = DanhMuc::withCount('books')->get();
+        $books = Sach::inRandomOrder()->limit(2)->get();
+        return view('layouts.user.cart', compact('danhmucs', 'books'));
+    }
+    public function getchitiet()
+    {
+        $danhmucs = DanhMuc::withCount('books')->get();
+        $books = Sach::inRandomOrder()->limit(2)->get();
+        return view('layouts.user.chitiet', compact('danhmucs', 'books'));
+    }
 
 }

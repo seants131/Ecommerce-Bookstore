@@ -274,7 +274,7 @@
                 @foreach ($books as $book)
                 <div class="thumbnaili">
                     <div class="book-item">
-                        <img src="{{ $book->HinhAnh }}" alt="{{ $book->TenSach }}" class="img-fluid" />
+                        <img src="{{ asset('uploads/books/' . $book->HinhAnh) }}" alt="{{ $book->TenSach }}" class="img-fluid" />
                         <div class="caption">
                             <p>{{ Str::limit($book->MoTa, 30) }}</p>
                             <h4 style="text-align:center">
@@ -282,7 +282,7 @@
                                     <i class="icon-zoom-in"></i>
                                 </a>
                                 <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a>
-                                <a class="btn btn-primary" href="#">{{ number_format($book->GiaBan, 2) }}$</a>
+                                <a class="btn btn-primary" href="#">{{ number_format($book->GiaBan) }} VND</a>
                             </h4>
                         </div>
                     </div>

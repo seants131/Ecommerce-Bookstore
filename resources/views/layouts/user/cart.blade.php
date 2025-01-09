@@ -25,7 +25,7 @@
             <tbody>
                 <tr>
                     <td> <img width="60" src="themes/images/products/4.jpg" alt="" /></td>
-                    <td>Sách 1<br />Color : black, Material : metal</td>
+                    <td>Những Kẻ Xuất Chúng (Tái Bản 2025)<br />Color : black, Material : metal</td>
 
                     <td>
                         <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1"
