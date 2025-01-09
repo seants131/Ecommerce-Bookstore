@@ -17,5 +17,4 @@ Hiện tại database đã update bảng mới (bảng liên hệ), hiện tại
     - Võ Quang Bảo <br>
     - Nguyễn Hải Long <br>
     - Võ Thành Đăng Khoa <br>
-    - Đồng Anh Phú <br>
 </p>
