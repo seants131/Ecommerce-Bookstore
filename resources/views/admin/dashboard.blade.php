@@ -2,10 +2,22 @@
 
 @section('content')
     <div class="stats">
-        <div class="stat">Doanh thu trang web</div>
-        <div class="stat">Tổng số đơn hàng</div>
-        <div class="stat">Tổng số người dùng</div>
-        <div class="stat">Tỷ lệ chuyển đổi</div>
+        <div class="stat" style="background-color: #eef4ff">
+            <h3> {{ number_format($doanhthutrangweb, 0, ',', '.') }} VND</h3>
+            <p>Doanh thu trang web</p>
+        </div>
+        <div class="stat" style="background-color: #ffd66b">
+            <h3> {{ number_format($tongdonhang, 0, ',', '.') }} đơn hàng</h3>
+            <p>Tổng số đơn hàng</p>
+        </div>
+        <div class="stat" style="background-color: #ff8f6b">
+            <h3> {{ number_format($nguoidung, 0, ',', '.') }} người dùng</h3>
+            <p>Tổng số người dùng</p>
+        </div>
+        <div class="stat" style="background-color: #605bff">
+            <h3> {{ number_format($sach, 0, ',', '.') }} quyển</h3>
+            <p>Số sách trong kho</p>
+        </div>
     </div>
     <h5 style="margin-left: 20px">Hiệu suất trang web</h1>
         <canvas id="myChart" style="width:100%;max-width:100%; height: 500px"></canvas>
