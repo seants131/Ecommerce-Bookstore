@@ -20,9 +20,9 @@
     <div style="margin-left: 200px">
         <!-- Sidebar -->
         <div class="sidebar">
-            <img alt="Logo" height="50"
-                src="https://storage.googleapis.com/a1aa/image/yy48DwMpQKrgIJeo3EYrKGqDysDOSHFfD7fWyuz4r8UidAunA.jpg"
-                width="100" />
+            <a href="{{ url('/') }}">
+                <img alt="Logo" height="50" src="{{ asset('img/logo.jpg') }}" width="100" />
+            </a>
             <a href="{{ route('admin.dashboard') }}">
                 <i class="fas fa-home"></i> Trang chủ
             </a>
@@ -108,7 +108,7 @@
             datasets: [{
                 backgroundColor: barColors1,
                 data: yValues1
-            }]  
+            }]
         },
         options: {
             title: {

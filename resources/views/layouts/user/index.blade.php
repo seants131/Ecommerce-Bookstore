@@ -75,7 +75,7 @@
                         <img src="themes/images/products/1.jpg" alt="" />
                     </a>
                     <div class="caption">
-                        <h5>Con đường chẳng mấy ai đi</h5>
+                        <h5 class="product_name">Con đường chẳng mấy ai đi</h5>
                         <p>
                             M. Scott Peck
                         </p>
@@ -95,7 +95,7 @@
                         <img src="themes/images/products/2.jpg" alt="" />
                     </a>
                     <div class="caption">
-                        <h5>Thay đổi tí hon, hiệu quả bất ngờ</h5>
+                        <h5 class="product_name">Thay đổi tí hon, hiệu quả bất ngờ</h5>
                         <p>
                             James Clear
                         </p>
@@ -115,7 +115,7 @@
                         <img src="themes/images/products/3.jpg" alt="" />
                     </a>
                     <div class="caption">
-                        <h5>Manifest</h5>
+                        <h5 class="product_name">Manifest</h5>
                         <p>
                             Hoa Học Trò
                         </p>
@@ -137,7 +137,7 @@
                         <img src="themes/images/products/4.jpg" alt="" />
                     </a>
                     <div class="caption">
-                        <h5>Attack on titan</h5>
+                        <h5 class="product_name">Attack on titan</h5>
                         <p>
                             Hajime Isayama
                         </p>
@@ -157,7 +157,7 @@
                         <img src="themes/images/products/5.jpg" alt="" />
                     </a>
                     <div class="caption">
-                        <h5>Spy x Family</h5>
+                        <h5 class="product_name">Spy x Family</h5>
                         <p>
                             Tatsuya Endo
                         </p>
@@ -177,7 +177,7 @@
                         <img src="themes/images/products/6.jpg" alt="" />
                     </a>
                     <div class="caption">
-                        <h5>Napoléon Bonaparte</h5>
+                        <h5 class="product_name">Napoléon Bonaparte</h5>
                         <p>
                             Adam Zamoyski
                         </p>
