@@ -16,10 +16,10 @@ use App\Http\Controllers\UserOrderController;
 
 Route::get('/', [DanhMucController::class, 'getbook']);
 Route::get('/product', [DanhMucController::class, 'getproduct']);
-Route::get('/cart', [DanhMucController::class, 'getproduct']);
-Route::get('/chitiet', function () {
-    return view('layouts.user.chitiet');
-});
+Route::get('/cart', [DanhMucController::class, 'getcart']);
+Route::get('/chitiet', [DanhMucController::class, 'getchitiet']);
+
+
 
 // Route::get('/chitiet/{id}', [ProductController::class, 'show'])->name('product.detail');
 
