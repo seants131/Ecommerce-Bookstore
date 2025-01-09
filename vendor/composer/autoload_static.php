@@ -509,7 +509,22 @@ class ComposerStaticInit626b9e7ddd47fb7eff9aaa53cce0c9ad
     );
 
     public static $classMap = array (
+        'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
+        'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
+        'App\\Http\\Controllers\\BaiVietController' => __DIR__ . '/../..' . '/app/Http/Controllers/BaiVietController.php',
+        'App\\Http\\Controllers\\BookController' => __DIR__ . '/../..' . '/app/Http/Controllers/BookController.php',
+        'App\\Http\\Controllers\\CartController' => __DIR__ . '/../..' . '/app/Http/Controllers/CartController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DanhMucController' => __DIR__ . '/../..' . '/app/Http/Controllers/DanhMucController.php',
+        'App\\Http\\Controllers\\HoaDonController' => __DIR__ . '/../..' . '/app/Http/Controllers/HoaDonController.php',
+        'App\\Http\\Controllers\\LienHeController' => __DIR__ . '/../..' . '/app/Http/Controllers/LienHeController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
+        'App\\Models\\BaiViet' => __DIR__ . '/../..' . '/app/Models/BaiViet.php',
+        'App\\Models\\DanhMuc' => __DIR__ . '/../..' . '/app/Models/DanhMuc.php',
+        'App\\Models\\HoaDon' => __DIR__ . '/../..' . '/app/Models/HoaDon.php',
+        'App\\Models\\LienHe' => __DIR__ . '/../..' . '/app/Models/LienHe.php',
+        'App\\Models\\NguoiDung' => __DIR__ . '/../..' . '/app/Models/NguoiDung.php',
+        'App\\Models\\Sach' => __DIR__ . '/../..' . '/app/Models/Sach.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

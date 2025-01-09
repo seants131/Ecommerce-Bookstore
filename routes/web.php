@@ -13,23 +13,15 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserOrderController;
 
 // Route cho trang chủ
-Route::get('/', function () {
-    return view('layouts.user.index');
-});
-Route::get('/product', function () {
-    return view('layouts.user.product');
-});
+
+Route::get('/', [DanhMucController::class, 'getbook']);
+Route::get('/product', [DanhMucController::class, 'getproduct']);
+Route::get('/cart', [DanhMucController::class, 'getproduct']);
 Route::get('/chitiet', function () {
     return view('layouts.user.chitiet');
 });
-// Route::get('/chitiet/{id}', [ProductController::class, 'show'])->name('product.detail');
 
-Route::get('/about', function () {
-    return view('layouts.user.about');
-});
-Route::get('/cart', function () {
-    return view('layouts.user.cart');
-});
+// Route::get('/chitiet/{id}', [ProductController::class, 'show'])->name('product.detail');
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/verify-otp', [AuthController::class, 'verifyOtp']);

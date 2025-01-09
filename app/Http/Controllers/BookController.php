@@ -104,4 +104,5 @@ class BookController extends Controller
         $books = Sach::where('TenSach', 'LIKE', "%{$query}%")->get();
         return view('admin.books.index', compact('books'));
     }
+
 }

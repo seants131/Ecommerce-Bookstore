@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DanhMuc;
-
+use App\Models\Sach;
 class DanhMucController extends Controller
 {
     public function index()
@@ -76,4 +76,18 @@ class DanhMucController extends Controller
         $danhmucs = DanhMuc::where('name', 'LIKE', "%{$query}%")->get();
         return view('admin.danhmucs.index', compact('danhmucs'));
     }
+    public function getbook()
+    {
+        $danhmucs = DanhMuc::withCount('books')->get();
+        $books = Sach::inRandomOrder()->limit(2)->get();
+        return view('layouts.user.index', compact('danhmucs', 'books'));
+    }
+
+    public function getproduct()
+    {
+        $danhmucs = DanhMuc::withCount('books')->get();
+        $books = Sach::inRandomOrder()->limit(2)->get();
+        return view('layouts.user.product', compact('danhmucs', 'books'));
+    }
+
 }
