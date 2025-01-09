@@ -32,8 +32,8 @@
             <a href="{{ route('admin.books.index') }}">
                 <i class="fas fa-book"></i> Sách
             </a>
-            <a href="#">
-                <i class="fas fa-user"></i> Người dùng
+            <a href="{{ route('admin.lienhe.index') }}">
+                <i class="fas fa-user"></i> Liên hệ
             </a>
             <a href="{{ route('admin.orders.index') }}">
                 <i class="fa fa-check"></i> Đơn hàng
