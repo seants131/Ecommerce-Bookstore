@@ -255,3 +255,20 @@ ul>li {
     margin-top: 10px;
     font-size: 14px;
 }
+.thongtinweb {
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table, th, td {
+        border: 1px solid black;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+}
+.suattweb {
+    display: flex;
+    height: 180px;   
+}

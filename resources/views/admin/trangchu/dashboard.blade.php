@@ -19,9 +19,35 @@
             <p>Số sách trong kho</p>
         </div>
     </div>
-    <div style="width: 100%; padding-left: 20px;">
-        <h5>Hiệu suất trang web</h5>
-        <canvas id="myChart" style="width:100%; height:500px;"></canvas>
+    <div style="width: 100%; padding-left: 20px; margin-bottom: 20px" class="thongtinweb">
+        <h5>Thông tin trang web</h5>
+        <table>
+            <tr>
+                <th>Tiêu đề</th>
+                <td>{{ $ndweb->tieude }}</td>
+                <th>Chức năng</th>
+            </tr>
+            <tr>
+                @php
+                    $text = $ndweb->noidung; // Lấy nội dung từ cơ sở dữ liệu
+                    $sentences = explode('. ', $text); // Tách thành mảng câu
+                @endphp
+                <th>Nội dung</th>
+                <td>
+                    @foreach ($sentences as $sentence)
+                        <p>{{ trim($sentence) }}.</p>
+                    @endforeach
+                </td>
+                <th>
+                    <form action="{{ route('post.edit', $ndweb->id) }}" method="POST">
+                        @csrf 
+                        @method('GET')
+                        <button type="submit" class="btn btn-primary">Chỉnh sửa</button>
+                    </form>
+                    </th>
+            </tr>
+            <tr>
+        </table>
     </div>
 
 
