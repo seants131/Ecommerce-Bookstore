@@ -6,21 +6,25 @@
     <div class="main-post">
         <h1 class="display-4 fw-bold text-primary">{{ $baiviet->tieude }}</h1>
 
-
         <section class="details mb-4">
             <h2>Thông tin chi tiết</h2>
-            <p>{!! $baiviet->noidung !!}</p>
+            <p>{!! nl2br($baiviet->noidung) !!}
+            </p>
+
+            <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="Image" class="rounded" style="width: 300px; height: auto; object-fit: cover;">
+
         </section>
 
+
         <div class="image mb-4 text-center">
-            <img src="{{ asset('bookimage/' . $baiviet->anhbaiviet) }}" alt="Image" class="rounded" style="width: 300px; height: auto; object-fit: cover;">
+
         </div>
 
         <div class="post-info mb-4">
             <p class="text-muted">Ngày đăng: {{ \Carbon\Carbon::parse($baiviet->created_at)->format('d/m/Y') }}</p>
         </div>
 
-        @if (!Request::is('about/thong-tin-nhom-phpcraft'))
+        @if (!Request::is('about/thong-tin-ve-phpcraft'))
             <section class="similar-posts-section mt-5">
                 <h3 class="text-primary">Bài viết tương tự</h3>
                 <div class="similar-posts">

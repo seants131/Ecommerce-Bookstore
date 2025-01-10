@@ -11,8 +11,7 @@ class LienHeController extends Controller
     {
         return view('layouts.user.contact');
     }
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $request->validate([
             'ho_ten' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -25,7 +24,7 @@ class LienHeController extends Controller
             'chu_de' => $request->chu_de,
             'noi_dung' => $request->noi_dung,
         ]);
-        return redirect()->route('admin.lienhe.index')->with('success', 'Thông tin liên hệ đã được gửi.');
+        return back()->with('success', 'Thông tin liên hệ đã được gửi.');
     }
 
 
