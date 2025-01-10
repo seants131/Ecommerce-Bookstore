@@ -22,7 +22,7 @@
             <!-- Giờ Mở Cửa -->
             <div class="span4">
                 <h4>Giờ Mở Cửa</h4>
-                <h5>Thứ Hai - Thứ Sácu</h5>
+                <h5>Thứ Hai - Thứ Sáu</h5>
                 <p>08:00 - 20:00<br /><br /></p>
                 <h5>Thứ Bảy</h5>
                 <p>09:00 - 18:00<br /><br /></p>
