@@ -64,34 +64,7 @@
     </div>
 </body>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var xValues = [];
-        var yValues = [55, 49, 44, 24, 15];
-        var barColors = ["red", "green", "blue", "orange", "brown"]; 
-
-        new Chart("myChart", {
-            type: "bar",
-            data: {
-                labels: ["Italy", "France", "Spain", "USA", "Germany"], 
-                datasets: [{
-                    backgroundColor: barColors, 
-                    data: yValues 
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false, // Không giữ tỷ lệ mặc định
-                plugins: {
-                    legend: {
-                        display: false // Ẩn phần legend
-                    }
-                }
-            }
-        });
-    });
-
-
+<script>    
     var xValues1 = ["Manga", "Light novel", "Trinh thám", "Kinh tế"];
     var yValues1 = [25, 25, 25, 25];
     var barColors1 = [
