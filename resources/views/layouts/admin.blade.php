@@ -38,6 +38,9 @@
             <a href="{{ route('admin.orders.index') }}">
                 <i class="fa fa-check"></i> Đơn hàng
             </a>
+            <a href={{ route('admin.danhgia.index') }}>
+                <i class="far fa-list-alt"></i> Đánh giá
+            </a>
             <a href="#">
                 <i class="fas fa-sign-out-alt"></i> Đăng xuất
             </a>

@@ -11,6 +11,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BaiVietController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserOrderController;
+use App\Http\Controllers\DanhGiaController;
 
 // Route cho trang chủ
 Route::get('/', [DanhMucController::class, 'getbook']);
@@ -51,7 +52,7 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard')
 // Route cho trang dashboard của admin
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
-// Nhóm route cho admin
+// Nhóm route danh mục và sản phẩm admin
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::resource('danhmucs', DanhMucController::class);
     Route::resource('books', BookController::class)->except(['show']);
@@ -65,19 +66,20 @@ Route::get('orders/{id}/edit', [HoaDonController::class, 'edit'])->name('orders.
 Route::put('orders/{id}', [HoaDonController::class, 'updateOrder'])->name('orders.update');  // Cập nhật đơn hàng
 Route::delete('orders/{id}', [HoaDonController::class, 'deleteOrder'])->name('orders.destroy');  // Xoá đơn hàng
 });
+//route cho liên hệ admin
 Route::prefix('admin')->name('admin.')->group(function () {
-    // hiển thị danh sách liên hệ
     Route::get('lien-he', [LienHeController::class, 'index'])->name('lienhe.index');
-    // tạo liên hệ
     Route::get('lien-he/create', [LienHeController::class, 'create'])->name('lienhe.create');
     Route::post('lien-he', [LienHeController::class, 'store'])->name('lienhe.store');
-    // sửa liên hệ
     Route::get('lien-he/{id}/edit', [LienHeController::class, 'edit'])->name('lienhe.edit');
     Route::put('lien-he/{id}', [LienHeController::class, 'update'])->name('lienhe.update');
-    // xóa liên hệ
     Route::delete('lien-he/{id}', [LienHeController::class, 'destroy'])->name('lienhe.destroy');
 });
-
+// Route cho đánh giá sản phẩm admin
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('danhgia', [DanhGiaController::class, 'index'])->name('danhgia.index');// xóa đánh giá
+    Route::delete('danhgia/{id}', [DanhGiaController::class, 'destroy'])->name('danhgia.destroy'); 
+});
 //cái này cho đơn hàng user
 Route::prefix('user')->group(function () {
     Route::get('orders', [UserOrderController::class, 'index'])->name('user.orders.index');
