@@ -11,7 +11,7 @@
                 <th>Mã Hóa Đơn</th>
                 <th>Mã Khách Hàng</th>
                 <th>Ngày Lập</th>
-                <th>Phần Trăm Thuế</th>
+                
                 <th>Tổng Tiền</th>
                 <th>Trạng Thái</th>
                 <th>Thao Tác</th>
@@ -23,7 +23,7 @@
                 <td>{{ $order->MaHoaDon }}</td>
                 <td>{{ $order->MaKhachHang }}</td>
                 <td>{{ $order->NgayLap }}</td>
-                <td>{{ $order->PhanTramThue }}</td>
+               
                 <td>{{ $order->TongTien }}</td>
                 <td>{{ $order->TrangThai }}</td>
                 <td>
