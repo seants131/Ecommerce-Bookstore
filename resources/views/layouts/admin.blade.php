@@ -17,12 +17,23 @@
 </head>
 
 <body>
-    <div style="margin-left: 200px">
-        <!-- Sidebar -->
-        <div class="sidebar">
+    <div class="header">
+        <div class="left">
             <a href="{{ url('/') }}">
                 <img alt="Logo" height="50" src="{{ asset('img/logo.jpg') }}" width="100" />
             </a>
+            <span>Bookstore</span>
+        </div>
+        <div class="right">
+            <i class="fas fa-envelope"></i>
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user"></i>
+            <span class="username">Username</span>
+        </div>
+    </div>
+    <div style="margin-left: 200px">
+        <!-- Sidebar -->
+        <div class="sidebar">
             <a href="{{ route('admin.dashboard') }}">
                 <i class="fas fa-home"></i> Trang chủ
             </a>
@@ -32,73 +43,35 @@
             <a href="{{ route('admin.books.index') }}">
                 <i class="fas fa-book"></i> Sách
             </a>
-            <a href="#">
-                <i class="fas fa-user"></i> Người dùng
+            <a href="{{ route('admin.lienhe.index') }}">
+                <i class="fas fa-user"></i> Liên hệ
             </a>
             <a href="{{ route('admin.orders.index') }}">
                 <i class="fa fa-check"></i> Đơn hàng
+            </a>
+            <a href={{ route('admin.danhgia.index') }}>
+                <i class="far fa-list-alt"></i> Đánh giá
             </a>
             <a href="#">
                 <i class="fas fa-sign-out-alt"></i> Đăng xuất
             </a>
         </div>
-
         <!-- Main Content -->
-        <div class="main-content">
-            <!-- Header -->
-            <div class="header">
-                <div class="left">
-                    <img alt="Admin" height="50"
-                        src="https://storage.googleapis.com/a1aa/image/8RihQ3eduvT1ESU0VpKIetK0ebQ0VlXcLSuvM8Njyo8kdAunA.jpg"
-                        width="50" />
-                    <span>Admin</span>
-                </div>
-                <div class="right">
-                    <i class="fas fa-envelope"></i>
-                    <i class="fas fa-bell"></i>
-                    <i class="fas fa-user"></i>
-                    <span class="username">Username</span>
-                </div>
-            </div>
-
+        <div class="main-content" style="margin-top: 72px;">
             <!-- Content will be injected here -->
             @yield('content')
         </div>
     </div>
 </body>
-<script>
-    var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-    var yValues = [55, 49, 44, 24, 15];
-    var barColors = ["red", "green", "blue", "orange", "brown"];
 
-    new Chart("myChart", {
-        type: "bar",
-        data: {
-            labels: xValues,
-            datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-            }]
-        },
-        options: {
-            legend: {
-                display: false
-            },
-            title: {
-                display: true,
-                text: "World Wine Production 2018"
-            }
-        }
-    });
-
-    var xValues1 = ["Italy", "France", "Spain", "USA", "Argentina"];
-    var yValues1 = [55, 49, 44, 24, 15];
+<script>    
+    var xValues1 = ["Manga", "Light novel", "Trinh thám", "Kinh tế"];
+    var yValues1 = [25, 25, 25, 25];
     var barColors1 = [
-        "#b91d47",
+        "red",
         "#00aba9",
-        "#2b5797",
-        "#e8c3b9",
-        "#1e7145"
+        "orange",
+        "blue"
     ];
 
     new Chart("myChart1", {
@@ -117,8 +90,8 @@
         }
     });
 
-    const xValues2 = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
-    const yValues2 = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+    const xValues2 = ['10/1', '11/1', '12/1', '13/1', '14/1', '15/1', '16/1', ];
+    const yValues2 = [2, 3, 5, 7, 6, 9, 13, 18, 4, 9];
 
     new Chart("myChart2", {
         type: "line",
@@ -139,8 +112,8 @@
             scales: {
                 yAxes: [{
                     ticks: {
-                        min: 6,
-                        max: 16
+                        min: 0,
+                        max: 16,
                     }
                 }],
             }

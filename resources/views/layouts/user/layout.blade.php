@@ -362,7 +362,7 @@ document.getElementById('submit-register').addEventListener('click', function(e)
                     <a href="{{ url('/chinh-sach-bao-mat') }}">Chính sách bảo mật thông tin cá nhân</a>
                     <a href="{{url('/chinh-sach-thanh-toan')}}">Chính sách bảo mật thanh toán</a>
                     <a href="{{url('/chinh-sach-bao-hanh')}}">Chính sách bảo hành</a>
-                    <a href="{{ url('/about/thong-tin-nhom-phpcraft') }}">Về chúng tôi</a>
+                    <a href="{{ url('/about/thong-tin-ve-phpcraft') }}">Về chúng tôi</a>
                 </div>
                 <div class="span3">
                     <h5>ƯU ĐÃI CỦA CHÚNG TÔI</h5>

@@ -61,11 +61,17 @@ class DanhMucController extends Controller
     {
         $danhmuc = DanhMuc::findOrFail($id);
 
+         // Kiểm tra nếu danh mục có sách liên quan
+        if ($danhmuc->books()->count() > 0) {
+            return redirect()->route('admin.danhmucs.index')->with('error', 'Phải xóa các sách liên quan trước khi xóa danh mục.');
+        }
+        // Kiểm tra nếu danh mục có danh mục con
         if ($danhmuc->children()->count() > 0) {
             return redirect()->route('admin.danhmucs.index')->with('error', 'Không thể xóa danh mục này vì có danh mục con.');
         }
-
+        // Xóa danh mục con (nếu cần)
         $danhmuc->children()->delete();
+        // Xóa danh mục
         $danhmuc->delete();
 
         return redirect()->route('admin.danhmucs.index')->with('success', 'Danh mục và danh mục con đã được xóa thành công.');
