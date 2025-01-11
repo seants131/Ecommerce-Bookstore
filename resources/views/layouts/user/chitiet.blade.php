@@ -42,7 +42,7 @@
                     <input type="hidden" name="product_id" value="1"> <!-- ID sản phẩm -->
                     <input type="hidden" name="price" value="222.00"> <!-- Giá sản phẩm -->
                     <div class="control-group">
-                        <label class="control-label"><span>100.000 VND</span></label>
+                        <label class="control-label"><span>100.000 đ</span></label>
                         <div class="controls">
                             <div style="display: flex; align-items: center; justify-content: space-between; width: 150px">
                                 <b>Số lượng</b>

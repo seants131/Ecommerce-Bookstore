@@ -23,4 +23,5 @@ public function down()
         $table->dropColumn(['otp_code', 'otp_expires_at']);
     });
 }
+
 };

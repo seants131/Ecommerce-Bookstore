@@ -30,6 +30,14 @@ class DanhMuc extends Model
     {
         return $this->hasMany(Sach::class, 'category_id', 'id');
     }
+    public function someFunction()
+    {
+        // Lấy danh sách danh mục từ cơ sở dữ liệu
+        $danhmucs = DanhMuc::all();
+
+        // Truyền biến $danhmucs sang view
+        return view('some-view', compact('danhmucs'));
+    }
 
 }
 

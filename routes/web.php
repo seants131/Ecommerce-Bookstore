@@ -48,7 +48,7 @@ Route::get('/chinh-sach-bao-hanh', function () {
 // Route cho trang dashboard của admin
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
 
-// Route cho trang dashboard của admin
+// oute cho trang dashboard của admin
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
 // Nhóm route cho admin
@@ -87,3 +87,7 @@ Route::prefix('user')->group(function () {
 // Route cho trang thông tin đăng ký user
 Route::get('/user', [UserController::class, 'show'])->name('user.show');
 Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
+
+Route::post('/login', [AuthController::class, 'login']); // Thêm route cho login nếu chưa có
+
+Route::post('/register', [AuthController::class, 'register']);

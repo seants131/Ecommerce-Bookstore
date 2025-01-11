@@ -18,8 +18,8 @@ class SendOtpMail extends Mailable
 
     public function build()
     {
-        return $this->view('emails.send_otp')
-                    ->subject('Mã OTP của bạn')
+        return $this->subject('Your OTP Code')
+                    ->view('emails.send_otp')
                     ->with(['otp' => $this->otp]);
     }
 }
