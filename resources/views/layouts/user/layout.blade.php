@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-   
     <link rel="stylesheet" href="{{ asset('css/about.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aboutcontent.css') }}">
     <link id="callCss" rel="stylesheet" href="{{ asset('themes/bootshop/bootstrap.min.css') }}" media="screen" />
@@ -70,8 +69,7 @@
         <!-- Login Content -->
         <div id="loginTab" class="tab-pane fade in active">
             <h4>Đăng nhập</h4>
-            <form class="form-horizontal" method="POST" action="{{ url('/login') }}">
-                @csrf
+            <form class="form-horizontal">
                 <div class="form-group">
                     <label for="loginEmail">Số điện thoại/Email</label>
                     <input type="email" id="loginEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
@@ -88,13 +86,21 @@
         <!-- Register Content -->
         <div id="registerTab" class="tab-pane fade">
             <h4>Đăng ký</h4>
-            <form class="form-horizontal" method="POST" action="{{ url('/register') }}">
-                @csrf
+            <form class="form-horizontal">
                 <div class="form-group">
-                <meta name="csrf-token" content="{{ csrf_token() }}">
                     <label for="registerEmail" style="display:block;margin-top:8px;">Số điện thoại/Email</label>
                     <div class="col-sm-9">
                         <input type="email" id="registerEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="button" id="sendOtpButton" class="btn btn-secondary">Gửi mã OTP</button>
+                    </div>
+                    <p id="otpMessage" class="text-success mt-2" style="display: none;">Mã OTP đã được gửi!</p>
+                </div>
+                <div class="form-group">
+                    <label for="otpCode" style="display:block;margin-top:8px;">Mã xác nhận OTP</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="otpCode" placeholder="6 ký tự" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
@@ -114,68 +120,35 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" id="submit-register" class="btn btn-success">Submit</button>
-    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+    <button type="button" class="btn btn-success">Submit</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
 
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-document.getElementById('submit-register').addEventListener('click', function(e) {
-    e.preventDefault(); // Ngăn hành vi mặc định của form
+    // Xử lý sự kiện gửi mã OTP
+    document.getElementById('sendOtpButton').addEventListener('click', function () {
+        const email = document.getElementById('registerEmail').value;
 
-    // Lấy dữ liệu từ form
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
+        if (!email) {
+            alert('Vui lòng nhập số điện thoại hoặc email trước khi gửi mã OTP!');
+            return;
+        }
 
-    // Kiểm tra điều kiện mật khẩu và xác nhận mật khẩu
-    if (password !== confirmPassword) {
-        alert('Mật khẩu và xác nhận mật khẩu không khớp.');
-        return;
-    }
-
-    // Tạo đối tượng FormData để gửi dữ liệu
-    const formData = new FormData();
-    formData.append('email', email);
-    formData.append('password', password);
-    formData.append('password_confirmation', confirmPassword);
-
-    // Lấy CSRF token từ thẻ meta
-    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-    // Gửi request bằng fetch
-    fetch('/register', {
-    method: 'POST',
-    headers: {
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-    },
-    body: formData
-})
-.then(response => {
-    if (!response.ok) {
-        // Nếu HTTP status không thành công, throw lỗi
-        throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    // Kiểm tra và parse JSON
-    return response.json();
-})
-.then(data => {
-    if (data.success) {
-        alert(data.message);
-        window.location.href = '/login';
-    }
-})
-.catch(error => {
-    console.error('Error:', error);
-    alert('Đã xảy ra lỗi: ' + error.message);
-});
-
-});
+        // Gửi yêu cầu gửi mã OTP qua API
+        axios.post('/send-otp', { email: email })
+            .then(response => {
+                if (response.data.success) {
+                    document.getElementById('otpMessage').style.display = 'block';
+                } else {
+                    alert(response.data.message || 'Có lỗi xảy ra, vui lòng thử lại!');
+                }
+            })
+            .catch(error => {
+                alert('Có lỗi xảy ra, vui lòng kiểm tra lại email hoặc thử lại sau!');
+            });
+    });
 </script>
-
-
                             </div>
                         </li>
                     </ul>
