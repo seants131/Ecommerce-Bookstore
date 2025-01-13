@@ -213,6 +213,7 @@
                         !Request::routeIs('about.chinhsach') &&
                         !Request::routeIs('baiviet.noidungbaiviet') &&
                         !Request::routeIs('chitietsp.index')))
+
                     <div id="sidebar" class="span3">
                         <div class="well well-small">
 
