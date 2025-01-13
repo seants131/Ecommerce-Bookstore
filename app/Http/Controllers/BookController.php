@@ -91,13 +91,29 @@ class BookController extends Controller
         return redirect()->route('admin.books.index')->with('success', 'Sách đã được cập nhật thành công.');
     }
 
-    public function destroy($id)
+   public function destroy($id)
     {
         $book = Sach::findOrFail($id);
-        $book->delete();
 
-        return redirect()->route('admin.books.index')->with('success', 'Sách đã được xóa thành công.');
+        try {
+            $book->delete();
+            return redirect()->route('admin.books.index')->with('success', 'Sách đã được xóa thành công.');
+        } catch (\Illuminate\Database\QueryException $e) {
+            if ($e->getCode() === "23000") { // Mã lỗi cho ràng buộc khóa ngoại
+                return redirect()->route('admin.books.index')->with(
+                    'error', 
+                    "Không thể xóa sách này vì nó đang được sử dụng trong các hóa đơn mua hàng. Hãy kiểm tra và xóa các hóa đơn liên quan trước khi xóa sách."
+                );
+            }
+
+            // Đối với các lỗi khác
+            return redirect()->route('admin.books.index')->with(
+                'error', 
+                'Đã xảy ra lỗi khi xóa sách. Vui lòng thử lại hoặc liên hệ với quản trị viên.'
+            );
+        }
     }
+
     public function search(Request $request)
     {
         $query = $request->input('query');

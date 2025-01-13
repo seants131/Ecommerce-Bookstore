@@ -1,7 +1,17 @@
 @extends('layouts.admin')
 
 @section('content')
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
+    @if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+    @endif
     <h1>Danh Sách Đơn Hàng</h1>
     <!-- <a href="#" class="btn btn-primary mb-3">Thêm Đơn Hàng</a> -->
     <div class="order-info">
