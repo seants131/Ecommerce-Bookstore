@@ -186,8 +186,8 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <div class="container">
-                            <a href="register.html"><img style="width:830px; height: 320px;" src="{{asset('img/slide1.jpg')}}"
-                                    alt="special offers" /></a>
+                            <a href="register.html"><img style="width:830px; height: 320px;"
+                                    src="{{ asset('img/slide1.jpg') }}" alt="special offers" /></a>
                             <div class="carousel-caption">
                                 <h4>Second Thumbnail label</h4>
                                 <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
@@ -402,6 +402,21 @@
             }
         });
     </script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/678280abaf5bfec1dbea30f7/1ihasd7s6';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 
 </html>
