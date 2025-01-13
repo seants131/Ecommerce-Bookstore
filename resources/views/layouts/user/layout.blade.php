@@ -58,97 +58,119 @@
                             <div id="login" class="modal hide fade in" tabindex="-1" role="dialog"
                                 aria-labelledby="login" aria-hidden="false">
                                 <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-    <ul class="nav nav-tabs">
-        <li class="active"><a href="#loginTab" data-toggle="tab">Đăng nhập</a></li>
-        <li><a href="#registerTab" data-toggle="tab">Đăng ký</a></li>
-    </ul>
-</div>
-<div class="modal-body">
-    <div class="tab-content">
-        <!-- Login Content -->
-        <div id="loginTab" class="tab-pane fade in active">
-            <h4>Đăng nhập</h4>
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label for="loginEmail">Số điện thoại/Email</label>
-                    <input type="email" id="loginEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword" style="display:block;margin-top:8px;">Mật khẩu</label>
-                    <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" class="form-control">
-                </div>
-                <div class="form-group">
-                    <a href="{{ url('/forgot-password') }}" style="display:block; margin-top:8px; font-size:14px; color:#007bff; text-decoration:none;">Quên mật khẩu?</a>
-                </div>
-            </form>
-        </div>
-        <!-- Register Content -->
-        <div id="registerTab" class="tab-pane fade">
-            <h4>Đăng ký</h4>
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label for="registerEmail" style="display:block;margin-top:8px;">Số điện thoại/Email</label>
-                    <div class="col-sm-9">
-                        <input type="email" id="registerEmail" placeholder="Nhập số điện thoại hoặc email" class="form-control">
-                    </div>
-                    <div class="col-sm-3">
-                        <button type="button" id="sendOtpButton" class="btn btn-secondary">Gửi mã OTP</button>
-                    </div>
-                    <p id="otpMessage" class="text-success mt-2" style="display: none;">Mã OTP đã được gửi!</p>
-                </div>
-                <div class="form-group">
-                    <label for="otpCode" style="display:block;margin-top:8px;">Mã xác nhận OTP</label>
-                    <div class="col-sm-9">
-                        <input type="text" id="otpCode" placeholder="6 ký tự" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="registerPassword" style="display:block;margin-top:8px;">Mật khẩu</label>
-                    <div class="col-sm-9">
-                        <input type="password" id="registerPassword" placeholder="Nhập mật khẩu" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword" style="display:block;margin-top:8px;">Xác nhận mật khẩu</label>
-                    <div class="col-sm-9">
-                        <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" class="form-control">
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-success">Submit</button>
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
+                                    <button type="button" class="close" data-dismiss="modal"
+                                        aria-hidden="true">x</button>
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#loginTab" data-toggle="tab">Đăng nhập</a></li>
+                                        <li><a href="#registerTab" data-toggle="tab">Đăng ký</a></li>
+                                    </ul>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="tab-content">
+                                        <!-- Login Content -->
+                                        <div id="loginTab" class="tab-pane fade in active">
+                                            <h4>Đăng nhập</h4>
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="loginEmail">Số điện thoại/Email</label>
+                                                    <input type="email" id="loginEmail"
+                                                        placeholder="Nhập số điện thoại hoặc email"
+                                                        class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="loginPassword"
+                                                        style="display:block;margin-top:8px;">Mật khẩu</label>
+                                                    <input type="password" id="loginPassword"
+                                                        placeholder="Nhập mật khẩu" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <a href="{{ url('/forgot-password') }}"
+                                                        style="display:block; margin-top:8px; font-size:14px; color:#007bff; text-decoration:none;">Quên
+                                                        mật khẩu?</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- Register Content -->
+                                        <div id="registerTab" class="tab-pane fade">
+                                            <h4>Đăng ký</h4>
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="registerEmail"
+                                                        style="display:block;margin-top:8px;">Số điện
+                                                        thoại/Email</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="email" id="registerEmail"
+                                                            placeholder="Nhập số điện thoại hoặc email"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <button type="button" id="sendOtpButton"
+                                                            class="btn btn-secondary">Gửi mã OTP</button>
+                                                    </div>
+                                                    <p id="otpMessage" class="text-success mt-2"
+                                                        style="display: none;">Mã OTP đã được gửi!</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="otpCode" style="display:block;margin-top:8px;">Mã xác
+                                                        nhận OTP</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" id="otpCode" placeholder="6 ký tự"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="registerPassword"
+                                                        style="display:block;margin-top:8px;">Mật khẩu</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="password" id="registerPassword"
+                                                            placeholder="Nhập mật khẩu" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="confirmPassword"
+                                                        style="display:block;margin-top:8px;">Xác nhận mật khẩu</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="password" id="confirmPassword"
+                                                            placeholder="Nhập lại mật khẩu" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success">Submit</button>
+                                    <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">Close</button>
+                                </div>
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-    // Xử lý sự kiện gửi mã OTP
-    document.getElementById('sendOtpButton').addEventListener('click', function () {
-        const email = document.getElementById('registerEmail').value;
+                                <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                                <script>
+                                    // Xử lý sự kiện gửi mã OTP
+                                    document.getElementById('sendOtpButton').addEventListener('click', function() {
+                                        const email = document.getElementById('registerEmail').value;
 
-        if (!email) {
-            alert('Vui lòng nhập số điện thoại hoặc email trước khi gửi mã OTP!');
-            return;
-        }
+                                        if (!email) {
+                                            alert('Vui lòng nhập số điện thoại hoặc email trước khi gửi mã OTP!');
+                                            return;
+                                        }
 
-        // Gửi yêu cầu gửi mã OTP qua API
-        axios.post('/send-otp', { email: email })
-            .then(response => {
-                if (response.data.success) {
-                    document.getElementById('otpMessage').style.display = 'block';
-                } else {
-                    alert(response.data.message || 'Có lỗi xảy ra, vui lòng thử lại!');
-                }
-            })
-            .catch(error => {
-                alert('Có lỗi xảy ra, vui lòng kiểm tra lại email hoặc thử lại sau!');
-            });
-    });
-</script>
+                                        // Gửi yêu cầu gửi mã OTP qua API
+                                        axios.post('/send-otp', {
+                                                email: email
+                                            })
+                                            .then(response => {
+                                                if (response.data.success) {
+                                                    document.getElementById('otpMessage').style.display = 'block';
+                                                } else {
+                                                    alert(response.data.message || 'Có lỗi xảy ra, vui lòng thử lại!');
+                                                }
+                                            })
+                                            .catch(error => {
+                                                alert('Có lỗi xảy ra, vui lòng kiểm tra lại email hoặc thử lại sau!');
+                                            });
+                                    });
+                                </script>
                             </div>
                         </li>
                     </ul>
@@ -164,66 +186,8 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <div class="container">
-                            <a href="register.html"><img style="width:100%" src="themes/images/carousel/1.png"
+                            <a href="register.html"><img style="width:830px; height: 320px;" src="{{asset('img/slide1.jpg')}}"
                                     alt="special offers" /></a>
-                            <div class="carousel-caption">
-                                <h4>Second Thumbnail label</h4>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
-                                    porta
-                                    gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="container">
-                            <a href="register.html"><img style="width:100%" src="themes/images/carousel/2.png"
-                                    alt="" /></a>
-                            <div class="carousel-caption">
-                                <h4>Second Thumbnail label</h4>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
-                                    porta
-                                    gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="container">
-                            <a href="register.html"><img src="themes/images/carousel/3.png" alt="" /></a>
-                            <div class="carousel-caption">
-                                <h4>Second Thumbnail label</h4>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
-                                    porta
-                                    gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="container">
-                            <a href="register.html"><img src="themes/images/carousel/4.png" alt="" /></a>
-                            <div class="carousel-caption">
-                                <h4>Second Thumbnail label</h4>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
-                                    porta
-                                    gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="container">
-                            <a href="register.html"><img src="themes/images/carousel/5.png" alt="" /></a>
-                            <div class="carousel-caption">
-                                <h4>Second Thumbnail label</h4>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
-                                    porta
-                                    gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="container">
-                            <a href="register.html"><img src="themes/images/carousel/6.png" alt="" /></a>
                             <div class="carousel-caption">
                                 <h4>Second Thumbnail label</h4>
                                 <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
@@ -248,53 +212,58 @@
                         !Request::routeIs('baiviet.index') &&
                         !Request::routeIs('about.chinhsach') &&
                         !Request::routeIs('baiviet.noidungbaiviet'))
-               <div id="sidebar" class="span3">
-                <div class="well well-small">
+                    <div id="sidebar" class="span3">
+                        <div class="well well-small">
 
-                </div>
-                <ul id="sideManu" class="nav nav-tabs nav-stacked">
-                    @foreach ($danhmucs as $danhmuc)
-                        <li class="subMenu">
-                            <a>{{ $danhmuc->name }} [{{ $danhmuc->books_count }}]</a>
-                            <ul style="display:none">
-                                @foreach ($danhmuc->children as $child)
-                                    <li>
-                                        <a href="products.html">
-                                            <i class="icon-chevron-right"></i>{{ $child->name }} ({{ $child->books_count }})
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                    @endforeach
-                </ul>
-                <br />
-                @foreach ($books as $book)
-                <div class="thumbnaili">
-                    <div class="book-item">
-                        <img src="{{ asset('uploads/books/' . $book->HinhAnh) }}" alt="{{ $book->TenSach }}" class="img-fluid" />
-                        <div class="caption">
-                            <p>{{ Str::limit($book->MoTa, 30) }}</p>
-                            <h4 style="text-align:center">
-                                <a class="btn" href="{{ url('/chitiet/' . $book->id) }}">
-                                    <i class="icon-zoom-in"></i>
-                                </a>
-                                <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a>
-                                <a class="btn btn-primary" href="#">{{ number_format($book->GiaBan) }} VND</a>
-                            </h4>
+                        </div>
+                        <ul id="sideManu" class="nav nav-tabs nav-stacked">
+                            @foreach ($danhmucs as $danhmuc)
+                                <li class="subMenu">
+                                    <a>{{ $danhmuc->name }} [{{ $danhmuc->books_count }}]</a>
+                                    <ul style="display:none">
+                                        @foreach ($danhmuc->children as $child)
+                                            <li>
+                                                <a href="products.html">
+                                                    <i class="icon-chevron-right"></i>{{ $child->name }}
+                                                    ({{ $child->books_count }})
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endforeach
+                        </ul>
+                        <br />
+                        @foreach ($books as $book)
+                            <div class="thumbnaili">
+                                <div class="book-item">
+                                    <img src="{{ asset('uploads/books/' . $book->HinhAnh) }}"
+                                        alt="{{ $book->TenSach }}" class="img-fluid" />
+                                    <div class="caption">
+                                        <p>{{ Str::limit($book->MoTa, 30) }}</p>
+                                        <h4 style="text-align:center">
+                                            <a class="btn" href="{{ url('/chitiet/' . $book->id) }}">
+                                                <i class="icon-zoom-in"></i>
+                                            </a>
+                                            <a class="btn" href="#">Add to <i
+                                                    class="icon-shopping-cart"></i></a>
+                                            <a class="btn btn-primary"
+                                                href="#">{{ number_format($book->GiaBan) }} VND</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+                        <br />
+                        <div class="thumbnail">
+                            <img src="themes/images/payment_methods.png" title="Bootshop Payment Methods"
+                                alt="Payments Methods">
+                            <div class="caption">
+                                <h5>Payment Methods</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-
-                <br />
-                <div class="thumbnail">
-                    <img src="themes/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
-                    <div class="caption">
-                        <h5>Payment Methods</h5>
-                    </div>
-                </div>
-            </div>
                 @endif
 
                 @yield('content')
@@ -323,7 +292,7 @@
                 </div>
                 <div class="span3">
                     <h5>QUẢN LÝ TÀI KHOẢN</h5>
-                    <a href="{{ url('/user') }}" >Tài khoản của bạn</a>
+                    <a href="{{ url('/user') }}">Tài khoản của bạn</a>
                     <a href="{{ url('/user') }}">Thông tin cá nhân</a>
                     <a href="{{ url('/user') }}">Địa chỉ</a>
                     <a href="{{ url('/user') }}">Ưu đãi</a>
@@ -333,8 +302,8 @@
                     <h5>THÔNG TIN</h5>
                     <a href="{{ url('/contact') }}">Liên hệ</a>
                     <a href="{{ url('/chinh-sach-bao-mat') }}">Chính sách bảo mật thông tin cá nhân</a>
-                    <a href="{{url('/chinh-sach-thanh-toan')}}">Chính sách bảo mật thanh toán</a>
-                    <a href="{{url('/chinh-sach-bao-hanh')}}">Chính sách bảo hành</a>
+                    <a href="{{ url('/chinh-sach-thanh-toan') }}">Chính sách bảo mật thanh toán</a>
+                    <a href="{{ url('/chinh-sach-bao-hanh') }}">Chính sách bảo hành</a>
                     <a href="{{ url('/about/thong-tin-ve-phpcraft') }}">Về chúng tôi</a>
                 </div>
                 <div class="span3">
