@@ -12,12 +12,12 @@ use App\Http\Controllers\BaiVietController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserOrderController;
 use App\Http\Controllers\DanhGiaController;
+use App\Http\Controllers\ChitietSPController;
 
 // Route cho trang chủ
 Route::get('/', [DanhMucController::class, 'getbook']);
 Route::get('/product', [DanhMucController::class, 'getproduct']);
 Route::get('/cart', [DanhMucController::class, 'getcart']);
-Route::get('/chitiet', [DanhMucController::class, 'getchitiet']);
 
 // Route::get('/chitiet/{id}', [ProductController::class, 'show'])->name('product.detail');
 Route::post('/register', [AuthController::class, 'register']);
@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
         return view('dashboard'); // Tạo view dashboard
     })->name('dashboard');
 });
+
+Route::get('/chitietsp/{id}', [ChitietSPController::class, 'index'])->name('chitietsp.index');
 
 Route::get('/about', [BaiVietController::class, 'index'])->name('baiviet.index');
 Route::get('/about/{baiviet}', [BaiVietController::class, 'show'])->name('baiviet.noidungbaiviet');
