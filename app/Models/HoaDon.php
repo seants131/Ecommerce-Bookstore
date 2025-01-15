@@ -24,4 +24,8 @@ class HoaDon extends Model
         'diachi',
     ];
     public $timestamps = false;
+    public function chiTietHoaDon()
+{
+    return $this->hasMany(ChiTietHoaDon::class, 'MaHoaDon');
+}
 }
