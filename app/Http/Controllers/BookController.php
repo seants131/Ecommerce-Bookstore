@@ -22,19 +22,24 @@ class BookController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'MaSach' => 'required|unique:Sach,MaSach',
-            'TenSach' => 'required|string|max:255',
-            'category_id' => 'required|exists:danhmuc,id',
-            'GiaNhap' => 'required|numeric',
-            'GiaBan' => 'required|numeric',
-            'SoLuong' => 'required|integer',
-            'NamXuatBan' => 'required|integer',
-            'MoTa' => 'nullable|string',
-            'TrangThai' => 'required|boolean',
-            'MaNXB' => 'nullable|string',
-            'HinhAnh' => 'nullable|image|max:2048', // Hình ảnh không bắt buộc
-        ]);
+         // Validate dữ liệu đầu vào
+    $request->validate([
+        'MaSach' => 'required|unique:Sach,MaSach',  // Kiểm tra mã sách có trùng không
+        'TenSach' => 'required|string|max:255|unique:Sach,TenSach',  // Kiểm tra tên sách có trùng không
+        'category_id' => 'required|exists:danhmuc,id',  // Kiểm tra danh mục có tồn tại không
+        'GiaNhap' => 'required|numeric',  // Kiểm tra giá nhập là số
+        'GiaBan' => 'required|numeric',  // Kiểm tra giá bán là số
+        'SoLuong' => 'required|integer',  // Kiểm tra số lượng là số nguyên
+        'NamXuatBan' => 'required|integer',  // Kiểm tra năm xuất bản là số nguyên
+        'MoTa' => 'nullable|string',  // Mô tả không bắt buộc
+        'TrangThai' => 'required|boolean',  // Trạng thái phải là true/false
+        'MaNXB' => 'nullable|string',  // Mã nhà xuất bản không bắt buộc
+        'HinhAnh' => 'nullable|image|max:2048',  // Hình ảnh không bắt buộc và có giới hạn dung lượng
+    ], [
+        // Tùy chỉnh thông báo lỗi cho trường 'TenSach'
+        'TenSach.unique' => 'Tên sách này đã tồn tại. Vui lòng chọn tên khác.',
+        'MaSach.unique' => 'Mã sách đã tồn tại.',
+    ]);
 
         $data = $request->all();
 
@@ -60,16 +65,20 @@ class BookController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'TenSach' => 'required|string|max:255',
-            'category_id' => 'required|exists:danhmuc,id',
-            'GiaNhap' => 'required|numeric',
-            'GiaBan' => 'required|numeric',
-            'SoLuong' => 'required|integer',
-            'NamXuatBan' => 'required|integer',
-            'MoTa' => 'nullable|string',
-            'TrangThai' => 'required|boolean',
-            'MaNXB' => 'nullable|string',
-            'HinhAnh' => 'nullable|image|max:2048',
+        'TenSach' => 'required|string|max:255|unique:Sach,TenSach',  // Kiểm tra tên sách có trùng không
+        'category_id' => 'required|exists:danhmuc,id',  // Kiểm tra danh mục có tồn tại không
+        'GiaNhap' => 'required|numeric',  // Kiểm tra giá nhập là số
+        'GiaBan' => 'required|numeric',  // Kiểm tra giá bán là số
+        'SoLuong' => 'required|integer',  // Kiểm tra số lượng là số nguyên
+        'NamXuatBan' => 'required|integer',  // Kiểm tra năm xuất bản là số nguyên
+        'MoTa' => 'nullable|string',  // Mô tả không bắt buộc
+        'TrangThai' => 'required|boolean',  // Trạng thái phải là true/false
+        'MaNXB' => 'nullable|string',  // Mã nhà xuất bản không bắt buộc
+        'HinhAnh' => 'nullable|image|max:2048',  // Hình ảnh không bắt buộc và có giới hạn dung lượng
+        ], [
+            // Tùy chỉnh thông báo lỗi cho trường 'TenSach'
+            'TenSach.unique' => 'Tên sách này đã tồn tại. Vui lòng chọn tên khác.',
+            'MaSach.unique' => 'Mã sách đã tồn tại.',
         ]);
 
         $book = Sach::findOrFail($id);
@@ -91,13 +100,31 @@ class BookController extends Controller
         return redirect()->route('admin.books.index')->with('success', 'Sách đã được cập nhật thành công.');
     }
 
-    public function destroy($id)
-    {
-        $book = Sach::findOrFail($id);
-        $book->delete();
+   public function destroy($id)
+{
+    $book = Sach::findOrFail($id);
 
+    try {
+        $book->delete();
         return redirect()->route('admin.books.index')->with('success', 'Sách đã được xóa thành công.');
+    } catch (\Illuminate\Database\QueryException $e) {
+        if ($e->getCode() === "23000") { // Mã lỗi cho ràng buộc khóa ngoại
+            return redirect()->route('admin.books.index')->with(
+                'error', 
+                "Không thể xóa sách này vì nó đang được sử dụng trong các hóa đơn mua hàng. Hãy kiểm tra và xóa các hóa đơn liên quan trước khi xóa sách."
+            );
+        }
+
+        // Đối với các lỗi khác
+        return redirect()->route('admin.books.index')->with(
+            'error', 
+            'Đã xảy ra lỗi khi xóa sách. Vui lòng thử lại hoặc liên hệ với quản trị viên.'
+        );
     }
+}
+
+    
+
     public function search(Request $request)
     {
         $query = $request->input('query');
