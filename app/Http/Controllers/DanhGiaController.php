@@ -8,7 +8,7 @@ class DanhGiaController extends Controller
 {
     public function index()
     {
-        $danhgias = DanhGia::all();
+        $danhgias = DanhGia::orderBy('NgayDanhGia', 'desc')->get();
         return view('admin.danhgia.index', compact('danhgias'));
     }
     public function destroy($id)
