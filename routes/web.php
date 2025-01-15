@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
 });
 
-Route::get('/chitietsp/{id}', [ChitietSPController::class, 'index'])->name('chitietsp.index');
+Route::get('/{slug}', [ChitietSPController::class, 'index'])->name('chitietsp.index');
 
 Route::get('/about', [BaiVietController::class, 'index'])->name('baiviet.index');
 Route::get('/about/{baiviet}', [BaiVietController::class, 'show'])->name('baiviet.noidungbaiviet');
