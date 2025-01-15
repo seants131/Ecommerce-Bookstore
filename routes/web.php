@@ -46,9 +46,10 @@ Route::get('/chinh-sach-bao-hanh', function () {
     return view('layouts.user.chinhsachbaohanh');
 })->name('about.chinhsach');
 
-// Route cho trang dashboard của admin
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
-
+Route::prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/export-books', [AdminController::class, 'exportBooks'])->name('admin.export.books');
+});
 // Route cho trang dashboard của admin
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/dashboard/edit/{id}', [AdminController::class, 'edit'])->name('post.edit');

@@ -6,7 +6,7 @@
             <ul class="breadcrumb">
                 <li><a href="{{ url('/') }}">Home</a> <span class="divider">/</span></li>
                 <li><a href="{{ url('/product') }}">Sản phẩm</a> <span class="divider">/</span></li>
-                <li class="active">Chi tiết sản phẩm</li>
+                <li class="active">{{ $chitietsp->TenSach }}</li>
             </ul>
             <div class="row">
                 <div id="gallery" class="span3">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="span6">
-                    <h3>{{ $chitietsp->TenSach }} </h3>
+                    <h3>{{ $chitietsp->TenSach }}</h3>
                     <small>M. Scott Peck</small>
                     <hr class="soft" />
                     <form class="form-horizontal qtyFrm" action="" method="POST">
@@ -43,7 +43,6 @@
                         <input type="hidden" name="product_id" value="1"> <!-- ID sản phẩm -->
                         <input type="hidden" name="price" value="222.00"> <!-- Giá sản phẩm -->
                         <div class="control-group">
-                            <label class="control-label"><span>{{ $chitietsp->TenSach }}</span></label>
                             <div class="controls">
                                 <div
                                     style="display: flex; align-items: center; justify-content: space-between; width: 150px">
@@ -89,6 +88,10 @@
                                     <tr class="techSpecRow">
                                         <td class="techSpecTD1">Năm xuất bản</td>
                                         <td class="techSpecTD2">{{ $chitietsp->NamXuatBan }}</td>
+                                    </tr>
+                                    <tr class="techSpecRow">
+                                        <td class="techSpecTD1">Thể loại</td>
+                                        <td class="techSpecTD2">{{ $theloaisach->danhmuc->name }}</td>
                                     </tr>
                                     <tr class="techSpecRow">
                                         <td class="techSpecTD1">Trạng thái</td>
@@ -440,3 +443,5 @@
         </div>
     </div>
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

@@ -13,6 +13,7 @@ class ChitietSPController extends Controller
         $chitietsp = DB::table('sach')->where('MaSach', $id)->first();
         $danhmucs = DanhMuc::with('children')->whereNull('parent_id')->get();
         $books = Sach::with('DanhMuc')->get(); 
-        return view('layouts.user.chitiet', compact('chitietsp', 'danhmucs', 'books'));
+        $theloaisach = Sach::with('DanhMuc')->find($id);
+        return view('layouts.user.chitiet', compact('chitietsp', 'danhmucs', 'books', 'theloaisach'));
     }
 }

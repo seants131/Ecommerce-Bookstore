@@ -1,6 +1,8 @@
 @extends('layouts.admin') <!-- Kế thừa layout -->
 
 @section('content')
+    <a href="{{ route('admin.export.books') }}" class="btn btn-success">Xuất Excel</a>
+
     <div class="stats">
         <div class="stat" style="background-color: #eef4ff">
             <h3> {{ number_format($doanhthutrangweb, 0, ',', '.') }} VND</h3>
@@ -40,11 +42,11 @@
                 </td>
                 <th>
                     <form action="{{ route('post.edit', $ndweb->id) }}" method="POST">
-                        @csrf 
+                        @csrf
                         @method('GET')
                         <button type="submit" class="btn btn-primary">Chỉnh sửa</button>
                     </form>
-                    </th>
+                </th>
             </tr>
             <tr>
         </table>
