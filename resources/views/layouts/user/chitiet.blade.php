@@ -58,11 +58,37 @@
                         </div>
                     </form>
                     <hr class="soft" />
-                    <h4>Còn: {{ $chitietsp->SoLuong }} quyển</h4>
+                    <h4 id="product-quantity">Còn: {{ $chitietsp->SoLuong }} quyển</h4>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                        function updateProductQuantity() {
+                            var productId = {{ $chitietsp->MaSach }};
+                            var quantity = $('#quantity-input').val();
+
+                            $.ajax({
+                                url: '/chitietsp/' + productId + '/soluong',  // Đảm bảo URL đúng
+                                type: 'GET',
+                                success: function(response) {
+                                    // Kiểm tra phản hồi
+                                    if(response.quantity !== undefined) {
+                                        $('#product-quantity').text('Còn: ' + response.quantity + ' quyển');
+                                    } else {
+                                        alert('Không lấy được số lượng sản phẩm');
+                                    }
+                                },
+                                error: function() {
+                                    alert('Có lỗi xảy ra khi lấy số lượng');
+                                }
+                            });
+                        }
+                        setInterval(updateProductQuantity, 5000);
+                    </script>
+
+
                     <hr class="soft clr" />
                     @php
                         $text = $chitietsp->MoTa; // Lấy nội dung từ cơ sở dữ liệu
-                        $sentences = explode('. ', $text); // Tách thành mảng câu
+                        $sentences = explode('. ', $text);
                     @endphp
                     @foreach ($sentences as $sentence)
                         <p>{{ trim($sentence) }}</p>

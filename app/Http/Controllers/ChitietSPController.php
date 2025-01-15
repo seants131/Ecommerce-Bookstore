@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers;
 
@@ -12,7 +12,21 @@ class ChitietSPController extends Controller
     {
         $chitietsp = DB::table('sach')->where('MaSach', $id)->first();
         $danhmucs = DanhMuc::with('children')->whereNull('parent_id')->get();
-        $books = Sach::with('DanhMuc')->get(); 
+        $books = Sach::with('DanhMuc')->get();
         return view('layouts.user.chitiet', compact('chitietsp', 'danhmucs', 'books'));
+    }
+
+    public function getSoLuong($id)
+    {
+        // Lấy số lượng sản phẩm từ cơ sở dữ liệu
+        $chitietsp = DB::table('sach')->where('MaSach', $id)->first();
+
+        // Kiểm tra nếu sản phẩm không tồn tại
+        if (!$chitietsp) {
+            return response()->json(['error' => 'Sản phẩm không tồn tại'], 404);
+        }
+
+        // Trả về số lượng sản phẩm dưới dạng JSON
+        return response()->json(['quantity' => $chitietsp->SoLuong]);
     }
 }
