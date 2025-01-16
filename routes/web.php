@@ -29,9 +29,14 @@ Route::middleware('auth')->group(function () {
         return view('dashboard'); // Tạo view dashboard
     })->name('dashboard');
 });
+Route::get('/chitietsp/{id}', [ChitietSPController::class, 'index'])->name('chitietsp.index');
+Route::get('/chitietsp/{id}/soluong', [ChitietSPController::class, 'getSoLuong'])->name('chitietsp.soluong');
 
-Route::get('/{slug}', [ChitietSPController::class, 'index'])->name('chitietsp.index');
-Route::get('/{slug}/soluong', [ChitietSPController::class, 'getSoLuong'])->name('chitietsp.soluong');
+
+
+
+
+
 
 Route::get('/about', [BaiVietController::class, 'index'])->name('baiviet.index');
 Route::get('/about/{baiviet}', [BaiVietController::class, 'show'])->name('baiviet.noidungbaiviet');
@@ -47,10 +52,9 @@ Route::get('/chinh-sach-bao-hanh', function () {
     return view('layouts.user.chinhsachbaohanh');
 })->name('about.chinhsach');
 
-Route::prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/export-books', [AdminController::class, 'exportBooks'])->name('admin.export.books');
-});
+// Route cho trang dashboard của admin
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+
 // Route cho trang dashboard của admin
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/dashboard/edit/{id}', [AdminController::class, 'edit'])->name('post.edit');
