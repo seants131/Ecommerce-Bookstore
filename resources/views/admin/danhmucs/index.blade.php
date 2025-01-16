@@ -70,7 +70,7 @@
                 <th>Tên Danh Mục</th>
                 <th>Hành động</th>
                 <th>Danh Mục Con</th>
-                <th>Thời Gian Tạo</th> <!-- Thêm cột -->
+
             </tr>
         </thead>
         <tbody>
@@ -105,7 +105,7 @@
                             Không có
                         @endif
                     </td>
-                    <td>{{ $danhmuc->created_at}}</td> <!-- Hiển thị thời gian tạo -->
+
                 </tr>
             @endforeach
         </tbody>

@@ -43,9 +43,26 @@ class HoaDonController extends Controller
     // Xoá đơn hàng
     public function deleteOrder($id)
     {
-        $order = HoaDon::findOrFail($id);  // Tìm đơn hàng theo ID
-        $order->delete();  // Xoá đơn hàng
+        $order = HoaDon::findOrFail($id); // Tìm đơn hàng theo ID
 
-        return redirect()->route('admin.dashboard')->with('success', 'Đơn hàng đã được xoá.');
+        try {
+            // Thử xóa đơn hàng
+            $order->delete();
+            return redirect()->route('admin.orders.index')->with('success', 'Đơn hàng đã được xoá thành công.');
+        } catch (\Illuminate\Database\QueryException $e) {
+            // Bắt lỗi ràng buộc khóa ngoại
+            if ($e->getCode() === "23000") {
+                return redirect()->route('admin.orders.index')->with(
+                    'error',
+                    'Không thể xóa đơn hàng này vì có chi tiết đơn hàng liên quan. Hãy kiểm tra và xóa các chi tiết trước.'
+                );
+            }
+
+            // Xử lý lỗi khác
+            return redirect()->route('admin.orders.index')->with(
+                'error',
+                'Đã xảy ra lỗi khi xóa đơn hàng. Vui lòng thử lại sau.'
+            );
+        }
     }
 }
