@@ -23,13 +23,14 @@ class CartController extends Controller
         if (!$product) {
             return redirect()->back()->with('error', 'Sản phẩm không tồn tại');
         }
-        if ($quantity > $product->SoLuong) {
-            return redirect()->back()->with('error', 'Số lượng sản phẩm trong kho không đủ');
-        }
         if ($quantity > 10) {
             return redirect()->back()->with('error', 'Mỗi lần chỉ có thể thêm tối đa 10 sản phẩm');
         }
         
+        if ($quantity > $product->SoLuong) {
+            return redirect()->back()->with('error', 'Số lượng sản phẩm trong kho không đủ');
+        }
+       
         // Lấy giỏ hàng từ session hoặc tạo mới
         $cart = session()->get('cart', []);
     
