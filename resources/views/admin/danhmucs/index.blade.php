@@ -59,6 +59,7 @@
             </div>
         </div>
     </form>
+
     <br>
     {{-- end search --}}
     <a href="{{ route('admin.danhmucs.create') }}" class="btn btn-success" style="color: white;">Thêm danh mục</a>
@@ -69,13 +70,14 @@
                 <th>Tên Danh Mục</th>
                 <th>Hành động</th>
                 <th>Danh Mục Con</th>
-                <th>ngày tạo</th>
+
             </tr>
         </thead>
         <tbody>
             @foreach($danhmucs as $danhmuc)
                 <tr>
                     <td>{{ $danhmuc->name }}</td>
+
                     <td>
                         <a href="{{ route('admin.danhmucs.edit', $danhmuc->id) }}" class="btn btn-warning">Sửa</a>
                         <form action="{{ route('admin.danhmucs.destroy', $danhmuc->id) }}" method="POST" style="display:inline;" class="delete-form">
@@ -103,7 +105,7 @@
                             Không có
                         @endif
                     </td>
-                    <td>{{ $danhmuc->created_at }}</td>
+
                 </tr>
             @endforeach
         </tbody>

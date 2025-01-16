@@ -9,18 +9,16 @@ class BaiVietController extends Controller
 {
     public function index(Request $request)
     {
-
-    $search = $request->input('search');
-
-    // Lấy các bài viết theo từ khóa tìm kiếm (trừ "Thông tin nhóm")
-    $baiviets = BaiViet::where('trangthai', 1)
-        ->where('chude', '!=', 'Thông tin nhóm')
-        ->when($search, function ($query, $search) {
-            return $query->where('tieude', 'LIKE', "%{$search}%")
-                         ->orWhere('noidung', 'LIKE', "%{$search}%");
-        })
-        
-        ->paginate(3);
+        $search = $request->input('search');
+        $sort = $request->input('sort', 'desc'); // bai viet moi nhat // asc la cu nhat
+        $baiviets = BaiViet::where('trangthai', 1)
+            ->where('chude', '!=', 'Thông tin nhóm')
+            ->when($search, function ($query, $search) {
+                return $query->where('tieude', 'LIKE', "%{$search}%")
+                             ->orWhere('noidung', 'LIKE', "%{$search}%");
+            })
+            ->orderBy('created_at', $sort) 
+            ->paginate(3);
 
         $chudenthieunhi = BaiViet::where('trangthai', 1)
                                   ->where('chude', 'Sách thiếu nhi')
@@ -44,13 +42,22 @@ class BaiVietController extends Controller
                                      ->inRandomOrder()
                                      ->take(3)
                                      ->get();
-        $tamlyhoc = BaiViet::where('trangthai', 1)
-                                     ->where('chude', 'Tâm lý học')
-                                     ->inRandomOrder()
-                                     ->take(3)
-                                     ->get();
 
-        return view('layouts.user.about', compact('baiviets', 'chudenthieunhi', 'chudevanhochiendai', 'chudenvanhoccodien', 'baivietnhom','tamlyhoc','search'));
+        $tamlyhoc = BaiViet::where('trangthai', 1)
+                           ->where('chude', 'Tâm lý học')
+                           ->inRandomOrder()
+                           ->take(3)
+                           ->get();
+
+        return view('layouts.user.about', compact(
+            'baiviets',
+            'chudenthieunhi',
+            'chudevanhochiendai',
+            'chudenvanhoccodien',
+            'baivietnhom',
+            'tamlyhoc',
+            'search'
+        ));
     }
 
 

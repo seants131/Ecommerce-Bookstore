@@ -96,6 +96,8 @@ class DanhMucController extends Controller
 
         return view('admin.danhmucs.index', compact('danhmucs'));
     }
+
+
     public function getbook()
     {
         $danhmucs = DanhMuc::withCount('books')->get();
