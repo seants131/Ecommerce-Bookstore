@@ -1,9 +1,5 @@
 <?php return array(
     'root' => array(
-        'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '09f7cf9a8f743c258e5a4682ad5eba6fda440511',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'type' => 'project',
@@ -30,15 +26,6 @@
             'install_path' => __DIR__ . '/../carbonphp/carbon-doctrine-types',
             'aliases' => array(),
             'reference' => '18ba5ddfec8976260ead6e866180bd5d2f71aa1d',
-            'dev_requirement' => false,
-        ),
-        'composer/semver' => array(
-            'pretty_version' => '3.4.3',
-            'version' => '3.4.3.0',
-            'reference' => '4313d26ada5e0c4edfbd1dc481a92ff7bff91f12',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/./semver',
-            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'cordoval/hamcrest-php' => array(
@@ -92,20 +79,10 @@
         'egulias/email-validator' => array(
             'pretty_version' => '4.0.3',
             'version' => '4.0.3.0',
-            'reference' => 'b115554301161fa21467629f1e1391c1936de517',
             'type' => 'library',
             'install_path' => __DIR__ . '/../egulias/email-validator',
             'aliases' => array(),
             'reference' => 'b115554301161fa21467629f1e1391c1936de517',
-            'dev_requirement' => false,
-        ),
-        'ezyang/htmlpurifier' => array(
-            'pretty_version' => 'v4.18.0',
-            'version' => '4.18.0.0',
-            'reference' => 'cb56001e54359df7ae76dc522d08845dc741621b',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../ezyang/htmlpurifier',
-            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'fakerphp/faker' => array(
@@ -402,7 +379,6 @@
         'laravel/framework' => array(
             'pretty_version' => 'v11.38.2',
             'version' => '11.38.2.0',
-            'reference' => '9d290aa90fcad44048bedca5219d2b872e98772a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/framework',
             'aliases' => array(),
@@ -412,7 +388,6 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '09f7cf9a8f743c258e5a4682ad5eba6fda440511',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -422,7 +397,6 @@
         'laravel/pint' => array(
             'pretty_version' => 'v1.20.0',
             'version' => '1.20.0.0',
-            'reference' => '53072e8ea22213a7ed168a8a15b96fbb8b82d44b',
             'type' => 'project',
             'install_path' => __DIR__ . '/../laravel/pint',
             'aliases' => array(),
@@ -432,7 +406,6 @@
         'laravel/prompts' => array(
             'pretty_version' => 'v0.3.3',
             'version' => '0.3.3.0',
-            'reference' => '749395fcd5f8f7530fe1f00dfa84eb22c83d94ea',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/prompts',
             'aliases' => array(),
@@ -442,7 +415,6 @@
         'laravel/sail' => array(
             'pretty_version' => 'v1.40.0',
             'version' => '1.40.0.0',
-            'reference' => '237e70656d8eface4839de51d101284bd5d0cf71',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/sail',
             'aliases' => array(),
@@ -452,7 +424,6 @@
         'laravel/serializable-closure' => array(
             'pretty_version' => 'v2.0.1',
             'version' => '2.0.1.0',
-            'reference' => '613b2d4998f85564d40497e05e89cb6d9bd1cbe8',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/serializable-closure',
             'aliases' => array(),
@@ -471,7 +442,6 @@
         'league/commonmark' => array(
             'pretty_version' => '2.6.1',
             'version' => '2.6.1.0',
-            'reference' => 'd990688c91cedfb69753ffc2512727ec646df2ad',
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/commonmark',
             'aliases' => array(),
@@ -532,60 +502,6 @@
             'reference' => '08cfc6c4f3d811584fb09c37e2849e6a7f9b0742',
             'dev_requirement' => false,
         ),
-        'league/uri' => array(
-            'pretty_version' => '7.5.1',
-            'version' => '7.5.1.0',
-            'reference' => '81fb5145d2644324614cc532b28efd0215bda430',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../league/uri',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'league/uri-interfaces' => array(
-            'pretty_version' => '7.5.0',
-            'version' => '7.5.0.0',
-            'reference' => '08cfc6c4f3d811584fb09c37e2849e6a7f9b0742',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../league/uri-interfaces',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'maatwebsite/excel' => array(
-            'pretty_version' => '3.1.62',
-            'version' => '3.1.62.0',
-            'reference' => 'decfb9140161fcc117571e47e35ddf27983189ce',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../maatwebsite/excel',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'maennchen/zipstream-php' => array(
-            'pretty_version' => '3.1.1',
-            'version' => '3.1.1.0',
-            'reference' => '6187e9cc4493da94b9b63eb2315821552015fca9',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../maennchen/zipstream-php',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'markbaker/complex' => array(
-            'pretty_version' => '3.0.2',
-            'version' => '3.0.2.0',
-            'reference' => '95c56caa1cf5c766ad6d65b6344b807c1e8405b9',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../markbaker/complex',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'markbaker/matrix' => array(
-            'pretty_version' => '3.0.1',
-            'version' => '3.0.1.0',
-            'reference' => '728434227fe21be27ff6d86621a1b13107a2562c',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../markbaker/matrix',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'mockery/mockery' => array(
             'pretty_version' => '1.6.12',
             'version' => '1.6.12.0',
@@ -622,7 +538,6 @@
         'nesbot/carbon' => array(
             'pretty_version' => '3.8.4',
             'version' => '3.8.4.0',
-            'reference' => '129700ed449b1f02d70272d2ac802357c8c30c58',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nesbot/carbon',
             'aliases' => array(),
@@ -650,7 +565,6 @@
         'nikic/php-parser' => array(
             'pretty_version' => 'v5.4.0',
             'version' => '5.4.0.0',
-            'reference' => '447a020a1f875a434d62f2a401f53b82a396e494',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nikic/php-parser',
             'aliases' => array(),
@@ -702,15 +616,6 @@
             'reference' => '4f7fd7836c6f332bb2933569e566a0d6c4cbed74',
             'dev_requirement' => true,
         ),
-        'phpoffice/phpspreadsheet' => array(
-            'pretty_version' => '1.29.8',
-            'version' => '1.29.8.0',
-            'reference' => '089ffdfc04b5fcf25a3503d81a4e589f247e20e3',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../phpoffice/phpspreadsheet',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'phpoption/phpoption' => array(
             'pretty_version' => '1.9.3',
             'version' => '1.9.3.0',
@@ -723,7 +628,6 @@
         'phpunit/php-code-coverage' => array(
             'pretty_version' => '11.0.8',
             'version' => '11.0.8.0',
-            'reference' => '418c59fd080954f8c4aa5631d9502ecda2387118',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/php-code-coverage',
             'aliases' => array(),
@@ -769,7 +673,6 @@
         'phpunit/phpunit' => array(
             'pretty_version' => '11.5.3',
             'version' => '11.5.3.0',
-            'reference' => '30e319e578a7b5da3543073e30002bf82042f701',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
@@ -960,7 +863,6 @@
         'sebastian/code-unit' => array(
             'pretty_version' => '3.0.2',
             'version' => '3.0.2.0',
-            'reference' => 'ee88b0cdbe74cf8dd3b54940ff17643c0d6543ca',
             'type' => 'library',
             'install_path' => __DIR__ . '/../sebastian/code-unit',
             'aliases' => array(),
@@ -979,7 +881,6 @@
         'sebastian/comparator' => array(
             'pretty_version' => '6.3.0',
             'version' => '6.3.0.0',
-            'reference' => 'd4e47a769525c4dd38cea90e5dcd435ddbbc7115',
             'type' => 'library',
             'install_path' => __DIR__ . '/../sebastian/comparator',
             'aliases' => array(),
@@ -1112,7 +1013,6 @@
         'symfony/console' => array(
             'pretty_version' => 'v7.2.1',
             'version' => '7.2.1.0',
-            'reference' => 'fefcc18c0f5d0efe3ab3152f15857298868dc2c3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/console',
             'aliases' => array(),
@@ -1140,7 +1040,6 @@
         'symfony/error-handler' => array(
             'pretty_version' => 'v7.2.1',
             'version' => '7.2.1.0',
-            'reference' => '6150b89186573046167796fa5f3f76601d5145f8',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/error-handler',
             'aliases' => array(),
@@ -1174,7 +1073,6 @@
         'symfony/finder' => array(
             'pretty_version' => 'v7.2.2',
             'version' => '7.2.2.0',
-            'reference' => '87a71856f2f56e4100373e92529eed3171695cfb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/finder',
             'aliases' => array(),
@@ -1184,7 +1082,6 @@
         'symfony/http-foundation' => array(
             'pretty_version' => 'v7.2.2',
             'version' => '7.2.2.0',
-            'reference' => '62d1a43796ca3fea3f83a8470dfe63a4af3bc588',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-foundation',
             'aliases' => array(),
@@ -1194,7 +1091,6 @@
         'symfony/http-kernel' => array(
             'pretty_version' => 'v7.2.2',
             'version' => '7.2.2.0',
-            'reference' => '3c432966bd8c7ec7429663105f5a02d7e75b4306',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-kernel',
             'aliases' => array(),
@@ -1213,7 +1109,6 @@
         'symfony/mime' => array(
             'pretty_version' => 'v7.2.1',
             'version' => '7.2.1.0',
-            'reference' => '7f9617fcf15cb61be30f8b252695ed5e2bfac283',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/mime',
             'aliases' => array(),
@@ -1331,7 +1226,6 @@
         'symfony/translation' => array(
             'pretty_version' => 'v7.2.2',
             'version' => '7.2.2.0',
-            'reference' => 'e2674a30132b7cc4d74540d6c2573aa363f05923',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/translation',
             'aliases' => array(),
@@ -1392,7 +1286,6 @@
         'tijsverkoyen/css-to-inline-styles' => array(
             'pretty_version' => 'v2.3.0',
             'version' => '2.3.0.0',
-            'reference' => '0d72ac1c00084279c1816675284073c5a337c20d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../tijsverkoyen/css-to-inline-styles',
             'aliases' => array(),
