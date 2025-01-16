@@ -6,90 +6,207 @@
             <li><a href="index.html">Home</a> <span class="divider">/</span></li>
             <li class="active"> SHOPPING CART</li>
         </ul>
-        <h3> SHOPPING CART [ <small>3 Item(s) </small>]<a href="products.html" class="btn btn-large pull-right"><i
+        <h3> SHOPPING CART [ <small> </small>]<a href="" class="btn btn-large pull-right"><i
                     class="icon-arrow-left"></i> Continue Shopping </a></h3>
         <hr class="soft" />
-
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Description</th>
-                    <th>Quantity/Update</th>
-                    <th>Price</th>
-                    <th>Discount</th>
-                    <th>Tax</th>
-                    <th>Total</th>
+                    <th>Hình ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                    <th>Giảm giá</th>
+                    <th>Thuế</th>
+                    <th>Tổng cộng</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td> <img width="60" src="themes/images/products/4.jpg" alt="" /></td>
-                    <td>Những Kẻ Xuất Chúng (Tái Bản 2025)<br />Color : black, Material : metal</td>
-
-                    <td>
-                        <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1"
-                                id="appendedInputButtons" size="16" type="text"><button class="btn"
-                                type="button"><i class="icon-minus"></i></button><button class="btn" type="button"><i
-                                    class="icon-plus"></i></button><button class="btn btn-danger" type="button"><i
-                                    class="icon-remove icon-white"></i></button> </div>
-                    </td>
-                    <td>58.500 đ</td>
-                    <td>35%</td>
-                    <td>0 đ</td>
-                    <td>38.025 đ</td>
-                </tr>
-                <tr>
-                    <td> <img width="60" src="themes/images/products/8.jpg" alt="" /></td>
-                    <td>Những Kẻ Xuất Chúng (Tái Bản 2021)<br />Nhà cung cấp:Alpha Books <br />Nhà xuất bản:NXB Thế Giới</td>
-                    <td>
-                        <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1"
-                                size="16" type="text"><button class="btn" type="button"><i
-                                    class="icon-minus"></i></button><button class="btn" type="button"><i
-                                    class="icon-plus"></i></button><button class="btn btn-danger" type="button"><i
-                                    class="icon-remove icon-white"></i></button> </div>
-                    </td>
-                    <td>111.300 đ</td>
-                    <td>30%</td>
-                    <td>0 đ</td>
-                    <td>77.910 đ.</td>
-                </tr>
-                <tr>
-                    <td> <img width="60" src="themes/images/products/3.jpg" alt="" /></td>
-                    <td>Bạn Đang Nghịch Gì Với Đời Mình?<br />Nhà cung cấp:FIRST NEWS <br />Nhà xuất bản:Hồng Đức</td>
-                    <td>
-                        <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1"
-                                size="16" type="text"><button class="btn" type="button"><i
-                                    class="icon-minus"></i></button><button class="btn" type="button"><i
-                                    class="icon-plus"></i></button><button class="btn btn-danger" type="button"><i
-                                    class="icon-remove icon-white"></i></button> </div>
-                    </td>
-                    <td>62.000 đ</td>
-                    <td>50%</td>
-                    <td>0 đ</td>
-                    <td>31.000 đ.</td>
-                </tr>
-
-                <tr>
-                    <td colspan="6" style="text-align:right">Total Price: </td>
-                    <td> 231.800 đ</td>
-                </tr>
-                <tr>
-                    <td colspan="6" style="text-align:right">Total Discount: </td>
-                    <td>84.865 đ</td>
-                </tr>
-                <tr>
-                    <td colspan="6" style="text-align:right">Total Tax: </td>
-                    <td> 0đ</td>
-                </tr>
-                <tr>
-                    <td colspan="6" style="text-align:right"><strong>TOTAL (231.800-84.865+0) =</strong></td>
-                    <td class="label label-important" style="display:block"> <strong> 146.935 đ </strong></td>
-                </tr>
+                @php
+                    $totalPrice = 0;
+                    $totalDiscount = 0;
+                    $totalTax = 0; // Thuế có thể thêm logic tính toán 
+                @endphp
+        
+                @if (session('cart') && count(session('cart')) > 0)
+                    @foreach (session('cart') as $productId => $product)
+                        @php
+                            $price = $product['price'];
+                            $quantity = $product['quantity'];
+                            $discount = $price * 0.1; 
+                            $subtotal = ($price - $discount) * $quantity;
+                            $totalPrice += $subtotal;
+                            $totalDiscount += $discount * $quantity;
+                        @endphp
+                        <tr>
+                            <td>
+                                <img width="60" src="{{ asset('uploads/books/' . $product['image']) }}" alt="{{ $product['name'] }}" />
+                            </td>
+                            
+                            <td>{{ $product['name'] }}</td>
+                            <td>
+                                <div class="input-append">
+                                    <input class="span1" style="max-width:34px" value="{{ $quantity }}" size="16" type="text" readonly>
+                                    <button class="btn btn-sm btn-danger remove-item" data-id="{{ $productId }}" type="button">
+                                        <i class="icon-remove icon-white"></i>
+                                    </button>
+                                </div>
+                                
+                                <script>
+                                   
+                                    $('.remove-item').click(function() {
+                                        var productId = $(this).data('id');
+                                
+                                    
+                                        $.ajax({
+                                            url: '/cart/remove/' + productId,
+                                            type: 'DELETE',
+                                            success: function(response) {
+                                                alert(response.success); // Hiển thị thông báo thành công
+                                                // Cập nhật giỏ hàng, xóa sản phẩm khỏi giao diện
+                                                $(this).closest('.cart-item').remove(); // Xóa sản phẩm khỏi giỏ hàng
+                                            },
+                                            error: function() {
+                                                alert('Có lỗi xảy ra khi xóa sản phẩm.');
+                                            }
+                                        });
+                                    });
+                                </script>
+                            </td>
+                            <td>
+                                
+                        </td>
+                            <td>{{ number_format($price, 0, ',', '.') }} đ</td>
+                            <td>{{ number_format($discount, 0, ',', '.') }} đ</td>
+                            <td>0 đ</td>
+                            <td>{{ number_format($subtotal, 0, ',', '.') }} đ</td>
+                        </tr>
+                    @endforeach
+                 
+                    <tr>
+                        <td colspan="6" style="text-align:right">TỔNG GIÁ:</td>
+                        <td>{{ number_format($totalPrice, 0, ',', '.') }} đ</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" style="text-align:right">TỔNG GIẢM GIÁ:</td>
+                        <td>{{ number_format($totalDiscount, 0, ',', '.') }} đ</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" style="text-align:right">TỔNG THUẾ:</td>
+                        <td>{{ number_format($totalTax, 0, ',', '.') }} đ</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" style="text-align:right"><strong>TỔNG (Giá - Giảm giá + Thuế):</strong></td>
+                        <td class="label label-important">
+                            <strong>{{ number_format($totalPrice - $totalDiscount + $totalTax, 0, ',', '.') }} đ</strong>
+                        </td>
+                        
+                    </tr>
+                @else
+                    <tr>
+                        <td colspan="7" style="text-align:center">Giỏ hàng trống.</td>
+                    </tr>
+                @endif
             </tbody>
+            
         </table>
+        
+        <button id="xoaAll" class="btn btn-danger">Xóa tất cả sản phẩm</button>
 
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Xóa sản phẩm
+            $('.remove-item').click(function () {
+                var productId = $(this).data('id');
+            
+                // Hiển thị hộp thoại xác nhận với SweetAlert2
+                Swal.fire({
+                    title: 'Bạn có chắc chắn muốn xóa sản phẩm này?',
+                    text: "Hành động này không thể hoàn tác!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Xóa',
+                    cancelButtonText: 'Hủy',
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    background: '#f9f9f9'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: '/cart/remove/' + productId,
+                            type: 'DELETE',
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function (response) {
+                                Swal.fire(
+                                    'Đã xóa!',
+                                    'Sản phẩm đã được xóa khỏi giỏ hàng.',
+                                    'success'
+                                );
+                                location.reload();
+                            },
+                            error: function () {
+                                Swal.fire(
+                                    'Lỗi!',
+                                    'Có lỗi xảy ra khi xóa sản phẩm.',
+                                    'error'
+                                );
+                            }
+                        });
+                    }
+                });
+            });
+        
+            // Xóa tất cả sản phẩm
+            $('#xoaAll').click(function () {
+           
+                Swal.fire({
+                    title: 'Bạn có chắc chắn muốn xóa giỏ hàng?',
+                    text: "Tất cả sản phẩm sẽ bị xóa!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Xóa tất cả',
+                    cancelButtonText: 'Hủy',
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    background: '#f9f9f9'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: '/cart/clear',
+                            type: 'DELETE',
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function (response) {
+                                Swal.fire(
+                                    'Giỏ hàng đã được xóa!',
+                                    'Tất cả sản phẩm đã bị xóa.',
+                                    'success'
+                                );
+                                setTimeout(function() {
+                            location.reload();  // Làm mới trang sau 2 giây
+                        }, 1500);
+                            },
+                            error: function () {
+                                Swal.fire(
+                                    'Lỗi!',
+                                    'Có lỗi xảy ra khi xóa giỏ hàng.',
+                                    'error'
+                                );
+                            }
+                        });
+                    }
+                });
+            });
+        });
+        </script>
+        
+        
+        
         <table class="table table-bordered">
             <tbody>
                 <tr>
@@ -177,4 +294,5 @@
         <a href="{{ url('/product') }}" class="btn btn-large"><i class="icon-arrow-left"></i> Continue Shopping </a>
         <a href="{{ url('/') }}" class="btn btn-large pull-right">Next <i class="icon-arrow-right"></i></a>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection

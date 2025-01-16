@@ -26,4 +26,8 @@ class Sach extends Model
     {
         return $this->belongsTo(DanhMuc::class, 'category_id');
     }
+    public function chiTietHoaDon()
+    {
+        return $this->hasMany(ChiTietHoaDon::class, 'MaSach');
+    }
 }

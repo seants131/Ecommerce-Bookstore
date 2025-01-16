@@ -9,6 +9,7 @@
                 <th>Mã hóa đơn</th>
                 <th>Khách hàng</th>
                 <th>Mã Sách</th>
+                <th>thời gian đánh giá</th>
                 <th>Nội dung</th>
                 <th></th>
             </tr>
@@ -19,7 +20,8 @@
                     <td>{{ $danhgia->MaDanhGia }}</td>
                     <td>{{ $danhgia->MaHoaDon }}</td>
                     <td>{{ $danhgia->MaKhachHang }}</td>
-                    <td>{{ $danhgia->Masach }}</td>
+                    <td>{{ $danhgia->MaSach }}</td>
+                    <td>{{ $danhgia->NgayDanhGia }}</td>
                     <td>{{ $danhgia->NoiDung }}</td>
                     <td>
                     <form action="{{ route('admin.danhgia.destroy', $danhgia->MaDanhGia) }}" method="POST" style="display:inline-block;">

@@ -19,7 +19,7 @@
     </div>
 
     <h2 class="section-title">TẤT CẢ CÁC BÀI VIẾT</h2>
-    <h2 class="section-title">TẤT CẢ CÁC BÀI VIẾT</h2>
+
     <div class="side-content">
         <form action="{{ route('baiviet.index') }}" method="GET">
             <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Nhập từ khóa tìm kiếm...">

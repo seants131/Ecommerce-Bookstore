@@ -37,7 +37,7 @@
                         <td>{{ $order->TongTien }}</td>
                         <td class="order-status">{{ $order->TrangThai }}</td>
                         <td>
-                            <a href="" class="btn btn-info">Xem chi tiết</a>
+                            <a href="{{route('user.orders.show', $order->MaHoaDon)}}" class="btn btn-info">Xem chi tiết</a>
                             <form action="{{ route('user.orders.cancel', $order->MaHoaDon) }}" method="POST"
                                 style="display:inline;">
                                 @csrf

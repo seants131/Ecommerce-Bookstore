@@ -7,6 +7,11 @@
         </div>
     @endif
 
+    @if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+    @endif
     <h1>Danh Sách sách</h1>
     <!-- Search Bar -->
     <form action="{{ route('admin.books.search') }}" method="POST" class="form-group">
