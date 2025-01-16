@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sach;  // Model Sach để thao tác với bảng sách
 use App\Models\DanhMuc; // Model DanhMuc để thao tác với bảng danh mục
-use Illuminate\Validation\Rule;
 
 class BookController extends Controller
 {
@@ -66,12 +65,7 @@ class BookController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'TenSach' => [
-                'required',
-                'string',
-                'max:255',
-                Rule::unique('Sach', 'TenSach')->ignore($id, 'MaSach') // Sử dụng Rule::unique để chỉ định khóa chính
-            ],  // Kiểm tra tên sách có trùng không
+        'TenSach' => 'required|string|max:255|unique:Sach,TenSach',  // Kiểm tra tên sách có trùng không
         'category_id' => 'required|exists:danhmuc,id',  // Kiểm tra danh mục có tồn tại không
         'GiaNhap' => 'required|numeric',  // Kiểm tra giá nhập là số
         'GiaBan' => 'required|numeric',  // Kiểm tra giá bán là số
