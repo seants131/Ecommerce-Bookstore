@@ -79,9 +79,25 @@ class DanhMucController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-        $danhmucs = DanhMuc::where('name', 'LIKE', "%{$query}%")->get();
+        $childCategory = $request->input('child_category');
+        $sortOrder = $request->input('sort_order', 'asc'); // Mặc định là tăng dần
+
+        $danhmucs = DanhMuc::with('children')
+            ->when($query, function ($q) use ($query) {
+                $q->where('name', 'LIKE', "%{$query}%");
+            })
+            ->when($childCategory, function ($q) use ($childCategory) {
+                $q->whereHas('children', function ($q2) use ($childCategory) {
+                    $q2->where('id', $childCategory);
+                });
+            })
+            ->orderByRaw('ISNULL(created_at), created_at ' . $sortOrder) // Ưu tiên sắp xếp chính xác
+            ->get();
+
         return view('admin.danhmucs.index', compact('danhmucs'));
     }
+
+
     public function getbook()
     {
         $danhmucs = DanhMuc::withCount('books')->get();

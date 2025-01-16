@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/{slug}', [ChitietSPController::class, 'index'])->name('chitietsp.index');
+Route::get('/{slug}/soluong', [ChitietSPController::class, 'getSoLuong'])->name('chitietsp.soluong');
 
 Route::get('/about', [BaiVietController::class, 'index'])->name('baiviet.index');
 Route::get('/about/{baiviet}', [BaiVietController::class, 'show'])->name('baiviet.noidungbaiviet');

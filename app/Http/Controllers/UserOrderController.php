@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\ChiTietHoaDon;
 use App\Models\HoaDon;
+use App\Models\Sach;
 use Illuminate\Support\Facades\Auth;
 use App\Models\NguoiDung;
 use Illuminate\Http\Request;
@@ -17,8 +20,11 @@ class UserOrderController extends Controller
     // Hiển thị chi tiết đơn hàng
     public function show($id)
     {
-        $order = HoaDon::findOrFail($id);
-        return view('user.orders.show', compact('order'));
+        $order = HoaDon::with('ChiTietHoaDon.Sach')->findOrFail($id);
+        return view('Layouts.user.order_detail', compact('order'));
+        // $order = HoaDon::findOrFail($id);
+        // $details = ChiTietHoaDon::findOrFail($id);
+        // return view('Layouts.user.order_detail', compact('order', 'details'));
     }
     // Hủy đơn hàng (thay đổi trạng thái)
     public function huyDonHang($id)

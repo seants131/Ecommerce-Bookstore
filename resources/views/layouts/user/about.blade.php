@@ -19,10 +19,13 @@
     </div>
 
     <h2 class="section-title">TẤT CẢ CÁC BÀI VIẾT</h2>
+    <h2 class="section-title">TẤT CẢ CÁC BÀI VIẾT</h2>
     <div class="side-content">
         <form action="{{ route('baiviet.index') }}" method="GET">
             <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Nhập từ khóa tìm kiếm...">
             <button type="submit">Tìm kiếm</button>
+            <button type="submit" name="sort" value="desc">Sắp xếp mới nhất</button>
+            <button type="submit" name="sort" value="asc">Sắp xếp cũ nhất</button>
         </form>
         @if ($baiviets->isEmpty())
             <p class="no-results">Không tìm thấy bài viết nào khớp với từ khóa "{{ $search }}"</p>
@@ -40,14 +43,12 @@
                 @endforeach
             </ul>
         @endif
+        {{-- giu nguyen tham so sort --}}
         <div class="pagination">
-            {{ $baiviets->links('pagination::bootstrap-4') }}
+            {{ $baiviets->appends(request()->query())->links('pagination::bootstrap-4') }}
         </div>
-
     </div>
-</div>
-
-<div>
+    
     <h2 class="section-title">TÂM LÝ HỌC</h2>
     <div class="custom-side-content">
         <ul class="custom-related-articles">

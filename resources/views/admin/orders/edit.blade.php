@@ -37,10 +37,10 @@
             <input type="text" name="PT_ThanhToan" class="form-control" value="{{ $order->PT_ThanhToan }}" required>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="DiaChi">Địa Chỉ:</label>
             <textarea name="DiaChi" class="form-control">{{ $order->DiaChi }}</textarea>
-        </div>
+        </div> -->
 
         <button type="submit" class="btn btn-primary">Cập Nhật</button>
     </form>
