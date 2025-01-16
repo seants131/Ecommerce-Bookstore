@@ -36,7 +36,6 @@
                 </div>
                 <div class="span6">
                     <h3>{{ $chitietsp->TenSach }}</h3>
-                    <small>M. Scott Peck</small>
                     <hr class="soft" />
                     <form class="form-horizontal qtyFrm" action="" method="POST">
                         @csrf
@@ -66,9 +65,6 @@
                     @foreach ($sentences as $sentence)
                         <p>{{ trim($sentence) }}</p>
                     @endforeach
-                    <a class="btn btn-small pull-right" href="#detail">Thông tin chi tiết</a>
-                    <br class="clr" />
-                    <a href="#" name="detail"></a>
                     <hr class="soft" />
                 </div>
 
