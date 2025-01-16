@@ -17,7 +17,7 @@ class BaiVietController extends Controller
                 return $query->where('tieude', 'LIKE', "%{$search}%")
                              ->orWhere('noidung', 'LIKE', "%{$search}%");
             })
-            ->orderBy('created_at', $sort) // Sắp xếp theo ngày tạo
+            ->orderBy('created_at', $sort) 
             ->paginate(3);
 
         $chudenthieunhi = BaiViet::where('trangthai', 1)
