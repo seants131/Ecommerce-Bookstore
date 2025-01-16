@@ -194,7 +194,7 @@
                             error: function () {
                                 Swal.fire(
                                     'Lỗi!',
-                                    'Có lỗi xảy ra khi xóa giỏ hàng.',
+                                   'Giỏ hàng của bạn hiện tại không có sản phẩm nào để xóa.',
                                     'error'
                                 );
                             }
