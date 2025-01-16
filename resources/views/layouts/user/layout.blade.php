@@ -212,9 +212,12 @@
                         !Request::routeIs('baiviet.index') &&
                         !Request::routeIs('about.chinhsach') &&
                         !Request::routeIs('baiviet.noidungbaiviet') &&
-                        !Request::routeIs('chitietsp.index'))
+                        !Request::routeIs('chitietsp.index')))
 
                     <div id="sidebar" class="span3">
+                        <div class="well well-small">
+
+                        </div>
                         <ul id="sideManu" class="nav nav-tabs nav-stacked">
                             @foreach ($danhmucs as $danhmuc)
                                 <li class="subMenu">

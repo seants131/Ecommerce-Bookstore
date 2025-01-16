@@ -8,13 +8,12 @@ use App\Models\Sach;
 
 class ChitietSPController extends Controller
 {
-    public function index($slug)
+    public function index($id)
     {
-        $chitietsp = DB::table('sach')->where('slug', $slug)->first();
+        $chitietsp = DB::table('sach')->where('MaSach', $id)->first();
         $danhmucs = DanhMuc::with('children')->whereNull('parent_id')->get();
-        $books = Sach::with('DanhMuc')->get(); 
-        $theloaisach = Sach::with('DanhMuc')->where('slug', $slug)->first();
-        return view('layouts.user.chitiet', compact('chitietsp', 'danhmucs', 'books', 'theloaisach'));
+        $books = Sach::with('DanhMuc')->get();
+        return view('layouts.user.chitiet', compact('chitietsp', 'danhmucs', 'books'));
     }
 
     public function getSoLuong($id)
