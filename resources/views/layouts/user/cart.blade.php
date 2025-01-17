@@ -72,7 +72,7 @@
                                         });
                                     });
                                 </script>
-                        
+
 
                         </td>
                             <td>{{ number_format($price, 0, ',', '.') }} đ</td>
@@ -116,92 +116,48 @@
 
         <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Xóa sản phẩm
-            $('.remove-item').click(function () {
-                var productId = $(this).data('id');
 
-                // Hiển thị hộp thoại xác nhận với SweetAlert2
-                Swal.fire({
-                    title: 'Bạn có chắc chắn muốn xóa sản phẩm này?',
-                    text: "Hành động này không thể hoàn tác!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Xóa',
-                    cancelButtonText: 'Hủy',
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#3085d6',
-                    background: '#f9f9f9'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            url: '/cart/remove/' + productId,
-                            type: 'DELETE',
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            success: function (response) {
-                                Swal.fire(
-                                    'Đã xóa!',
-                                    'Sản phẩm đã được xóa khỏi giỏ hàng.',
-                                    'success'
-                                );
-                                location.reload();
-                            },
-                            error: function () {
-                                Swal.fire(
-                                    'Lỗi!',
-                                    'Có lỗi xảy ra khi xóa sản phẩm.',
-                                    'error'
-                                );
-                            }
-                        });
-                    }
-                });
-            });
-
-            // Xóa tất cả sản phẩm
             $('#xoaAll').click(function () {
-
-                Swal.fire({
-                    title: 'Bạn có chắc chắn muốn xóa giỏ hàng?',
-                    text: "Tất cả sản phẩm sẽ bị xóa!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Xóa tất cả',
-                    cancelButtonText: 'Hủy',
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#3085d6',
-                    background: '#f9f9f9'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            url: '/cart/clear',
-                            type: 'DELETE',
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            success: function (response) {
-                                Swal.fire(
-                                    'Giỏ hàng đã được xóa!',
-                                    'Tất cả sản phẩm đã bị xóa.',
-                                    'success'
-                                );
-                                setTimeout(function() {
-                            location.reload();  // Làm mới trang sau 2 giây
-                        }, 1500);
-                            },
-                            error: function () {
-                                Swal.fire(
-                                    'Lỗi!',
-                                   'Giỏ hàng của bạn hiện tại không có sản phẩm nào để xóa.',
-                                    'error'
-                                );
-                            }
-                        });
-                    }
-                });
+            Swal.fire({
+                title: 'Bạn có chắc chắn muốn xóa giỏ hàng?',
+                text: "Tất cả sản phẩm sẽ bị xóa!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Xóa tất cả',
+                cancelButtonText: 'Hủy',
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                background: '#f9f9f9'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '/cart/clear',
+                        type: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function (response) {
+                            Swal.fire(
+                                'Giỏ hàng đã được xóa!',
+                                'Tất cả sản phẩm đã bị xóa.',
+                                'success'
+                            );
+                            setTimeout(function () {
+                                location.reload(); // Làm mới trang sau 1.5 giây
+                            }, 1500);
+                        },
+                        error: function () {
+                            Swal.fire(
+                                'Lỗi!',
+                                'Giỏ hàng của bạn hiện tại không có sản phẩm nào để xóa.',
+                                'error'
+                            );
+                        }
+                    });
+                }
             });
         });
+    });
         </script>
 
 

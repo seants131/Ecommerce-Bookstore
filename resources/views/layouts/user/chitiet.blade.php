@@ -84,25 +84,31 @@
                     <h4 id="product-quantity">Còn: {{ $chitietsp->SoLuong }} quyển</h4>
                     <script>
                         function updateProductQuantity() {
-                            var ProductSlug = '{{ $chitietsp->slug }}';
+                            var productSlug = '{{ $chitietsp->slug }}';
+
                             $.ajax({
-                                    url: '/chitietsp/' + ProductSlug + '/soluong',
-                                    type: 'GET',
-                                    success: function(response) {
-                                        if (response.SoLuong !== undefined)
-                                            $('#product-quantity').text('Còn: ' + response.SoLuong + ' quyển');
+                                url: '/chitietsp/' + productSlug + '/soluong',
+                                type: 'GET',
+                                success: function(response) {
+                                    if (response.SoLuong !== undefined) {
+                                        $('#product-quantity').text('Còn: ' + response.SoLuong + ' quyển');
                                     } else {
                                         alert('Không lấy được số lượng sản phẩm');
                                     }
                                 },
-                                error: function() {
-                                    alert('Có lỗi xảy ra khi lấy số lượng');
+                                error: function(xhr, status, error) {
+                                    console.error('Lỗi:', status, error);
+                                    if (xhr.status === 404) {
+                                        alert('Sản phẩm không tồn tại');
+                                    } else {
+                                        alert('Có lỗi xảy ra khi lấy số lượng');
+                                    }
                                 }
                             });
                         }
 
-                        // Gọi hàm mỗi 5 giây để cập nhật số lượng
                         setInterval(updateProductQuantity, 5000);
+
                     </script>
 
 
@@ -159,7 +165,7 @@
                                                             alt="" /></a>
                                                     <div class="caption">
                                                         <h5>{{ $sachlq->TenSach }}</h5>
-                                                        <a class="btn" href="{{ url('/chitietsp/'.$sachlq->slug)}}">Xem chi tiết</a> 
+                                                        <a class="btn" href="{{ url('/chitietsp/'.$sachlq->slug)}}">Xem chi tiết</a>
                                                         <a class="btn btn-primary" href="#">{{ $sachlq->GiaBan }} VND</a>
                                                     </div>
                                                 </div>
