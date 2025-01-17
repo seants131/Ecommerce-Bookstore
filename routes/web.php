@@ -27,9 +27,6 @@ Route::post('/chitietsp/{slug}', [ChitietSPController::class, 'index'])->name('c
 
 Route::get('chitietsp/{slug}/soluong', [ChitietSPController::class, 'getSoLuong'])->name('chitietsp.soluong');
 
-
-
-
 // Route đăng ký và xác minh OTP
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/verify-otp', [AuthController::class, 'verifyOtp']);
