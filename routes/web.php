@@ -57,6 +57,8 @@ Route::get('/chinh-sach-bao-hanh', function () {
 
 // Route cho trang dashboard của admin
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/dashboard/edit/{id}', [AdminController::class, 'edit'])->name('post.edit');
+Route::put('/admin/dashboard/update/{id}', [AdminController::class, 'update'])->name('post.update');
 
 // Routes admin cho danh mục và sản phẩm
 Route::prefix('admin')->name('admin.')->group(function () {
