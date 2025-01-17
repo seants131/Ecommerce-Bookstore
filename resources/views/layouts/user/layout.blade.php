@@ -234,25 +234,29 @@
                         </ul>
                         <br />
                         @foreach ($books as $book)
-                            <div class="thumbnaili">
-                                <div class="book-item">
-                                    <img src="{{ asset('uploads/books/' . $book->HinhAnh) }}"
-                                        alt="{{ $book->TenSach }}" class="img-fluid" />
-                                    <div class="caption">
-                                        <p>{{ Str::limit($book->MoTa, 30) }}</p>
-                                        <h4 style="text-align:center">
-                                            <a class="btn" href="{{ url('/chitiet/' . $book->id) }}">
-                                                <i class="icon-zoom-in"></i>
-                                            </a>
-                                            <a class="btn" href="#">Add to <i
-                                                    class="icon-shopping-cart"></i></a>
-                                            <a class="btn btn-primary"
-                                                href="#">{{ number_format($book->GiaBan) }} VND</a>
-                                        </h4>
-                                    </div>
+                        <div class="thumbnaili">
+                            <div class="book-item">
+                                <img src="{{ asset('uploads/books/' . $book->HinhAnh) }}" alt="{{ $book->TenSach }}" class="img-fluid" />
+                                <div class="caption">
+                                    <p>{{ Str::limit($book->MoTa, 30) }}</p>
+                                    <h4 style="text-align:center">
+                                        <a class="btn" href="{{ url('/chitiet/' . $book->id) }}">
+                                            <i class="icon-zoom-in"></i>
+                                        </a>
+                                        <form action="{{ route('cart.add') }}" method="POST" style="display:inline;">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{ $book->MaSach }}">
+                                            <input type="hidden" name="quantity" value="1">
+                                            <button type="submit" class="btn">Add to <i class="icon-shopping-cart"></i></button>
+                                        </form>
+
+                                        <a class="btn btn-primary" href="#">{{ number_format($book->GiaBan) }} VND</a>
+                                    </h4>
                                 </div>
                             </div>
+                        </div>
                         @endforeach
+
 
                         <br />
                         <div class="thumbnail">
