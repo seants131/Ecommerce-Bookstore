@@ -6,13 +6,24 @@
             <ul class="breadcrumb">
                 <li><a href="{{ url('/') }}">Home</a> <span class="divider">/</span></li>
                 <li><a href="{{ url('/product') }}">Sản phẩm</a> <span class="divider">/</span></li>
-                <li class="active">{{ $chitietsp->TenSach }}</li>
+                <li class="active">
+                @isset($chitietsp)
+                    {{ $chitietsp->TenSach }}
+                @else
+                    Sản phẩm không tồn tại
+                @endisset</li>
             </ul>
             <div class="row">
                 <div id="gallery" class="span3">
-                    <a href={{ asset('uploads/books/' . $chitietsp->HinhAnh) }} title="Con đường chẳng mấy ai đi">
-                        <img src="{{ asset('uploads/books/' . $chitietsp->HinhAnh) }}" style="width:100%"
-                            alt="Fujifilm FinePix S2950 Digital Camera" />
+                    @if(isset($chitietsp) && $chitietsp != null)
+                    <a href="{{ asset('uploads/books/' . $chitietsp->HinhAnh) }}" title="{{ $chitietsp->TenSach }}">
+                        <img src="{{ asset('uploads/books/' . $chitietsp->HinhAnh) }}" style="width:100%" alt="{{ $chitietsp->TenSach }}" />
+                    </a>
+                @else
+                <h3>{{ isset($chitietsp) ? $chitietsp->TenSach : 'Sản phẩm không tồn tại' }}</h3>
+
+                @endif
+                    
                     </a>
                     <div id="differentview" class="moreOptopm carousel slide">
                         <div class="carousel-inner">
@@ -37,26 +48,61 @@
                 <div class="span6">
                     <h3>{{ $chitietsp->TenSach }}</h3>
                     <hr class="soft" />
-                    <form class="form-horizontal qtyFrm" action="" method="POST">
+                    <form class="form-horizontal qtyFrm" action="{{ route('cart.add') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="product_id" value="1"> <!-- ID sản phẩm -->
-                        <input type="hidden" name="price" value="222.00"> <!-- Giá sản phẩm -->
+                        
+                        <input type="hidden" name="product_id" value="{{ $chitietsp->MaSach }}"> <!-- id -->
+                        <input type="hidden" name="price" value="{{ $chitietsp->GiaBan }}">
                         <div class="control-group">
                             <div class="controls">
-                                <div
-                                    style="display: flex; align-items: center; justify-content: space-between; width: 150px">
+                                <div style="display: flex; align-items: center; justify-content: space-between; width: 150px">
                                     <b>Số lượng</b>
-                                    <input type="number" class="span1" name="quantity" placeholder="Qty." value="1"
-                                        min="1" />
+                                    <input type="number" class="span1" name="quantity" placeholder="Qty." value="1" min="1" />
                                 </div>
-
+                    
                                 <button type="submit" class="btn btn-large btn-primary pull-right">Thêm vào giỏ hàng <i
                                         class="icon-shopping-cart"></i></button>
                             </div>
                         </div>
                     </form>
+                    
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                
+                @if(session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                     <hr class="soft" />
-                    <h4>Còn: {{ $chitietsp->SoLuong }} quyển</h4>
+                    <h4 id="product-quantity">Còn: {{ $chitietsp->SoLuong }} quyển</h4>
+                    <script>
+                        function updateProductQuantity() {
+                            var ProductSlug = '{{ $chitietsp->slug }}'; 
+                            $.ajax({
+                                url: '/chitietsp/' + ProductSlug + '/soluong',  
+                                type: 'GET',
+                                success: function(response) {
+                                    if (response.SoLuong !== undefined) 
+                                        $('#product-quantity').text('Còn: ' + response.SoLuong + ' quyển');  
+                                    } else {
+                                        alert('Không lấy được số lượng sản phẩm');
+                                    }
+                                },
+                                error: function() {
+                                    alert('Có lỗi xảy ra khi lấy số lượng');
+                                }
+                            });
+                        }
+                    
+                        // Gọi hàm mỗi 5 giây để cập nhật số lượng
+                        setInterval(updateProductQuantity, 5000);
+                    </script>
+                    
+                    
                     <hr class="soft clr" />
                     @php
                         $text = $chitietsp->MoTa; // Lấy nội dung từ cơ sở dữ liệu

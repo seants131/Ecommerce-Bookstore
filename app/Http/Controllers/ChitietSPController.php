@@ -11,23 +11,20 @@ class ChitietSPController extends Controller
     public function index($slug)
     {
         $chitietsp = DB::table('sach')->where('slug', $slug)->first();
+        
         $danhmucs = DanhMuc::with('children')->whereNull('parent_id')->get();
         $books = Sach::with('DanhMuc')->get(); 
         $theloaisach = Sach::with('DanhMuc')->where('slug', $slug)->first();
         return view('layouts.user.chitiet', compact('chitietsp', 'danhmucs', 'books', 'theloaisach'));
     }
-
-    public function getSoLuong($id)
+    public function getSoLuong($slug)
     {
-        // Lấy số lượng sản phẩm từ cơ sở dữ liệu
-        $chitietsp = DB::table('sach')->where('MaSach', $id)->first();
+        $chitietsp = DB::table('sach')->where('slug', $slug)->first();
 
-        // Kiểm tra nếu sản phẩm không tồn tại
         if (!$chitietsp) {
             return response()->json(['error' => 'Sản phẩm không tồn tại'], 404);
         }
 
-        // Trả về số lượng sản phẩm dưới dạng JSON
-        return response()->json(['quantity' => $chitietsp->SoLuong]);
+        return response()->json(['SoLuong' => $chitietsp->SoLuong]);
     }
 }
