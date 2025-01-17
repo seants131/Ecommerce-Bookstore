@@ -26,7 +26,7 @@
                     <a class="brand" href="{{ url('/') }}"><img src="{{ asset('img/logo.jpg') }}" alt="Bootsshop"
                             style="width: 150px; height: 80px; object-fit: cover;" /></a>
                     <form class="form-inline navbar-search" method="post" action="">
-                        <input id="srchFld" class="srchTxt" type="text" />
+                        <input class="srchTxt" type="text" />
                         <select class="srchTxt">
                             <option>All</option>
                             <option>CLOTHES </option>

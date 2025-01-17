@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\DanhMuc;
 use App\Models\Sach;
+
 class DanhMucController extends Controller
 {
     public function index()
@@ -61,7 +62,7 @@ class DanhMucController extends Controller
     {
         $danhmuc = DanhMuc::findOrFail($id);
 
-         // Kiểm tra nếu danh mục có sách liên quan
+        // Kiểm tra nếu danh mục có sách liên quan
         if ($danhmuc->books()->count() > 0) {
             return redirect()->route('admin.danhmucs.index')->with('error', 'Phải xóa các sách liên quan trước khi xóa danh mục.');
         }
@@ -103,10 +104,25 @@ class DanhMucController extends Controller
         $danhmucs = DanhMuc::withCount('books')->get();
         $books = Sach::inRandomOrder()->limit(2)->get();
         $topSP = Sach::where('LuotMua', '>', 0)
-                ->orderBy('LuotMua', 'desc')
-                ->limit(4)
+            ->orderBy('LuotMua', 'desc')
+            ->limit(4)
+            ->get();
+        $sach = Sach::where('MaSach', '>', 0)
+            ->orderBy('created_at', 'desc')
+            ->paginate(6);
+        $dm = DanhMuc::limit(3)
+            ->inRandomOrder()
+            ->get();
+        $categoriesWithBooks = $dm->map(function ($danhmuc) {
+            $sachdm = Sach::where('category_id', $danhmuc->id)
+                ->inRandomOrder()
+                ->limit(3)
                 ->get();
-        return view('layouts.user.index', compact('danhmucs', 'books', 'topSP'));
+            // Gắn thêm thông tin sách vào danh mục
+            $danhmuc->books = $sachdm;
+            return $danhmuc;
+        });
+        return view('layouts.user.index', compact('danhmucs', 'books', 'topSP', 'sach', 'dm', 'categoriesWithBooks'));
     }
 
     public function getproduct()
@@ -115,12 +131,11 @@ class DanhMucController extends Controller
         $books = Sach::inRandomOrder()->limit(2)->get();
         return view('layouts.user.product', compact('danhmucs', 'books'));
     }
-  
+
     public function getchitiet()
     {
         $danhmucs = DanhMuc::withCount('books')->get();
         $books = Sach::inRandomOrder()->limit(2)->get();
         return view('layouts.user.chitiet', compact('danhmucs', 'books'));
     }
-
 }
