@@ -17,6 +17,7 @@ class DanhGia extends Model
         'MaKhachHang',
         'MaSach',
         'NoiDung',
+        'SoSao',
         'NgayDanhGia',
         'TrangThai'
     ];

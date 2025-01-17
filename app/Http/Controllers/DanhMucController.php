@@ -102,7 +102,11 @@ class DanhMucController extends Controller
     {
         $danhmucs = DanhMuc::withCount('books')->get();
         $books = Sach::inRandomOrder()->limit(2)->get();
-        return view('layouts.user.index', compact('danhmucs', 'books'));
+        $topSP = Sach::where('LuotMua', '>', 0)
+                ->orderBy('LuotMua', 'desc')
+                ->limit(4)
+                ->get();
+        return view('layouts.user.index', compact('danhmucs', 'books', 'topSP'));
     }
 
     public function getproduct()

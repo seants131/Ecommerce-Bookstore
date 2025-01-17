@@ -9,58 +9,23 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <ul class="thumbnails">
-                                <li class="span3">
-                                    <div class="thumbnail feature-product">
-                                        <i class="tag"></i>
-                                        <a href="{{ url('/chitiet') }}"><img src="themes/images/products/b1.jpg"
-                                                alt=""></a>
-                                        <div class="caption">
-                                            <h5>Tiểu sử Elonmusk</h5>
-                                            <h4><a class="btn" href="{{ url('/chitiet') }}">Xem</a>
-                                                <span class="pull-right">100.000VND</span>
-                                            </h4>
+                                @foreach ($topSP as $SPBanChay)
+                                    <li class="span3">
+                                        <div class="thumbnail feature-product">
+                                            <i class="tag"></i>
+                                            <a href="{{ route('chitietsp.index', $SPBanChay->slug) }}">
+                                                <img src="{{ asset('uploads/books/' . $SPBanChay->HinhAnh) }}"
+                                                    alt=""></a>
+                                            <div class="caption">
+                                                <h5>{{ $SPBanChay->TenSach }}</h5>
+                                                <p>{{ $SPBanChay->LuotMua }} Lượt mua</p>
+                                                <h4><a class="btn" href="{{ url('/chitietsp/'.$SPBanChay->slug) }}">Xem</a>
+                                                    <span class="pull-right">{{ round($SPBanChay->GiaBan) }} VND</span>
+                                                </h4>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="span3">
-                                    <div class="thumbnail feature-product">
-                                        <i class="tag"></i>
-                                        <a href="{{ url('/chitiet') }}"><img src="themes/images/products/b2.jpg"
-                                                alt=""></a>
-                                        <div class="caption">
-                                            <h5>Sống mạo hiểm 1 cách cẩn thận</h5>
-                                            <h4><a class="btn" href="{{ url('/chitiet') }}">Xem</a>
-                                                <span class="pull-right">120.000VND</span>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="span3">
-                                    <div class="thumbnail feature-product">
-                                        <i class="tag"></i>
-                                        <a href="{{ url('/chitiet') }}"><img src="themes/images/products/b3.jpg"
-                                                alt=""></a>
-                                        <div class="caption">
-                                            <h5>Tư duy mở & tư duy ngược</h5>
-                                            <h4><a class="btn" href="{{ url('/chitiet') }}">Xem</a>
-                                                <span class="pull-right">80.000VND</span>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="span3">
-                                    <div class="thumbnail feature-product">
-                                        <i class="tag"></i>
-                                        <a href="{{ url('/chitiet') }}"><img src="themes/images/products/b4.jpg"
-                                                alt=""></a>
-                                        <div class="caption">
-                                            <h5>30 tuổi mọi thứ chỉ mới bắt đầu</h5>
-                                            <h4><a class="btn" href="{{ url('/chitiet') }}">Xem</a>
-                                                <span class="pull-right">70.000VND</span>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
