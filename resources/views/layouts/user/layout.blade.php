@@ -252,7 +252,7 @@
                                 <div class="caption">
                                     <p>{{ Str::limit($book->MoTa, 30) }}</p>
                                     <h4 style="text-align:center">
-                                        <a class="btn" href="{{ url('/chitiet/' . $book->id) }}">
+                                        <a class="btn" href="{{ url('/chitietsp/' . $book->slug) }}">
                                             <i class="icon-zoom-in"></i>
                                         </a>
                                         <form action="{{ route('cart.add') }}" method="POST" style="display:inline;">
@@ -268,8 +268,6 @@
                             </div>
                         </div>
                         @endforeach
-
-
                         <br />
                         <div class="thumbnail">
                             <img src="themes/images/payment_methods.png" title="Bootshop Payment Methods"
