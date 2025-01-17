@@ -9,15 +9,26 @@ class Sach extends Model
 {
     use HasFactory;
 
-    
+
     // Đặt tên bảng (nếu bảng không tuân theo quy tắc mặc định của Laravel)
     protected $table = 'Sach';
     protected $primaryKey = 'MaSach';
     public $incrementing = false; // Khóa chính không tự tăng
-    protected $keyType = 'string'; 
+    protected $keyType = 'string';
     // Các trường có thể được gán giá trị đại diện cho cột trong bảng
     protected $fillable = [
-        'MaSach', 'TenSach', 'category_id', 'GiaNhap', 'GiaBan', 'SoLuong', 'NamXuatBan', 'MoTa', 'TrangThai', 'MaNXB','HinhAnh'
+        'MaSach',
+        'TenSach',
+        'slug',
+        'category_id',
+        'GiaNhap',
+        'GiaBan',
+        'SoLuong',
+        'NamXuatBan',
+        'MoTa',
+        'TrangThai',
+        'LuotMua',
+        'HinhAnh'
     ];
 
     // Nếu bảng có timestamp (created_at, updated_at), thì Laravel sẽ tự động quản lý
