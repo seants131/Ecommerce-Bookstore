@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sach;  // Model Sach để thao tác với bảng sách
 use App\Models\DanhMuc; // Model DanhMuc để thao tác với bảng danh mục
-use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rule; //validate
 
 class BookController extends Controller
 {
