@@ -22,9 +22,7 @@ Route::get('/cart', [CartController::class, 'getcart']);
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 Route::delete('/cart/clear', [CartController::class, 'xoaAll'])->name('cart.clear');
 Route::get('/chitietsp/{slug}', [ChitietSPController::class, 'index'])->name('chitietsp.index');
-
 Route::post('/chitietsp/{slug}', [ChitietSPController::class, 'index'])->name('chitietsp.index');
-
 Route::get('chitietsp/{slug}/soluong', [ChitietSPController::class, 'getSoLuong'])->name('chitietsp.soluong');
 
 

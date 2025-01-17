@@ -25,15 +25,15 @@
                 @php
                     $totalPrice = 0;
                     $totalDiscount = 0;
-                    $totalTax = 0; // Thuế có thể thêm logic tính toán 
+                    $totalTax = 0; // Thuế có thể thêm logic tính toán
                 @endphp
-        
-                @if (session('cart') && count(session('cart')) > 0)
+
+                @if ((session('cart')) && count(session('cart')) > 0)
                     @foreach (session('cart') as $productId => $product)
                         @php
                             $price = $product['price'];
                             $quantity = $product['quantity'];
-                            $discount = $price * 0.1; 
+                            $discount = $price * 0.1;
                             $subtotal = ($price - $discount) * $quantity;
                             $totalPrice += $subtotal;
                             $totalDiscount += $discount * $quantity;
@@ -42,7 +42,7 @@
                             <td>
                                 <img width="60" src="{{ asset('uploads/books/' . $product['image']) }}" alt="{{ $product['name'] }}" />
                             </td>
-                            
+
                             <td>{{ $product['name'] }}</td>
                             <td>
                                 <div class="input-append">
@@ -51,13 +51,13 @@
                                         <i class="icon-remove icon-white"></i>
                                     </button>
                                 </div>
-                                
+
                                 <script>
-                                   
+
                                     $('.remove-item').click(function() {
                                         var productId = $(this).data('id');
-                                
-                                    
+
+
                                         $.ajax({
                                             url: '/cart/remove/' + productId,
                                             type: 'DELETE',
@@ -72,9 +72,8 @@
                                         });
                                     });
                                 </script>
-                            </td>
-                            <td>
-                                
+                        
+
                         </td>
                             <td>{{ number_format($price, 0, ',', '.') }} đ</td>
                             <td>{{ number_format($discount, 0, ',', '.') }} đ</td>
@@ -82,7 +81,7 @@
                             <td>{{ number_format($subtotal, 0, ',', '.') }} đ</td>
                         </tr>
                     @endforeach
-                 
+
                     <tr>
                         <td colspan="6" style="text-align:right">TỔNG GIÁ:</td>
                         <td>{{ number_format($totalPrice, 0, ',', '.') }} đ</td>
@@ -100,7 +99,7 @@
                         <td class="label label-important">
                             <strong>{{ number_format($totalPrice - $totalDiscount + $totalTax, 0, ',', '.') }} đ</strong>
                         </td>
-                        
+
                     </tr>
                 @else
                     <tr>
@@ -108,19 +107,19 @@
                     </tr>
                 @endif
             </tbody>
-            
+
         </table>
-        
+
         <button id="xoaAll" class="btn btn-danger">Xóa tất cả sản phẩm</button>
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        
+
         <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Xóa sản phẩm
             $('.remove-item').click(function () {
                 var productId = $(this).data('id');
-            
+
                 // Hiển thị hộp thoại xác nhận với SweetAlert2
                 Swal.fire({
                     title: 'Bạn có chắc chắn muốn xóa sản phẩm này?',
@@ -159,10 +158,10 @@
                     }
                 });
             });
-        
+
             // Xóa tất cả sản phẩm
             $('#xoaAll').click(function () {
-           
+
                 Swal.fire({
                     title: 'Bạn có chắc chắn muốn xóa giỏ hàng?',
                     text: "Tất cả sản phẩm sẽ bị xóa!",
@@ -204,9 +203,9 @@
             });
         });
         </script>
-        
-        
-        
+
+
+
         <table class="table table-bordered">
             <tbody>
                 <tr>
