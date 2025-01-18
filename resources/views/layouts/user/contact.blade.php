@@ -1,5 +1,7 @@
 @extends('layouts.user.layout')
 
+@section('title', 'Liên hệ')
+
 @section('content')
     <div class="container">
         <hr class="soften">

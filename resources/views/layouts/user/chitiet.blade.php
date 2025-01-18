@@ -1,5 +1,7 @@
 @extends('layouts.user.layout')
 
+@section('title', 'Chi tiết sản phẩm')
+
 @section('content')
     <div style="display: flex; justify-content: center">
         <div class="span9">

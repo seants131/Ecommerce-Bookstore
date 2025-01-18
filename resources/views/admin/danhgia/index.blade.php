@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Quản lý đánh giá')
 
 @section('content')
     <h1>Danh sách đánh giá</h1>

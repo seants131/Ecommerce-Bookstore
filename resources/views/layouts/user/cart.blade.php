@@ -1,5 +1,7 @@
 @extends('layouts.user.layout')
 
+@section('title', 'Giỏ hàng')
+
 @section('content')
     <div class="span9">
         <ul class="breadcrumb">

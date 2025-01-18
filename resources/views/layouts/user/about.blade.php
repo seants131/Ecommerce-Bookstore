@@ -1,5 +1,6 @@
 @extends('layouts.user.layout')
 
+@section('title', 'Giới thiệu')
 @section('content')
 <div class="section">
 

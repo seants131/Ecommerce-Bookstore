@@ -1,4 +1,5 @@
 @extends('layouts.user.UserLayout')
+@section('title', 'Thông tin cá nhân')
 
 @section('content')
     @if (session('success'))

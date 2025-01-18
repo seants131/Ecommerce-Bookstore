@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Quản lý liên hệ')
 
 @section('content')
     <h1>Danh sách Liên Hệ</h1>

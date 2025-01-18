@@ -1,4 +1,6 @@
 @extends('layouts.user.UserLayout')
+@section('title', 'Đơn hàng')
+
 @section('content')
     <h1>Danh Sách Đơn Hàng Của Bạn</h1>
     <div class="order-info">
