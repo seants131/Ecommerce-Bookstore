@@ -1,4 +1,5 @@
 @extends('layouts.user.layout')
+@section('title', 'Sản phẩm')
 
 @section('content')
 	<div class="span9">

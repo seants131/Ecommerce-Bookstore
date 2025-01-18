@@ -1,4 +1,5 @@
 @extends('layouts.admin') <!-- Kế thừa layout -->
+@section('title', 'Trang chủ admin')
 
 @section('content')
     <div class="stats">

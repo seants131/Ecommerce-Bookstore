@@ -1,5 +1,7 @@
 @extends('layouts.user.layout')
 
+@section('title', 'Chính sách')
+
 @section('content')
 
 <div class="container mt-5">

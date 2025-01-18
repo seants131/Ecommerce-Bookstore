@@ -1,5 +1,6 @@
 <!-- resources/views/admin/danhmucs/index.blade.php -->
 @extends('layouts.admin')
+@section('title', 'Quản lý danh mục')
 
 @section('content')
     @if(session('success'))

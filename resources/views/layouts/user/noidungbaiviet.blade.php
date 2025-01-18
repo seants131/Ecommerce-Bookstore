@@ -1,5 +1,7 @@
 @extends('layouts.user.layout')
 
+@section('title', 'Nội dung bài viết')
+
 @section('content')
 <div class="container py-5">
     <!-- Bài viết chính -->

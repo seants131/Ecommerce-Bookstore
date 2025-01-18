@@ -1,5 +1,7 @@
 @extends('layouts.user.layout')
 
+@section('title', 'Chính sách bảo hàng')
+
 @section('content')
 <div class="container mt-5">
     <h1 class="text-center mb-4">Chính Sách Trả Hàng Sách</h1>

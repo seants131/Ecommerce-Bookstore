@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Quản lý đơn hàng')
 
 @section('content')
     @if (session('success'))
